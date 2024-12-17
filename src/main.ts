@@ -3,6 +3,22 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
+import { fetchQuestions } from "./fetchQuestionsData";
+
+// Get the questions data
+const questions = fetchQuestions();
+
+// Loop through the questions array and log the data in the console
+questions.forEach((question) => {
+  console.log(
+    `Country: ${question.name}`,
+    `Flag Image: ${question.flag}`,
+    `Alternatives: ${question.alternative1}, ${question.alternative2}, ${question.alternative3}`,
+  );
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
