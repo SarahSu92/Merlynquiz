@@ -34,4 +34,4 @@ Du ska få poäng för rätt svar
 Det ska bara visas en fråga åt gången på skärmen
 Det ska finnas en tidräkning (uppåt). Tidräkningen ska stanna när alla frågor har besvarats.
 Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade rätt på (av totalt antal frågor), och hur lång tid det tog.
-Varje person ska ha gjort minst två pull requests./*
+Varje person ska ha gjort minst två pull requests.*/
