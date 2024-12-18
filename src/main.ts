@@ -14,6 +14,7 @@ questionContainer.innerHTML = `
           <input type="radio" id="option3" name="quiz" /> Alternativ 3
         </label>
       </div>
+      <button class="play-again-btn">Play Again</button>
 
 `;
 
