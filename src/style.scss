@@ -1,35 +1,15 @@
-
-//@media (min-width: 480px) {
-// @use "_mobile.scss";
-//}
-
-//@media (min-width: 768px) {
-//@use "_tablet.scss";
-//}
-
-//@media screen and (min-width: 1366px) {
-//  @use "_desktop.scss";
-//}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+@media (max-width: 600px) {
+  @use "_mobile.scss";
 }
-button:hover {
-  border-color: #646cff;
+
+@media (min-width: 768px) {
+  @use "_tablet.scss";
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+@media screen and (min-width: 1366px) {
+  @use "_desktop.scss";
 }
-//Anto
+
 .answer-container .answer-quiz {
   display: block;
   background-color: white;
@@ -54,5 +34,3 @@ button:focus-visible {
     display: none;
   }
 }
-//
-
