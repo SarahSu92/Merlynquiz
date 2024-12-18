@@ -1,4 +1,23 @@
 import "./style.scss";
+import { setupCounter } from "./counter.ts";
+
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+  <div class="answer-container">
+        <label class="answer-quiz">
+          <input type="radio" id="option1" name="quiz" /> Alternativ 1
+        </label>
+        <label class="answer-quiz">
+          <input type="radio" id="option2" name="quiz" /> Alternativ 2
+        </label>
+        <label class="answer-quiz">
+          <input type="radio" id="option3" name="quiz" /> Alternativ 3
+        </label>
+      </div>
+
+`;
+
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+
 
 // ===============================================================================
 // ================== score & function for answer selection ======================
@@ -52,3 +71,4 @@ Det ska finnas en tidräkning (uppåt). Tidräkningen ska stanna när alla fråg
 Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade rätt på (av totalt antal frågor), och hur lång tid det tog.
 Varje person ska ha gjort minst två pull requests.*/
 // ==============================================================================================================
+
