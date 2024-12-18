@@ -1,7 +1,8 @@
 import "./style.scss";
-import { setupCounter } from "./counter.ts";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+const questionContainer = document.createElement("section");
+
+questionContainer.innerHTML = `
   <div class="answer-container">
         <label class="answer-quiz">
           <input type="radio" id="option1" name="quiz" /> Alternativ 1
@@ -16,8 +17,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
 `;
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
-
+document.body.appendChild(questionContainer);
 
 // ===============================================================================
 // ================== score & function for answer selection ======================
@@ -33,7 +33,6 @@ function checkAnswer(selected: string, correct: string) {
 // ===============================================================================
 
 // _______________________________________________________________________________
-
 
 // ===============================================================================
 // ====== array to store the used questions and function to avoid reuse ==========
@@ -56,7 +55,6 @@ function getNextQuestion() {
 
 // _______________________________________________________________________________
 
-
 // ============================================================================
 /*Lägga in gissa landet med hjälp av flaggor.
 10 * 10 frågor.
@@ -71,4 +69,3 @@ Det ska finnas en tidräkning (uppåt). Tidräkningen ska stanna när alla fråg
 Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade rätt på (av totalt antal frågor), och hur lång tid det tog.
 Varje person ska ha gjort minst två pull requests.*/
 // ==============================================================================================================
-

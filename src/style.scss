@@ -1,36 +1,44 @@
-@media (max-width: 600px) {
-  @use "_mobile.scss";
-}
+// @media (max-width: 600px) {
+//   @use "./_mobile.scss";
+// }
 
-@media (min-width: 768px) {
-  @use "_tablet.scss";
-}
+// @media (min-width: 768px) {
+//   @use "./_tablet.scss";
+// }
 
-@media screen and (min-width: 1366px) {
-  @use "_desktop.scss";
-}
+// @media screen and (min-width: 1366px) {
+//   @use "./_desktop.scss";
+// }
 
-.answer-container .answer-quiz {
-  display: block;
-  background-color: white;
-  color: #000;
-  font-weight: bold;
-  margin-bottom: 18px;
-  padding: 12px;
-  max-width: 300px;
-  width: 200px;
-  font-size: 14px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
+.answer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 
-  &:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-  }
+  .answer-quiz {
+    display: block;
+    background-color: white;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 18px;
+    padding: 12px;
+    max-width: 300px;
+    width: 200px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-  input[type="radio"] {
-    display: none;
+    &:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
   }
 }
