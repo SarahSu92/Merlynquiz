@@ -1,5 +1,4 @@
 import "./style.scss";
-import { setupCounter } from "./counter.ts";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
@@ -79,10 +78,6 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
 `;
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
-=======
-
-
 // ===============================================================================
 // ================== score & function for answer selection ======================
 // ===============================================================================
@@ -136,3 +131,21 @@ Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade 
 Varje person ska ha gjort minst två pull requests.*/
 // ==============================================================================================================
 
+//create score section
+//Points and correct answers
+//create innerHTML and add style
+
+
+
+
+
+
+
+
+
+
+
+
+//Create result
+//Points and time
+//innerHTML
