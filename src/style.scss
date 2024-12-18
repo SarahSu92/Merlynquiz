@@ -1,3 +1,15 @@
+//@media (min-width: 480px) {
+// @use "_mobile.scss";
+//}
+
+//@media (min-width: 768px) {
+//@use "_tablet.scss";
+//}
+
+//@media screen and (min-width: 1366px) {
+//  @use "_desktop.scss";
+//}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -81,7 +93,32 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+//Anto
+.answer-container .answer-quiz {
+  display: block;
+  background-color: white;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 18px;
+  padding: 12px;
+  max-width: 300px;
+  width: 200px;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
 
+  &:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+}
+//
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
