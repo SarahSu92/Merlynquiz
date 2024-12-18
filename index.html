@@ -1,15 +1,49 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en"></html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marlyn Quiz</title>
+    <link rel="stylesheet" href="src/style.scss" type="text/css" />
+    
+    <meta name="" content="" />
+    <meta property="og:title" content="Marlyn Quiz" />
+    <meta property="og:type" content="Quiz Game" />
+    <meta
+      property="og:url"
+      content="https://medieinstitutet.github.io/fed24d-js-intro-inl-2-quiz-marlyn/"
+    />
+    <meta property="og:image" content="Marlyn Quiz" />
+    <meta property="og:image:alt" content="src\assets\img\Egypt.jpg" />  
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="" /> 
+    <link rel="apple-touch-icon" href="icon.png" />
+
   </head>
 
   <body>
-    <div id="app"></div>
+    
+    <header>
+      <h1>Welcome to The Merlyn Quiz Game!</h1>
+    </header>
+    
+    <main>
+      <section class="question" id="question">Question</section>
+        <section class="alternative">A</section>
+        <section class="alternative">B</section>
+        <section class="alternative">C</section>
+      
+      
+      <section class="timer" id="timer">Timer</section>
+    </main>
+   
+    <footer>
 
-    <script type="module" src="src/main.ts"></script>
+    </footer>
+
+      <script type="module" src="src/main.ts"></script>
   </body>
 </html>
+
