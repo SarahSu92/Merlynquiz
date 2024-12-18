@@ -18,7 +18,54 @@ questions.forEach((question) => {
     `Alternatives: ${question.alternative1}, ${question.alternative2}, ${question.alternative3}`,
   );
 });
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+  Function to get a random question from the available questions,
+  ensuring no repetition of previously shown questions.
+ */
+function getRandomQuestion() {
+  const usedQuestions: Set<number> = new Set();
+  const remainingQuestions = questions.filter(
+    (_, index) => !usedQuestions.has(index),
+  );
+
+  // Pick a random question from the remaining questions
+  const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
+  const randomQuestion = remainingQuestions[randomIndex];
+
+  // Mark the selected question as used by adding its index to the 'usedQuestions' set
+  usedQuestions.add(questions.indexOf(randomQuestion));
+
+  // Log the data of the randomly selected question to the console
+  console.log(
+    `-Country: ${randomQuestion.name}`,
+    `-Flag Image: ${randomQuestion.flag}`,
+    `-Alternatives: ${randomQuestion.alternative1}, ${randomQuestion.alternative2}, ${randomQuestion.alternative3}`,
+  );
+}
+
+// Create "Next" button (Temporary button)
+const nextButton = document.createElement("button");
+nextButton.textContent = "Next";
+document.body.appendChild(nextButton);
+
+// Variable to count how many times the "Next" button has been clicked
+let clickCount = 0;
+
+// Event listener for the "Next" button
+nextButton.addEventListener("click", () => {
+  clickCount++;
+  // If the click count is 10 or less, show a new random question
+  if (clickCount <= 10) {
+    getRandomQuestion();
+  }
+  // If the click count exceeds 10, log "The End" and stop further clicks
+  else if (clickCount === 11) {
+    console.log("The End");
+  }
+});
+////////////////////////////////////////////////////////////////////////////////////////////
+
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -50,4 +97,4 @@ Du ska få poäng för rätt svar
 Det ska bara visas en fråga åt gången på skärmen
 Det ska finnas en tidräkning (uppåt). Tidräkningen ska stanna när alla frågor har besvarats.
 Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade rätt på (av totalt antal frågor), och hur lång tid det tog.
-Varje person ska ha gjort minst två pull requests./*
+Varje person ska ha gjort minst två pull requests.*/
