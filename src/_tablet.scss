@@ -1,3 +1,10 @@
+
+.answer-quiz {
+  max-width: 350px;
+  padding: 12px;
+  font-size: 18px;
+}
+
 h1 {
     font-size: 2em;
     padding-top: 200px; 
@@ -12,15 +19,9 @@ h1 {
     padding-top: 20px;
   }
 
-  .score {
-    margin-top: 50px;
-    width: 50vw;
-  }
-
-  .result {
-    width: 50vw;
-  }
+ 
 
   .timer {
     width: 10vw;
   }
+
