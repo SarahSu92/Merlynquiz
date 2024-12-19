@@ -3,3 +3,5 @@
 Meeting minutes week 1. 
 
 We appoint Omar as Scrum Master for weeks 1 and 2. After that, we will see who wants to take on the role. Yaman also wants to try being Scrum Master. Omar will set up backlog tasks that the rest of the group will start working on. We discuss the pseudocode for the project. Sarah creates sketches for how the project/page will look. We begin coding and test how merging and similar processes work.
+
+test
