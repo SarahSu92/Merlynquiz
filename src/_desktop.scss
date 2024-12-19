@@ -1,19 +1,24 @@
-h1 {
-    font-size: 2em;
-    padding-top: 150px; 
-   
+.answer-container {
+  .answer-quiz,
+  .play-again-btn {
+    width: 300px;
+    font-size: 16px;
   }
-
-.question {
-    width: 50vw;
 }
 
-  .alternative {
-    padding-top: 20px;
-  }
+h1 {
+  font-size: 2em;
+  padding-top: 150px;
+}
 
-  
+.question {
+  width: 50vw;
+}
 
-  .timer {
-    width: 10vw;
-  }
+.alternative {
+  padding-top: 20px;
+}
+
+.timer {
+  width: 10vw;
+}
