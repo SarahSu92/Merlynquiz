@@ -62,6 +62,7 @@ nextButton.addEventListener("click", () => {
   }
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
+const questionContainer = document.createElement("section");
 
 questionContainer.innerHTML = `
   <div class="answer-container">
@@ -78,8 +79,6 @@ questionContainer.innerHTML = `
       <button class="play-again-btn">Play Again</button>
 
 `;
-
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
 // ===============================================================================
 // ================== score & function for answer selection ======================
