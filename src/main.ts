@@ -1,14 +1,10 @@
 import "./style.scss";
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
-import { fetchQuestions } from "./fetchQuestionsData";
-
-// Get the questions data
-const questions = fetchQuestions();
+// Import the questions array and Question interface
+import { questions, Question } from "./questionsData"; // Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
 
 // Loop through the questions array and log the data in the console
-questions.forEach((question) => {
+questions.forEach((question: Question) => {
   console.log(
     `Country: ${question.name}`,
     `Flag Image: ${question.flag}`,
