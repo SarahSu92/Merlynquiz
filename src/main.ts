@@ -63,7 +63,7 @@ nextButton.addEventListener("click", () => {
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+questionContainer.innerHTML = `
   <div class="answer-container">
         <label class="answer-quiz">
           <input type="radio" id="option1" name="quiz" /> Alternativ 1
@@ -75,8 +75,11 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
           <input type="radio" id="option3" name="quiz" /> Alternativ 3
         </label>
       </div>
+      <button class="play-again-btn">Play Again</button>
 
 `;
+
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
 // ===============================================================================
 // ================== score & function for answer selection ======================
@@ -92,7 +95,6 @@ function checkAnswer(selected: string, correct: string) {
 // ===============================================================================
 
 // _______________________________________________________________________________
-
 
 // ===============================================================================
 // ====== array to store the used questions and function to avoid reuse ==========
@@ -115,7 +117,6 @@ function getNextQuestion() {
 
 // _______________________________________________________________________________
 
-
 // ============================================================================
 /*Lägga in gissa landet med hjälp av flaggor.
 10 * 10 frågor.
@@ -134,17 +135,6 @@ Varje person ska ha gjort minst två pull requests.*/
 //create score section
 //Points and correct answers
 //create innerHTML and add style
-
-
-
-
-
-
-
-
-
-
-
 
 //Create result
 //Points and time
