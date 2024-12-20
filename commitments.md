@@ -68,3 +68,4 @@ Hurdant är ditt förhållningssätt till konflikter? Undvika, knyta näven i fi
 @Omar Alawi
 @Sarah Sundberg
 @Antonina Dulama
+@Yuliia Ponomarenko
