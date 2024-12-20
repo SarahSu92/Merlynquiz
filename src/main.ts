@@ -57,6 +57,8 @@ nextButton.addEventListener("click", () => {
   }
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+// Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
 
 questionContainer.innerHTML = `
@@ -75,6 +77,7 @@ questionContainer.innerHTML = `
 
 `;
 
+document.body.appendChild(questionContainer);
 // ===============================================================================
 // ================== score & function for answer selection ======================
 // ===============================================================================
