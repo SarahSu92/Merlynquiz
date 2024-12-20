@@ -53,7 +53,14 @@ Hurdant är ditt förhållningssätt till konflikter? Undvika, knyta näven i fi
 
 //Hur ger vi feedback till varandra?
 
-- Vi ger varandra feedback i gruppchatten.
+## Additional rules
+
+1. Standups should be 15 minutes long.
+2. Do not interfere with someone else's ticket unless the person asks for help.
+3. All tickets in the backlog should remain unassigned to a user.
+4. We don’t need to discuss misunderstandings during standups.
+5. Provide feedback in the chat, but agree on who will finalize the task.
+   (example I "John" give feedback to "Doe" and they both agree about it. Decide who will fix the changes)
 
 ## Underskrivet av
 

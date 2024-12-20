@@ -17,7 +17,7 @@ import {
 const questions = fetchQuestions();
 
 // Loop through the questions array and log the data in the console
-questions.forEach((question) => {
+questions.forEach((question: Question) => {
   console.log(
     `Country: ${question.name}`,
     `Flag Image: ${question.flag}`,

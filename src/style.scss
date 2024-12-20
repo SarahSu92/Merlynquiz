@@ -1,14 +1,10 @@
-// @media (max-width: 600px) {
-//   @use "./_mobile.scss";
-// }
 
-// @media (min-width: 768px) {
-//   @use "./_tablet.scss";
-// }
+@use "_mobile.scss";
 
-// @media screen and (min-width: 1366px) {
-//   @use "./_desktop.scss";
-// }
+@use "_tablet.scss";
+
+@use "_desktop.scss";
+
 
 body,
 html {
@@ -24,6 +20,7 @@ section {
   justify-content: center;
   height: 100vh;
 }
+
 
 .answer-container {
   display: flex;
@@ -86,8 +83,20 @@ section {
     transform: scale(1.05);
   }
 
+.timer {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  width: 20vw;
+  margin-top: 60px;
+  border-radius: 10px;
+}
+
   &:active {
     background-color: #003f7f;
     transform: scale(0.95);
   }
 }
+
