@@ -1,7 +1,5 @@
 import "./style.scss";
 
-// Import the questions array and Question interface
-import { questions, Question } from "./questionsData"; // Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
 
 // Loop through the questions array and log the data in the console
 questions.forEach((question: Question) => {

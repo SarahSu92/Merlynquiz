@@ -1,3 +1,11 @@
+
+@media screen and (min-width: 1366px) {
+  .answer-quiz {
+    max-width: 500px;
+    padding: 14px;
+    font-size: 20px;
+  }
+
 .answer-container {
   .answer-quiz,
   .play-again-btn {
@@ -21,4 +29,6 @@ h1 {
 
 .timer {
   width: 10vw;
+}
+
 }

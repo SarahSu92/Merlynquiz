@@ -1,26 +1,23 @@
-.answer-container {
-  .answer-quiz,
-  .play-again-btn {
-    width: 250px;
-    font-size: 15px;
+
+@media (max-width: 600px) {
+
+
+  .answer-quiz {
+    max-width: 350px;
+    padding: 12px;
+    font-size: 18px;
   }
-}
 
-h1 {
-  font-size: 2em;
-  padding-top: 200px;
-}
 
-.question {
-  width: 50vw;
-}
-.question {
+  h1 {
+    font-size: 2em;
+    padding-top: 200px;
+  }
+  
+  .question {
   width: 50vw;
 }
 
-.alternative {
-  padding-top: 20px;
-}
 .alternative {
   padding-top: 20px;
 }
@@ -28,6 +25,6 @@ h1 {
 .timer {
   width: 10vw;
 }
-.timer {
-  width: 10vw;
+
 }
+
