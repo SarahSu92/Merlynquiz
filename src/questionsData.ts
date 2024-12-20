@@ -1,0 +1,173 @@
+// Define the Question interface
+export interface Question {
+  id: number;
+  name: string;
+  flag: string;
+  alternative1: string;
+  alternative2: string;
+  alternative3: string;
+}
+
+// Export the questions array
+export const questions: Question[] = [
+  {
+    id: 1,
+    name: "Argentina",
+    flag: "public/img/Argentina.jpg",
+    alternative1: "Argentina",
+    alternative2: "Brazil",
+    alternative3: "Canada",
+  },
+  {
+    id: 2,
+    name: "Austria",
+    flag: "public/img/Austria.jpg",
+    alternative1: "France",
+    alternative2: "Austria",
+    alternative3: "Japan",
+  },
+  {
+    id: 3,
+    name: "Chile",
+    flag: "public/img/Chile.jpg",
+    alternative1: "Mexico",
+    alternative2: "Chile",
+    alternative3: "Australia",
+  },
+  {
+    id: 4,
+    name: "Czech Republic",
+    flag: "public/img/Czech_Republic.jpg",
+    alternative1: "Italy",
+    alternative2: "India",
+    alternative3: "Czech Republic",
+  },
+  {
+    id: 5,
+    name: "Egypt",
+    flag: "public/img/Egypt.jpg",
+    alternative1: "Egypt",
+    alternative2: "Saudi Arabia",
+    alternative3: "Morocco",
+  },
+  {
+    id: 6,
+    name: "Estonia",
+    flag: "public/img/Estonia.jpg",
+    alternative1: "Estonia",
+    alternative2: "Latvia",
+    alternative3: "Lithuania",
+  },
+  {
+    id: 7,
+    name: "Finland",
+    flag: "public/img/Finland.jpg",
+    alternative1: "Switzerland",
+    alternative2: "Finland",
+    alternative3: "Norway",
+  },
+  {
+    id: 8,
+    name: "Germany",
+    flag: "public/img/Germany.jpg",
+    alternative1: "United States",
+    alternative2: "Germany",
+    alternative3: "Poland",
+  },
+  {
+    id: 9,
+    name: "Ghana",
+    flag: "public/img/Ghana.jpg",
+    alternative1: "Nigeria",
+    alternative2: "Ghana",
+    alternative3: "Kenya",
+  },
+  {
+    id: 10,
+    name: "Morocco",
+    flag: "public/img/Morocco.jpg",
+    alternative1: "Morocco",
+    alternative2: "Tunisia",
+    alternative3: "Algeria",
+  },
+  {
+    id: 11,
+    name: "Norway",
+    flag: "public/img/Norway.jpg",
+    alternative1: "Sweden",
+    alternative2: "Denmark",
+    alternative3: "Norway",
+  },
+  {
+    id: 12,
+    name: "Portugal",
+    flag: "public/img/Portugal.jpg",
+    alternative1: "Portugal",
+    alternative2: "Brazil",
+    alternative3: "Spain",
+  },
+  {
+    id: 13,
+    name: "South Africa",
+    flag: "public/img/South_Africa.jpg",
+    alternative1: "South Africa",
+    alternative2: "Zambia",
+    alternative3: "Zimbabwe",
+  },
+  {
+    id: 14,
+    name: "Spain",
+    flag: "public/img/Spain.jpg",
+    alternative1: "Portugal",
+    alternative2: "Spain",
+    alternative3: "Italy",
+  },
+  {
+    id: 15,
+    name: "Sweden",
+    flag: "public/img/Sweden.jpg",
+    alternative1: "Sweden",
+    alternative2: "Norway",
+    alternative3: "Finland",
+  },
+  {
+    id: 16,
+    name: "Thailand",
+    flag: "public/img/Thailand.jpg",
+    alternative1: "Vietnam",
+    alternative2: "Cambodia",
+    alternative3: "Thailand",
+  },
+  {
+    id: 17,
+    name: "Ukraine",
+    flag: "public/img/Ukraine.jpg",
+    alternative1: "Ukraine",
+    alternative2: "Belarus",
+    alternative3: "Russia",
+  },
+  {
+    id: 18,
+    name: "United Kingdom",
+    flag: "public/img/United_Kingdom.jpg",
+    alternative1: "United States",
+    alternative2: "Canada",
+    alternative3: "United Kingdom",
+  },
+  {
+    id: 19,
+    name: "United States",
+    flag: "public/img/United_States.jpg",
+    alternative1: "United States",
+    alternative2: "Mexico",
+    alternative3: "Australia",
+  },
+  {
+    id: 20,
+    name: "Uruguay",
+    flag: "public/img/Uruguay.jpg",
+    alternative1: "Uruguay",
+    alternative2: "Paraguay",
+    alternative3: "Argentina",
+  },
+];

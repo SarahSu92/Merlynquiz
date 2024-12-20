@@ -1,11 +1,14 @@
 @media (min-width: 768px) {
 
-  .answer-quiz {
-    max-width: 250px;
-    padding: 10px;
-    font-size: 16px;
+.answer-container {
+  height: auto;
+  padding: 20px;
+   }
+
+  .answer-quiz,
+  .play-again-btn {
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 12px;
   }
-
-
-
 }
