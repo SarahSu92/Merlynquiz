@@ -1,5 +1,6 @@
 import "./style.scss";
 
+import { questions, Question } from "./questionsData";
 
 // Loop through the questions array and log the data in the console
 questions.forEach((question: Question) => {
