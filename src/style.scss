@@ -1,14 +1,8 @@
-@media (max-width: 600px) {
-  @use "_mobile.scss"; // TODO
-}
+@use "_mobile.scss";
 
-@media (min-width: 768px) {
-  @use "_tablet.scss";
-}
+@use "_tablet.scss";
 
-@media screen and (min-width: 1366px) {
-  @use "_desktop.scss";
-}
+@use "_desktop.scss";
 
 .answer-container .answer-quiz {
   display: block;

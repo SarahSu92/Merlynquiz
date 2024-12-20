@@ -1,22 +1,26 @@
-.answer-quiz {
-  max-width: 350px;
-  padding: 12px;
-  font-size: 18px;
-}
+@media (max-width: 600px) {
 
-h1 {
-  font-size: 2em;
-  padding-top: 200px;
-}
+  .answer-quiz {
+    max-width: 350px;
+    padding: 12px;
+    font-size: 18px;
+  }
 
-.question {
-  width: 50vw;
-}
+  h1 {
+    font-size: 2em;
+    padding-top: 200px;
+  }
 
-.alternative {
-  padding-top: 20px;
-}
+  .question {
+    width: 50vw;
+  }
 
-.timer {
-  width: 10vw;
+  .alternative {
+    padding-top: 20px;
+  }
+
+  .timer {
+    width: 10vw;
+  }
+
 }
