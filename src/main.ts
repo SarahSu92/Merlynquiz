@@ -1,8 +1,10 @@
 import "./style.scss";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { restartGame } from "./restartGame";
 
 import { questions, Question } from "./questionsData";
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
+//Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
 import { fetchQuestions } from "./fetchQuestionsData";
 // Import everything needed from 'result'
 import {
