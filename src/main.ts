@@ -1,5 +1,6 @@
 import "./style.scss";
 
+import { questions, Question } from "./questionsData";
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
 import { fetchQuestions } from "./fetchQuestionsData";
