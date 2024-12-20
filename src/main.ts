@@ -1,5 +1,4 @@
 import "./style.scss";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { restartGame } from "./restartGame";
 
 import { questions, Question } from "./questionsData";
@@ -94,7 +93,37 @@ questionContainer.innerHTML = `
 
 `;
 
+//add the question container to the document
 document.body.appendChild(questionContainer);
+
+//add event listener for function restartGame when we click the button play-again
+const playAgainButton = document.querySelector(
+  ".play-again-btn",
+) as HTMLButtonElement;
+
+if (playAgainButton) {
+  playAgainButton.addEventListener("click", () => {
+    restartGame(resetUsedQuestions, resetClickCount, resetTimer);
+  });
+}
+
+const usedQuestions = new Set<number>();
+
+//clear all the used questions
+function resetUsedQuestions() {
+  usedQuestions.clear();
+}
+
+//reset the question counter
+function resetClickCount() {
+  clickCount = 0;
+}
+
+//reset the timer
+function resetTimer() {
+  console.log("Timer reset.");
+}
+
 // ===============================================================================
 // ================== score & function for answer selection ======================
 // ===============================================================================

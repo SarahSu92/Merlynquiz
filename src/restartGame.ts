@@ -17,5 +17,5 @@ export function restartGame(
   resetClickCount();
   resetTimer();
 
-  console.log("Spelet har startats om!");
+  console.log("The game has been restarted!");
 }
