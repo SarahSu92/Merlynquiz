@@ -4,7 +4,7 @@ import "./style.scss";
 import { questions, Question } from "./questionsData";
 // Import everything needed from 'result'
 import {
-  //IScore,
+  // IScore,
   IResult,
   score,
   updateScoreContainer,
