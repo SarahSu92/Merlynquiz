@@ -64,7 +64,7 @@ Hurdant är ditt förhållningssätt till konflikter? Undvika, knyta näven i fi
 
 ## Underskrivet av
 
-@Yaman
+@Yaman Ghannoum
 @Omar Alawi
 @Sarah Sundberg
 @Antonina Dulama
