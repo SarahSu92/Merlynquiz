@@ -58,6 +58,9 @@ section {
   input[type="radio"] {
     display: none;
   }
+  input[type="radio"]:checked + .answer-quiz {
+    background-color: #ccc9c9;
+  }
 }
 
 .timer {

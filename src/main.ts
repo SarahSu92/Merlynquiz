@@ -68,18 +68,16 @@ const questionContainer = document.createElement("section");
 
 questionContainer.innerHTML = `
   <div class="answer-container">
-        <label class="answer-quiz">
-          <input type="radio" id="option1" name="quiz" /> Alternativ 1
-        </label>
-        <label class="answer-quiz">
-          <input type="radio" id="option2" name="quiz" /> Alternativ 2
-        </label>
-        <label class="answer-quiz">
-          <input type="radio" id="option3" name="quiz" /> Alternativ 3
-        </label>
-      </div>
-      <button class="play-again-btn">Play Again</button>
+    <input type="radio" id="option1" name="quiz" />
+    <label class="answer-quiz" for="option1">Alternativ 1</label>
 
+    <input type="radio" id="option2" name="quiz" />
+    <label class="answer-quiz" for="option2">Alternativ 2</label>
+
+    <input type="radio" id="option3" name="quiz" />
+    <label class="answer-quiz" for="option3">Alternativ 3</label>
+  </div>
+  <button class="play-again-btn">Play Again</button>
 `;
 
 document.body.appendChild(questionContainer);
