@@ -1,21 +1,16 @@
 import "./style.scss";
 
+// Import questions arry and Question interface from 'questionsData'
 import { questions, Question } from "./questionsData";
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
-import { fetchQuestions } from "./fetchQuestionsData";
 // Import everything needed from 'result'
 import {
-  IScore,
+  //IScore,
   IResult,
   score,
   updateScoreContainer,
   displayResultContainer,
   incrementScore,
 } from "./result";
-
-// Get the questions data
-const questions = fetchQuestions();
 
 /*
   Function to create a generator for random questions,
