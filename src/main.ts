@@ -17,60 +17,55 @@ import {
 // Get the questions data
 const questions = fetchQuestions();
 
-// Loop through the questions array and log the data in the console
-questions.forEach((question: Question) => {
-  console.log(
-    `Country: ${question.name}`,
-    `Flag Image: ${question.flag}`,
-    `Alternatives: ${question.alternative1}, ${question.alternative2}, ${question.alternative3}`,
-  );
-});
-
 /*
-  Function to get a random question from the available questions,
+  Function to create a generator for random questions,
   ensuring no repetition of previously shown questions.
  */
-function getRandomQuestion() {
-  const usedQuestions: Set<number> = new Set();
-  const remainingQuestions = questions.filter(
-    (_, index) => !usedQuestions.has(index),
-  );
+function createQuestionGenerator() {
+  const usedIndices: number[] = []; // Array to track used indices
 
-  // Pick a random question from the remaining questions
-  const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
-  const randomQuestion = remainingQuestions[randomIndex];
+  return function getNextQuestion(): Question | null {
+    // Check if all questions are used
+    if (usedIndices.length === questions.length) {
+      return null; // Return `null` when no more questions are left
+    }
 
-  // Mark the selected question as used by adding its index to the 'usedQuestions' set
-  usedQuestions.add(questions.indexOf(randomQuestion));
+    // Generate a unique random index
+    let randomIndex: number;
+    do {
+      randomIndex = Math.floor(Math.random() * questions.length);
+    } while (usedIndices.includes(randomIndex)); // Ensure it's not already used
 
-  // Log the data of the randomly selected question to the console
-  console.log(
-    `-Country: ${randomQuestion.name}`,
-    `-Flag Image: ${randomQuestion.flag}`,
-    `-Alternatives: ${randomQuestion.alternative1}, ${randomQuestion.alternative2}, ${randomQuestion.alternative3}`,
-  );
+    usedIndices.push(randomIndex); // Mark this index as used
+    return questions[randomIndex]; // Return the selected random question
+  };
 }
 
-// Create "Next" button (Temporary button)
+// Create an instance of the question generator
+const getNextQuestion = createQuestionGenerator();
+
+// Create "Next" button
 const nextButton = document.createElement("button");
 nextButton.textContent = "Next";
 document.body.appendChild(nextButton);
 
-// Variable to count how many times the "Next" button has been clicked
-let clickCount = 0;
-
 // Event listener for the "Next" button
 nextButton.addEventListener("click", () => {
-  clickCount++;
-  // If the click count is 10 or less, show a new random question
-  if (clickCount <= 10) {
-    getRandomQuestion();
-  }
-  // If the click count exceeds 10, log "The End" and stop further clicks
-  else if (clickCount === 11) {
-    console.log("The End");
+  const question = getNextQuestion(); // Fetch the next question
+
+  if (question) {
+    // Log the question details if available
+    console.log(
+      `- Country: ${question.name}`,
+      `- Flag Image: ${question.flag}`,
+      `- Alternatives: ${question.alternative1}, ${question.alternative2}, ${question.alternative3}`,
+    );
+  } else {
+    console.log("The End! No more questions available.");
+    nextButton.disabled = true; // Disable the button to prevent further clicks
   }
 });
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 // Create the alternatives answers buttons and the play again button
@@ -93,6 +88,7 @@ questionContainer.innerHTML = `
 `;
 
 document.body.appendChild(questionContainer);
+
 // ===============================================================================
 // ================== score & function for answer selection ======================
 // ===============================================================================
