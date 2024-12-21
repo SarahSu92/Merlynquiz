@@ -1,6 +1,21 @@
 import "./style.scss";
 
 import { questions, Question } from "./questionsData";
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
+import { fetchQuestions } from "./fetchQuestionsData";
+// Import everything needed from 'result'
+import {
+  IScore,
+  IResult,
+  score,
+  updateScoreContainer,
+  displayResultContainer,
+  incrementScore,
+} from "./result";
+
+// Get the questions data
+const questions = fetchQuestions();
 
 /*
   Function to create a generator for random questions,
@@ -52,6 +67,8 @@ nextButton.addEventListener("click", () => {
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+// Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
 
 questionContainer.innerHTML = `
@@ -69,6 +86,9 @@ questionContainer.innerHTML = `
       <button class="play-again-btn">Play Again</button>
 
 `;
+
+document.body.appendChild(questionContainer);
+
 // ===============================================================================
 // ================== score & function for answer selection ======================
 // ===============================================================================
@@ -127,3 +147,17 @@ Varje person ska ha gjort minst två pull requests.*/
 //Create result
 //Points and time
 //innerHTML
+
+// Example usage of imported functions
+incrementScore(5); // Increment the score by 5 points
+
+// Display the quiz result
+const result: IResult = {
+  points: score.points,
+  correctAnswers: score.correctAnswers,
+  time: 120, // Assume 120 seconds as time taken
+};
+displayResultContainer(result);
+
+// Update the score container manually (if needed)
+updateScoreContainer();
