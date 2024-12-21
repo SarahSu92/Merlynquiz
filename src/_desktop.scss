@@ -1,34 +1,27 @@
-
-@media screen and (min-width: 1366px) {
+@media (min-width: 901px) {
   .answer-quiz {
     max-width: 500px;
     padding: 14px;
     font-size: 20px;
   }
 
-.answer-container {
-  .answer-quiz,
-  .play-again-btn {
-    width: 300px;
-    font-size: 16px;
+  .answer-container {
+    .answer-quiz,
+    .play-again-btn {
+      width: 300px;
+      font-size: 16px;
+    }
   }
-}
 
-h1 {
-  font-size: 2em;
-  padding-top: 150px;
-}
+  h1 {
+    font-size: 2em;
+  }
 
-.question {
-  width: 50vw;
-}
+  .alternative {
+    padding-top: 20px;
+  }
 
-.alternative {
-  padding-top: 20px;
-}
-
-.timer {
-  width: 10vw;
-}
-
+  .timer {
+    width: 10vw;
+  }
 }

@@ -1,12 +1,11 @@
 import "./style.scss";
 
+// Import questions arry and Question interface from 'questionsData'
 import { questions, Question } from "./questionsData";
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
-import { fetchQuestions } from "./fetchQuestionsData";
+
 // Import everything needed from 'result'
 import {
-  IScore,
+  // IScore,
   IResult,
   score,
   updateScoreContainer,
@@ -14,13 +13,7 @@ import {
   incrementScore,
 } from "./result";
 
-// Get the questions data
-const questions = fetchQuestions();
-
-/*
-  Function to create a generator for random questions,
-  ensuring no repetition of previously shown questions.
- */
+//Function to create a generator for random questions,ensuring no repetition of previously shown questions.
 function createQuestionGenerator() {
   const usedIndices: number[] = []; // Array to track used indices
 
@@ -29,13 +22,11 @@ function createQuestionGenerator() {
     if (usedIndices.length === questions.length) {
       return null; // Return `null` when no more questions are left
     }
-
     // Generate a unique random index
     let randomIndex: number;
     do {
       randomIndex = Math.floor(Math.random() * questions.length);
     } while (usedIndices.includes(randomIndex)); // Ensure it's not already used
-
     usedIndices.push(randomIndex); // Mark this index as used
     return questions[randomIndex]; // Return the selected random question
   };
@@ -54,37 +45,35 @@ nextButton.addEventListener("click", () => {
   const question = getNextQuestion(); // Fetch the next question
 
   if (question) {
-    // Log the question details if available
-    console.log(
-      `- Country: ${question.name}`,
-      `- Flag Image: ${question.flag}`,
-      `- Alternatives: ${question.alternative1}, ${question.alternative2}, ${question.alternative3}`,
-    );
+    document.getElementById("flag-image")?.setAttribute("src", question.flag); // Update the flag image
+    document.getElementById("option1")!.nextElementSibling!.textContent =
+      question.alternative1; // Update the first alternative
+    document.getElementById("option2")!.nextElementSibling!.textContent =
+      question.alternative2; // Update the secound alternative
+    document.getElementById("option3")!.nextElementSibling!.textContent =
+      question.alternative3; // Update the third alternative
   } else {
     console.log("The End! No more questions available.");
     nextButton.disabled = true; // Disable the button to prevent further clicks
   }
 });
-
-////////////////////////////////////////////////////////////////////////////////////////////
+// ===============================================================================
 
 // Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
 
 questionContainer.innerHTML = `
   <div class="answer-container">
-        <label class="answer-quiz">
-          <input type="radio" id="option1" name="quiz" /> Alternativ 1
-        </label>
-        <label class="answer-quiz">
-          <input type="radio" id="option2" name="quiz" /> Alternativ 2
-        </label>
-        <label class="answer-quiz">
-          <input type="radio" id="option3" name="quiz" /> Alternativ 3
-        </label>
-      </div>
-      <button class="play-again-btn">Play Again</button>
+    <input type="radio" id="option1" name="quiz" />
+    <label class="answer-quiz" for="option1">Alternativ 1</label>
 
+    <input type="radio" id="option2" name="quiz" />
+    <label class="answer-quiz" for="option2">Alternativ 2</label>
+
+    <input type="radio" id="option3" name="quiz" />
+    <label class="answer-quiz" for="option3">Alternativ 3</label>
+  </div>
+  <button class="play-again-btn">Play Again</button>
 `;
 
 document.body.appendChild(questionContainer);
