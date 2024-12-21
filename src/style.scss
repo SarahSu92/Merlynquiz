@@ -62,6 +62,16 @@ section {
   }
 }
 
+.timer {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  width: 20vw;
+  margin-top: 60px;
+  border-radius: 10px;
+}
 .play-again-btn {
   display: block;
   margin-top: 20px;
@@ -85,19 +95,11 @@ section {
     transform: scale(1.05);
   }
 
-  .timer {
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    width: 20vw;
-    margin-top: 60px;
-    border-radius: 10px;
-  }
-
   &:active {
     background-color: #003f7f;
     transform: scale(0.95);
   }
+}
+.question {
+  font-size: 2rem;
 }
