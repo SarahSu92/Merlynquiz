@@ -1,7 +1,11 @@
-import "./style.scss";
+import "./main.scss";
 import { restartGame } from "./restartGame";
 import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
 import { questions, Question } from "./questionsData";
+
+
+// Import everything needed from 'result'
+
 import {
   // IScore,
   IResult,
@@ -105,15 +109,7 @@ function resetTimer() {
   console.log("Timer reset.");
 }
 
-// ===============================================================================
-// ================== score & function for answer selection ======================
-// ===============================================================================
-/*
-let score = 0;
-function checkAnswer(selected: string, correct: string) {
-  if (selected === correct) score++;
-}
-*/
+
 // ===============================================================================
 // ===============================================================================
 // ===============================================================================
@@ -138,31 +134,6 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 // ===============================================================================
-
-// _______________________________________________________________________________
-
-// ============================================================================
-/*Lägga in gissa landet med hjälp av flaggor.
-10 * 10 frågor.
-En ruta som visar resultat, frågor med rätt svar.
-Skapa ett quiz med minst 20 frågor
-Varje fråga ska ha 3 svarsalternativ och endast 1 svarsalternativ ska vara korrekt
-Frågorna ska presenteras i slumpmässig ordning, och du ska visa 10 frågor per spelomgång
-Om användaren väljer att spela igen, så ska inte samma 10 frågor komma upp på nytt
-Du ska få poäng för rätt svar
-Det ska bara visas en fråga åt gången på skärmen
-Det ska finnas en tidräkning (uppåt). Tidräkningen ska stanna när alla frågor har besvarats.
-Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade rätt på (av totalt antal frågor), och hur lång tid det tog.
-Varje person ska ha gjort minst två pull requests.*/
-// ==============================================================================================================
-
-//create score section
-//Points and correct answers
-//create innerHTML and add style
-
-//Create result
-//Points and time
-//innerHTML
 
 // Example usage of imported functions
 incrementScore(5); // Increment the score by 5 points
