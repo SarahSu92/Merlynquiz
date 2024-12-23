@@ -104,3 +104,34 @@ section {
 .question {
   font-size: 2rem;
 }
+/* General focus styles for all interactive elements */
+button:focus, 
+a:focus, 
+input:focus, 
+select:focus, 
+textarea:focus, 
+[tabindex]:focus {
+  outline: 2px solid #000102; /* Blue outline to indicate focus */ 
+  
+}
+
+/* Specific styles for buttons */
+button:focus {
+  background-color: #0056b3; /* Change background on focus */
+  color: #fff;              /* Ensure text is still readable */
+}
+
+/* Links */
+a:focus {
+  text-decoration: underline; /* Underline for visual indication */
+}
+
+/* Input fields */
+input:focus, 
+textarea:focus, 
+select:focus {
+  border-color: #000409; /* Change border color */
+  box-shadow: 0 0 4px #007BFF; /* Optional glow */
+}
+
+
