@@ -1,14 +1,7 @@
 import "./style.scss";
 import { restartGame } from "./restartGame";
-
-// Import questions arry and Question interface from 'questionsData'
+import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
 import { questions, Question } from "./questionsData";
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
-import { fetchQuestions } from "./fetchQuestionsData";
-
-// Import everything needed from 'result'
 import {
   // IScore,
   IResult,
@@ -17,6 +10,9 @@ import {
   displayResultContainer,
   incrementScore,
 } from "./result";
+
+// track used questions
+const usedQuestions = new Set<number>();
 
 //Function to create a generator for random questions,ensuring no repetition of previously shown questions.
 function createQuestionGenerator() {
@@ -47,6 +43,9 @@ document.body.appendChild(nextButton);
 
 // Event listener for the "Next" button
 nextButton.addEventListener("click", () => {
+  incrementClickCount();
+  console.log("Click count:", clickCount);
+
   const question = getNextQuestion(); // Fetch the next question
 
   if (question) {
@@ -84,7 +83,6 @@ questionContainer.innerHTML = `
 //add the question container to the document
 document.body.appendChild(questionContainer);
 
-
 //add event listener for function restartGame when we click the button play-again
 const playAgainButton = document.querySelector(
   ".play-again-btn",
@@ -92,20 +90,14 @@ const playAgainButton = document.querySelector(
 
 if (playAgainButton) {
   playAgainButton.addEventListener("click", () => {
-    restartGame(resetUsedQuestions, resetClickCount, resetTimer);
+    restartGame(resetUsedQuestions, resetTimer);
+    resetClickCount();
   });
 }
-
-const usedQuestions = new Set<number>();
 
 //clear all the used questions
 function resetUsedQuestions() {
   usedQuestions.clear();
-}
-
-//reset the question counter
-function resetClickCount() {
-  clickCount = 0;
 }
 
 //reset the timer
