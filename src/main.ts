@@ -1,8 +1,9 @@
 import "./main.scss";
 import { restartGame } from "./restartGame";
-import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
-import { questions, Question } from "./questionsData";
-
+//import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
+//  TODO: check if this line should be removed
+import { resetClickCount } from "./gameStatus";
+import { initializeNextQuestionButton } from "./nextQuestionButton";
 
 // Import everything needed from 'result'
 
@@ -15,59 +16,7 @@ import {
   incrementScore,
 } from "./result";
 
-// track used questions
-const usedQuestions = new Set<number>();
-
-//Function to create a generator for random questions,ensuring no repetition of previously shown questions.
-function createQuestionGenerator() {
-  const usedIndices: number[] = []; // Array to track used indices
-
-  return function getNextQuestion(): Question | null {
-    // Check if all questions are used
-    if (usedIndices.length === questions.length) {
-      return null; // Return `null` when no more questions are left
-    }
-    // Generate a unique random index
-    let randomIndex: number;
-    do {
-      randomIndex = Math.floor(Math.random() * questions.length);
-    } while (usedIndices.includes(randomIndex)); // Ensure it's not already used
-    usedIndices.push(randomIndex); // Mark this index as used
-    return questions[randomIndex]; // Return the selected random question
-  };
-}
-
-// Create an instance of the question generator
-const getNextQuestion = createQuestionGenerator();
-
-// Create "Next" button
-const nextButton = document.createElement("button");
-nextButton.textContent = "Next";
-document.body.appendChild(nextButton);
-
-// Event listener for the "Next" button
-nextButton.addEventListener("click", () => {
-  incrementClickCount();
-  console.log("Click count:", clickCount);
-
-  const question = getNextQuestion(); // Fetch the next question
-
-  if (question) {
-    document.getElementById("flag-image")?.setAttribute("src", question.flag); // Update the flag image
-    document.getElementById("option1")!.nextElementSibling!.textContent =
-      question.alternative1; // Update the first alternative
-    document.getElementById("option2")!.nextElementSibling!.textContent =
-      question.alternative2; // Update the secound alternative
-    document.getElementById("option3")!.nextElementSibling!.textContent =
-      question.alternative3; // Update the third alternative
-  } else {
-    console.log("The End! No more questions available.");
-    nextButton.disabled = true; // Disable the button to prevent further clicks
-  }
-});
-// ===============================================================================
-
-// Create the alternatives answers buttons and the play again button
+// Create the alternatives answers buttons, the play again button and the next question button
 const questionContainer = document.createElement("section");
 
 questionContainer.innerHTML = `
@@ -81,11 +30,17 @@ questionContainer.innerHTML = `
     <input type="radio" id="option3" name="quiz" />
     <label class="answer-quiz" for="option3">Alternativ 3</label>
   </div>
+    <button id="next-question-btn"class="next-question-btn">Next Question</button>
   <button class="play-again-btn">Play Again</button>
 `;
 
 //add the question container to the document
 document.body.appendChild(questionContainer);
+
+// Initialize the "Next Question" button
+initializeNextQuestionButton();
+
+const usedQuestions = new Set<number>();
 
 //add event listener for function restartGame when we click the button play-again
 const playAgainButton = document.querySelector(
@@ -108,7 +63,6 @@ function resetUsedQuestions() {
 function resetTimer() {
   console.log("Timer reset.");
 }
-
 
 // ===============================================================================
 // ===============================================================================
