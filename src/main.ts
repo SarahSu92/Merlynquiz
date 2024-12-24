@@ -3,7 +3,7 @@ import { restartGame } from "./restartGame";
 //import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
 //  TODO: check if this line should be removed
 import { resetClickCount } from "./gameStatus";
-import { initializeNextQuestionButton } from "./nextQuestionButton";
+import { initializeAutoNextQuestion } from "./nextQuestion";
 
 // Import everything needed from 'result'
 
@@ -30,15 +30,21 @@ questionContainer.innerHTML = `
     <input type="radio" id="option3" name="quiz" />
     <label class="answer-quiz" for="option3">Alternativ 3</label>
   </div>
-    <button id="next-question-btn"class="next-question-btn">Next Question</button>
   <button class="play-again-btn">Play Again</button>
 `;
 
 //add the question container to the document
 document.body.appendChild(questionContainer);
 
-// Initialize the "Next Question" button
-initializeNextQuestionButton();
+//================================================================================================
+// Get all the radio buttons for the quiz
+const radioButtons = document.querySelectorAll(
+  'input[name="quiz"]',
+) as NodeListOf<HTMLInputElement>;
+
+// Initialize the logic for showing the next question when an answer is selected
+initializeAutoNextQuestion(radioButtons);
+//================================================================================================
 
 const usedQuestions = new Set<number>();
 
