@@ -1,8 +1,8 @@
-@use "/src/scss/mobile";
+@use "scss/_mobile.scss";
 
-@use "/src/scss/tablet";
+@use "scss/tablet";
 
-@use "/src/scss/desktop.scss";
+@use "scss/desktop.scss";
 
 * {
   margin: 0;
