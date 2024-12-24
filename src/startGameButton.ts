@@ -1,4 +1,5 @@
 import { initializeAutoNextQuestion } from "./nextQuestion";
+import { getNextQuestion } from "./nextQuestion";
 
 // Function to start the game
 export function createStartGameButton(): HTMLButtonElement {
@@ -31,6 +32,15 @@ function handleStartGame(): void {
     ".question-container",
   ) as HTMLElement;
   questionContainer.style.display = "flex";
+
+  // Display the question phrase
+  const questionphrase = document.getElementById("question") as HTMLElement;
+  questionphrase.style.display = "flex";
+
+  // Display the flag image
+  const flagImage = document.querySelector(".flag") as HTMLElement;
+  flagImage.style.display = "flex";
+
   // Get the radio buttons for the quiz
   const radioButtons = document.querySelectorAll(
     'input[name="quiz"]',
@@ -38,4 +48,19 @@ function handleStartGame(): void {
 
   // Initialize the auto-next-question logic
   initializeAutoNextQuestion(radioButtons);
+
+  // Fetch and display the first question
+  const firstQuestion = getNextQuestion();
+  if (firstQuestion) {
+    // Update the flag image and alternatives with the first question
+    document
+      .getElementById("flag-image")
+      ?.setAttribute("src", firstQuestion.flag);
+    document.getElementById("option1")!.nextElementSibling!.textContent =
+      firstQuestion.alternative1;
+    document.getElementById("option2")!.nextElementSibling!.textContent =
+      firstQuestion.alternative2;
+    document.getElementById("option3")!.nextElementSibling!.textContent =
+      firstQuestion.alternative3;
+  }
 }

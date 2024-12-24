@@ -19,7 +19,7 @@ function createQuestionGenerator() {
   };
 }
 
-const getNextQuestion = createQuestionGenerator();
+export const getNextQuestion = createQuestionGenerator();
 
 // Function to show the next question and update the UI
 function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
