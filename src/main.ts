@@ -18,7 +18,7 @@ import {
 } from "./result";
 
 //================================================================================================
-// Create the alternatives answers buttons, the play again button and the next question button
+// Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
 questionContainer.classList.add("question-container");
 questionContainer.style.display = "none";
