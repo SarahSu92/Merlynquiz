@@ -61,10 +61,42 @@ function resetRadioButton(radioButton: HTMLInputElement) {
 function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
-  // Delay for 500ms before showing the next question (for smoother transition)
+  // First, add a 900ms delay before any animations start
   setTimeout(() => {
-    showNextQuestion(radioButtons);
-  }, 500);
+    // Add the fade-out class to the elements (flag and labels)
+    const flagImage = document.getElementById("flag-image");
+    const option1Label = document.querySelector('label[for="option1"]')!;
+    const option2Label = document.querySelector('label[for="option2"]')!;
+    const option3Label = document.querySelector('label[for="option3"]')!;
+
+    flagImage!.classList.add("fade-out");
+    option1Label.classList.add("fade-out");
+    option2Label.classList.add("fade-out");
+    option3Label.classList.add("fade-out");
+
+    // After 400ms (when fade-out is complete), update the question and fade-in the new question
+    setTimeout(() => {
+      showNextQuestion(radioButtons); // Update to the next question
+
+      // Add the fade-in class to the elements (flag and labels)
+      flagImage?.classList.remove("fade-out");
+      flagImage?.classList.add("fade-in");
+      option1Label.classList.remove("fade-out");
+      option1Label.classList.add("fade-in");
+      option2Label.classList.remove("fade-out");
+      option2Label.classList.add("fade-in");
+      option3Label.classList.remove("fade-out");
+      option3Label.classList.add("fade-in");
+
+      // Remove the fade-in class after the animation is complete (400ms)
+      setTimeout(() => {
+        flagImage?.classList.remove("fade-in");
+        option1Label.classList.remove("fade-in");
+        option2Label.classList.remove("fade-in");
+        option3Label.classList.remove("fade-in");
+      }, 400);
+    }, 400); // Wait for fade-out animation (400ms) before fading in the new question
+  }, 900); // Wait for the initial 900ms delay before starting the fade-out
 }
 
 // Function to initialize the logic for automatically showing the next question
