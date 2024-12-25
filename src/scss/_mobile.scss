@@ -41,21 +41,26 @@
   }
 }
 
+.result {
+  position: absolute;
+  top: 50vh;
+  left: 0;
+}
 .timer {
   justify-content: center;
   text-align: center;
   display: flex;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
+  margin: 20px auto 20px auto;
   width: 20vw;
-  margin-top: 60px;
   border-radius: 10px;
+  backdrop-filter: blur(20px);
+  font-size: 1.5rem;
 }
 
 .start-game-btn,
 .play-again-btn {
   display: block;
-  margin-bottom: 10px;
   padding: 8px;
   font-size: 1rem;
   max-width: 200px;
@@ -80,6 +85,10 @@
     transform: scale(0.95);
   }
 }
+.play-again-btn {
+  position: absolute;
+  left: 0;
+}
 
 .start-game-btn {
   margin: auto;
@@ -88,6 +97,7 @@
 .question {
   font-size: 2rem;
   display: none;
+  margin-bottom: 20px;
 }
 .flag {
   display: none;
@@ -125,4 +135,32 @@ select:focus {
   /* Change border color */
   box-shadow: 0 0 4px #007bff;
   /* Optional glow */
+}
+
+/* Fade out animation */
+.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

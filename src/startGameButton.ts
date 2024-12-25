@@ -7,6 +7,7 @@ export function createStartGameButton(): HTMLButtonElement {
   startGameButton.id = "start-game-btn";
   startGameButton.textContent = "Start Game";
   startGameButton.classList.add("start-game-btn");
+  startGameButton.ariaLabel = "Start Game";
 
   // Event listener for the "Start Game" button
   startGameButton.addEventListener("click", handleStartGame);
@@ -25,6 +26,9 @@ function handleStartGame(): void {
   if (startGameButton) {
     startGameButton.style.display = "none";
   }
+  // Hide welcome message
+  const welcomMessage = document.getElementById("welcome") as HTMLElement;
+  welcomMessage.style.display = "none";
 
   // Display the question container and radio buttons
   const questionContainer = document.querySelector(
