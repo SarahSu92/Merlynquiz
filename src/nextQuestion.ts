@@ -4,10 +4,11 @@ import { Question, questions } from "./questionsData";
 // Function to create a generator for random questions
 function createQuestionGenerator() {
   const usedIndices: number[] = [];
+  const maxQuestions = 10; // Limit to 10 questions
 
   // Function that returns the next random question or null if all questions are used
   return function getNextQuestion(): Question | null {
-    if (usedIndices.length === questions.length) {
+    if (usedIndices.length === maxQuestions) {
       return null; // No more questions
     }
     let randomIndex: number;

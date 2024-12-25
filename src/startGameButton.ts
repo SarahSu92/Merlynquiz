@@ -1,4 +1,3 @@
-import { initializeAutoNextQuestion } from "./nextQuestion";
 import { getNextQuestion } from "./nextQuestion";
 
 // Function to start the game
@@ -40,14 +39,6 @@ function handleStartGame(): void {
   // Display the flag image
   const flagImage = document.querySelector(".flag") as HTMLElement;
   flagImage.style.display = "flex";
-
-  // Get the radio buttons for the quiz
-  const radioButtons = document.querySelectorAll(
-    'input[name="quiz"]',
-  ) as NodeListOf<HTMLInputElement>;
-
-  // Initialize the auto-next-question logic
-  initializeAutoNextQuestion(radioButtons);
 
   // Fetch and display the first question
   const firstQuestion = getNextQuestion();
