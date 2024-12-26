@@ -61,10 +61,41 @@ function resetRadioButton(radioButton: HTMLInputElement) {
 function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
-  // Delay for 500ms before showing the next question (for smoother transition)
   setTimeout(() => {
-    showNextQuestion(radioButtons);
-  }, 500);
+    // Add the fade-out class to the current question elements
+    const flagImage = document.getElementById("flag-image");
+    const option1Label = document.querySelector('label[for="option1"]')!;
+    const option2Label = document.querySelector('label[for="option2"]')!;
+    const option3Label = document.querySelector('label[for="option3"]')!;
+
+    flagImage?.classList.add("fade-out");
+    option1Label.classList.add("fade-out");
+    option2Label.classList.add("fade-out");
+    option3Label.classList.add("fade-out");
+
+    setTimeout(() => {
+      // Show the next question
+      showNextQuestion(radioButtons);
+
+      // Add fade-in class for the new question elements
+      flagImage?.classList.remove("fade-out");
+      flagImage?.classList.add("fade-in");
+      option1Label.classList.remove("fade-out");
+      option1Label.classList.add("fade-in");
+      option2Label.classList.remove("fade-out");
+      option2Label.classList.add("fade-in");
+      option3Label.classList.remove("fade-out");
+      option3Label.classList.add("fade-in");
+
+      setTimeout(() => {
+        // Cleanup the fade-in class
+        flagImage?.classList.remove("fade-in");
+        option1Label.classList.remove("fade-in");
+        option2Label.classList.remove("fade-in");
+        option3Label.classList.remove("fade-in");
+      }, 400); // Match the fade-in duration
+    }, 400); // Match the fade-out duration
+  }, 900); // Wait for initial delay before fade-out
 }
 
 // Function to initialize the logic for automatically showing the next question

@@ -1,10 +1,9 @@
 .answer-container {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-
   .answer-quiz {
     display: block;
     margin-bottom: 18px;
@@ -41,21 +40,79 @@
   }
 }
 
+.result {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 100px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.score {
+  display: none;
+  position: relative;
+  top: 30px;
+}
 .timer {
   justify-content: center;
   text-align: center;
   display: flex;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
+  margin: auto;
+  position: relative;
+  top: 20px;
   width: 20vw;
-  margin-top: 60px;
   border-radius: 10px;
+  backdrop-filter: blur(20px);
+  font-size: 1.5rem;
+  display: none;
 }
 
-.start-game-btn,
+.welcome {
+  position: relative;
+  top: 40vh;
+  margin: auto;
+  width: 100vw;
+  background-color: #f6b8f5;
+}
+
 .play-again-btn {
   display: block;
-  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 1rem;
+  max-width: 200px;
+  width: 150px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #14e014;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin: auto;
+  position: relative;
+  top: -70px;
+  display: none;
+  &:hover {
+    background-color: #097a34;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    background-color: #003f7f;
+    transform: scale(0.95);
+  }
+}
+.start-game-btn {
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 50%;
   padding: 8px;
   font-size: 1rem;
   max-width: 200px;
@@ -81,13 +138,10 @@
   }
 }
 
-.start-game-btn {
-  margin: auto;
-}
-
 .question {
   font-size: 2rem;
   display: none;
+  margin: 70px 0 20px 0;
 }
 .flag {
   display: none;
@@ -125,4 +179,32 @@ select:focus {
   /* Change border color */
   box-shadow: 0 0 4px #007bff;
   /* Optional glow */
+}
+
+/* Fade out animation */
+.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

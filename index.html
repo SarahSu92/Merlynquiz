@@ -18,10 +18,7 @@
       content="Marlyn Quiz, flag quiz, quiz game, guess the flag, trivia, geography game"
     />
     <!-- Author -->
-    <meta
-      name="author"
-      content="Omar Alawi. Sarah Sundberg. Yaman Ghannoum. Antonina Dulama. Yuliia Ponomarenko"
-    />
+    <meta name="author" content="Marlyn Group, Marlyn's Quiz Game," />
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="Marlyn Quiz - Guess the Flag!" />
     <meta property="og:type" content="website" />
@@ -70,16 +67,18 @@
 
   <body>
     <header>
-      <section class="timer" id="timer">Timer</section>
-      <h1>Welcome to The Marlyn Quiz Game!</h1>
+      <section class="timer" id="timer">00:00</section>
+      <h1 id="welcome" class="welcome">Welcome to The Marlyn Quiz Game!</h1>
     </header>
 
     <main>
       <section class="score" id="score">Score</section>
       <section class="result" id="result">Result</section>
-      <section class="flag"><img id="flag-image" src="" alt="flag" /></section>
       <section class="question" id="question">
         Which country's flag is this?
+      </section>
+      <section class="flag">
+        <img id="flag-image" alt="flag image" />
       </section>
     </main>
 
@@ -87,4 +86,5 @@
 
     <script type="module" src="src/main.ts"></script>
   </body>
+   
 </html>
