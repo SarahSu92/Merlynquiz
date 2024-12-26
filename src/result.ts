@@ -42,7 +42,6 @@ export function displayResultContainer(result: IResult): void {
         <p><strong>Correct Answers:</strong> ${result.correctAnswers}</p>
         <p><strong>Time Taken:</strong> ${result.time} seconds</p>
       `;
-    resultContainer.style.display = "block";
   } else {
     console.error("Result container not found");
   }
