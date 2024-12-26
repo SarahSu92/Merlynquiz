@@ -19,69 +19,34 @@ export function createStartGameButton(): HTMLButtonElement {
 function handleStartGame(): void {
   console.log("Game started!");
 
-  // Fade out the "Start Game" button and welcome message
+  // Elements to animate
   const startGameButton = document.getElementById(
     "start-game-btn",
   ) as HTMLButtonElement;
   const welcomeMessage = document.getElementById("welcome") as HTMLElement;
+  const questionContainer = document.querySelector(
+    ".question-container",
+  ) as HTMLElement;
+  const questionPhrase = document.getElementById("question") as HTMLElement;
+  const flagImage = document.querySelector(".flag") as HTMLElement;
+  const timer = document.getElementById("timer") as HTMLElement;
+  const score = document.getElementById("score") as HTMLElement;
 
-  startGameButton.classList.add("fade-out");
-  welcomeMessage.classList.add("fade-out");
+  // Add fade-out animation to the Start Game button and welcome message
+  startGameButton?.classList.add("fade-out");
+  welcomeMessage?.classList.add("fade-out");
 
-  // Wait 400ms before hiding elements and showing the next content
+  // After fade-out completes, hide the Start Game button and welcome message
   setTimeout(() => {
-    // Hide the "Start Game" button and welcome message
     startGameButton.style.display = "none";
     welcomeMessage.style.display = "none";
 
-    // Display the question container and radio buttons
-    const questionContainer = document.querySelector(
-      ".question-container",
-    ) as HTMLElement;
-    questionContainer.style.display = "flex";
-
-    // Display the question phrase and flag image (Initially set them to display: none)
-    const questionPhrase = document.getElementById("question") as HTMLElement;
-    const flagImage = document.querySelector(".flag") as HTMLElement;
-    const option1Label = document.querySelector(
-      'label[for="option1"]',
-    ) as HTMLElement;
-    const option2Label = document.querySelector(
-      'label[for="option2"]',
-    ) as HTMLElement;
-    const option3Label = document.querySelector(
-      'label[for="option3"]',
-    ) as HTMLElement;
-    const timer = document.getElementById("timer") as HTMLElement; // Timer element
-    const score = document.getElementById("score") as HTMLElement; // Score element
-
-    // Ensure these elements are set to visible before applying the fade-in class
-    questionPhrase.style.display = "flex";
-    flagImage.style.display = "flex";
-    option1Label.style.display = "flex";
-    option2Label.style.display = "flex";
-    option3Label.style.display = "flex";
-    timer.style.display = "flex";
-    score.style.display = "flex";
-
-    // Add fade-in class to the question phrase, flag image, and labels
-    questionPhrase.classList.add("fade-in");
-    flagImage.classList.add("fade-in");
-    option1Label.classList.add("fade-in");
-    option2Label.classList.add("fade-in");
-    option3Label.classList.add("fade-in");
-    timer.classList.add("fade-in");
-    score.classList.add("fade-in");
-
-    // Fetch and display the first question
+    // Update the first question
     const firstQuestion = getNextQuestion();
     if (firstQuestion) {
-      // Update the flag image and alternatives with the first question
-      const flagImageElement = document.getElementById(
-        "flag-image",
-      ) as HTMLImageElement;
-      flagImageElement.setAttribute("src", firstQuestion.flag);
-
+      document
+        .getElementById("flag-image")
+        ?.setAttribute("src", firstQuestion.flag);
       document.getElementById("option1")!.nextElementSibling!.textContent =
         firstQuestion.alternative1;
       document.getElementById("option2")!.nextElementSibling!.textContent =
@@ -89,5 +54,26 @@ function handleStartGame(): void {
       document.getElementById("option3")!.nextElementSibling!.textContent =
         firstQuestion.alternative3;
     }
-  }, 400); // Wait for the fade-out animation to complete before showing next elements
+
+    // Fade in the question, flag and alternatives.
+    questionContainer.style.display = "flex";
+    questionPhrase.style.display = "flex";
+    flagImage.style.display = "flex";
+    timer.style.display = "flex";
+    score.style.display = "flex";
+
+    questionContainer.classList.add("fade-in");
+    questionPhrase.classList.add("fade-in");
+    flagImage.classList.add("fade-in");
+    timer.classList.add("fade-in");
+    score.classList.add("fade-in");
+
+    // Ensure all elements are ready for the next fade-out after fade-in completes
+    setTimeout(() => {
+      questionContainer.classList.remove("fade-in");
+      questionPhrase.classList.remove("fade-in");
+      flagImage.classList.remove("fade-in");
+      timer.classList.remove("fade-in");
+    }, 400); // Match the fade-in duration
+  }, 400); // Match the fade-out duration
 }
