@@ -1,4 +1,4 @@
-import { getNextQuestion } from "./nextQuestion";
+import { getNextQuestion } from "./nextQuestionLogic";
 
 // Function to start the game
 export function createStartGameButton(): HTMLButtonElement {

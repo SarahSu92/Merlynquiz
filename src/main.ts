@@ -3,9 +3,9 @@ import { restartGame } from "./restartGame";
 //import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
 //  TODO: check if this line should be removed
 import { resetClickCount } from "./gameStatus";
-import { createStartGameButton } from "./startGameButton";
+import { createStartGameButton } from "./startGameButton&Logic";
 
-import { initializeAutoNextQuestion } from "./nextQuestion";
+import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 
 // Import everything needed from 'result' module
 import {
