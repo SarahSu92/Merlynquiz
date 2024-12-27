@@ -6,16 +6,9 @@ import { resetClickCount } from "./gameStatus";
 import { createStartGameButton } from "./startGameButton&Logic";
 
 import { initializeAutoNextQuestion } from "./nextQuestionLogic";
+import { updateScoreContainer } from "./result";
+import { setupLabelKeyboardEvents } from "./a11y";
 
-// Import everything needed from 'result' module
-import {
-  // IScore, //  TODO: check if this line should be removed
-  IResult,
-  score,
-  updateScoreContainer,
-  displayResultContainer,
-  incrementScore,
-} from "./result";
 
 //================================================================================================
 // Create the alternatives answers buttons and the play again button
@@ -24,14 +17,14 @@ questionContainer.classList.add("question-container");
 questionContainer.style.display = "none";
 questionContainer.innerHTML = `
   <div class="answer-container">
-    <input type="radio" id="option1" name="quiz" />
-    <label class="answer-quiz" for="option1">Alternativ 1</label>
+    <input type="radio" id="option1" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option1" tabindex="0">Alternativ 1</label>
 
-    <input type="radio" id="option2" name="quiz" />
-    <label class="answer-quiz" for="option2">Alternativ 2</label>
+    <input type="radio" id="option2" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option2" tabindex="0">Alternativ 2</label>
 
-    <input type="radio" id="option3" name="quiz" />
-    <label class="answer-quiz" for="option3">Alternativ 3</label>
+    <input type="radio" id="option3" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option3" tabindex="0" >Alternativ 3</label>
   </div>
   <button class="play-again-btn">Play Again</button>
 `;
@@ -101,16 +94,13 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 
-// Example usage of imported functions
-incrementScore(5); // Increment the score by 5 points
 
-// Display the quiz result
-const result: IResult = {
-  points: score.points,
-  correctAnswers: score.correctAnswers,
-  time: 120, // Assume 120 seconds as time taken
-};
-displayResultContainer(result);
+  // After the quiz is finished, update the result container
+  updateScoreContainer();
+  // Call the function to set up label keyboard events
+  setupLabelKeyboardEvents();
+  
 
-// Update the score container manually (if needed)
-updateScoreContainer();
+  
+
+

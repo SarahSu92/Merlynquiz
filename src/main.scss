@@ -15,6 +15,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-color: rgb(176, 103, 245);
   height: 100vh;
 }
 
@@ -29,3 +30,11 @@ h1 {
   text-align: center;
   padding: 20px;
 }
+
+/* Universal focus style */
+*:focus {
+  outline: 2px solid red; /* Visible focus ring */
+}
+
+
+
