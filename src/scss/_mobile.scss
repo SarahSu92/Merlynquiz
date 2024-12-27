@@ -76,7 +76,10 @@
   top: 40vh;
   margin: auto;
   width: 100vw;
-  background-color: #f6b8f5;
+  // background-color: #f2d6d6;
+  // color: #984197;
+  background-color: #ed9dec;
+  color: #fff;
 }
 
 .play-again-btn {
@@ -183,7 +186,7 @@ select:focus {
 
 /* Fade out animation */
 .fade-out {
-  animation: fadeOut 0.4s forwards;
+  animation: fadeOut 0.3s forwards;
 }
 
 @keyframes fadeOut {
@@ -197,7 +200,7 @@ select:focus {
 
 /* Fade in animation */
 .fade-in {
-  animation: fadeIn 0.4s forwards;
+  animation: fadeIn 0.3s forwards;
 }
 
 @keyframes fadeIn {
@@ -207,4 +210,19 @@ select:focus {
   to {
     opacity: 1;
   }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"); // Example digital font (or use Digital-7)
+
+.timer {
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 0 10px #006aff,
+    0 0 20px #9d61de;
+}
+
+.flag-image {
+  box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
 }

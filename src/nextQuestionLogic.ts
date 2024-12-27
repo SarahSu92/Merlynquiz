@@ -93,9 +93,9 @@ function handleRadioButtonChange(
         option1Label.classList.remove("fade-in");
         option2Label.classList.remove("fade-in");
         option3Label.classList.remove("fade-in");
-      }, 400); // Match the fade-in duration
-    }, 400); // Match the fade-out duration
-  }, 900); // Wait for initial delay before fade-out
+      }, 300); // Match the fade-in duration
+    }, 300); // Match the fade-out duration
+  }, 800); // Wait for initial delay before fade-out
 }
 
 // Function to initialize the logic for automatically showing the next question
