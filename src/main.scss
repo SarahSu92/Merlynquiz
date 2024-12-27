@@ -31,3 +31,10 @@ h1 {
   padding: 20px;
 }
 
+/* Universal focus style */
+*:focus {
+  outline: 2px solid red; /* Visible focus ring */
+}
+
+
+
