@@ -74,6 +74,6 @@ function handleStartGame(): void {
       questionPhrase.classList.remove("fade-in");
       flagImage.classList.remove("fade-in");
       timer.classList.remove("fade-in");
-    }, 400); // Match the fade-in duration
-  }, 400); // Match the fade-out duration
+    }, 300); // Match the fade-in duration
+  }, 300); // Match the fade-out duration
 }
