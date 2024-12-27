@@ -7,7 +7,7 @@ import { createStartGameButton } from "./startGameButton&Logic";
 
 import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 
-import { score, updateScoreContainer } from "./result";
+import { updateScoreContainer } from "./result";
 
 //================================================================================================
 // Create the alternatives answers buttons and the play again button
@@ -93,13 +93,8 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 
-// Update the `score` object with actual values
-score.points = 75;
-score.correctAnswers = 7;
-score.time = 150; // Example values in seconds
 
-// Call the function to display the result on the page
-updateScoreContainer();
-
+  // After the quiz is finished, update the result container
+  updateScoreContainer();
 
 
