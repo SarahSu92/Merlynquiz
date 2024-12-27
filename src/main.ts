@@ -101,9 +101,6 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 
-// Example usage of imported functions
-incrementScore(5); // Increment the score by 5 points
-
 // Display the quiz result
 const result: IResult = {
   points: score.points,
