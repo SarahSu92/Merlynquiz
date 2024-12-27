@@ -8,13 +8,9 @@ import { createStartGameButton } from "./startGameButton&Logic";
 import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 
 // Import everything needed from 'result' module
-import {
-  // IScore, //  TODO: check if this line should be removed
+import {  
   IResult,
-  score,
-  updateScoreContainer,
-  displayResultContainer,
-  incrementScore,
+  displayResultContainer,  
 } from "./result";
 
 //================================================================================================
@@ -102,12 +98,11 @@ function getNextQuestion() {
 // ===============================================================================
 
 // Display the quiz result
-const result: IResult = {
-  points: score.points,
-  correctAnswers: score.correctAnswers,
+const quizResult: IResult = {
+  points: result.points,
+  correctAnswers: result.correctAnswers,
   time: 120, // Assume 120 seconds as time taken
 };
-displayResultContainer(result);
+displayResultContainer(quizResult);
 
-// Update the score container manually (if needed)
-updateScoreContainer();
+
