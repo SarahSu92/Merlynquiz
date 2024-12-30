@@ -1,78 +1,30 @@
 import "./main.scss";
 import { restartGame } from "./restartGame";
+//import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
+//  TODO: check if this line should be removed
+import { resetClickCount } from "./gameStatus";
+import { createStartGameButton } from "./startGameButton&Logic";
 
-// Import questions arry and Question interface from 'questionsData'
-import { questions, Question } from "./questionsData";
+import { initializeAutoNextQuestion } from "./nextQuestionLogic";
+import { updateScoreContainer } from "./result";
+import { setupLabelKeyboardEvents } from "./a11y";
 
-// Import everything needed from 'result'
-import {
-  // IScore,
-  IResult,
-  score,
-  updateScoreContainer,
-  displayResultContainer,
-  incrementScore,
-} from "./result";
 
-//Function to create a generator for random questions,ensuring no repetition of previously shown questions.
-function createQuestionGenerator() {
-  const usedIndices: number[] = []; // Array to track used indices
-
-  return function getNextQuestion(): Question | null {
-    // Check if all questions are used
-    if (usedIndices.length === questions.length) {
-      return null; // Return `null` when no more questions are left
-    }
-    // Generate a unique random index
-    let randomIndex: number;
-    do {
-      randomIndex = Math.floor(Math.random() * questions.length);
-    } while (usedIndices.includes(randomIndex)); // Ensure it's not already used
-    usedIndices.push(randomIndex); // Mark this index as used
-    return questions[randomIndex]; // Return the selected random question
-  };
-}
-
-// Create an instance of the question generator
-const getNextQuestion = createQuestionGenerator();
-
-// Create "Next" button
-const nextButton = document.createElement("button");
-nextButton.textContent = "Next";
-document.body.appendChild(nextButton);
-
-// Event listener for the "Next" button
-nextButton.addEventListener("click", () => {
-  const question = getNextQuestion(); // Fetch the next question
-
-  if (question) {
-    document.getElementById("flag-image")?.setAttribute("src", question.flag); // Update the flag image
-    document.getElementById("option1")!.nextElementSibling!.textContent =
-      question.alternative1; // Update the first alternative
-    document.getElementById("option2")!.nextElementSibling!.textContent =
-      question.alternative2; // Update the secound alternative
-    document.getElementById("option3")!.nextElementSibling!.textContent =
-      question.alternative3; // Update the third alternative
-  } else {
-    console.log("The End! No more questions available.");
-    nextButton.disabled = true; // Disable the button to prevent further clicks
-  }
-});
-// ===============================================================================
-
+//================================================================================================
 // Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
-
+questionContainer.classList.add("question-container");
+questionContainer.style.display = "none";
 questionContainer.innerHTML = `
   <div class="answer-container">
-    <input type="radio" id="option1" name="quiz" />
-    <label class="answer-quiz" for="option1">Alternativ 1</label>
+    <input type="radio" id="option1" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option1" tabindex="0">Alternativ 1</label>
 
-    <input type="radio" id="option2" name="quiz" />
-    <label class="answer-quiz" for="option2">Alternativ 2</label>
+    <input type="radio" id="option2" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option2" tabindex="0">Alternativ 2</label>
 
-    <input type="radio" id="option3" name="quiz" />
-    <label class="answer-quiz" for="option3">Alternativ 3</label>
+    <input type="radio" id="option3" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option3" tabindex="0" >Alternativ 3</label>
   </div>
   <button class="play-again-btn">Play Again</button>
 `;
@@ -80,6 +32,20 @@ questionContainer.innerHTML = `
 //add the question container to the document
 document.body.appendChild(questionContainer);
 
+// Get all the radio buttons for the quiz
+const radioButtons = document.querySelectorAll(
+  'input[name="quiz"]',
+) as NodeListOf<HTMLInputElement>;
+// Initialize the logic for showing the next question when an answer is selected
+initializeAutoNextQuestion(radioButtons);
+
+//================================================================================================
+// Add the "Start Game" button to the document
+const startGameButton = createStartGameButton();
+document.body.appendChild(startGameButton);
+
+//================================================================================================
+const usedQuestions = new Set<number>();
 
 //add event listener for function restartGame when we click the button play-again
 const playAgainButton = document.querySelector(
@@ -88,27 +54,20 @@ const playAgainButton = document.querySelector(
 
 if (playAgainButton) {
   playAgainButton.addEventListener("click", () => {
-    restartGame(resetUsedQuestions, resetClickCount, resetTimer);
+    restartGame(resetUsedQuestions, resetTimer);
+    resetClickCount();
   });
 }
-
-const usedQuestions = new Set<number>();
 
 //clear all the used questions
 function resetUsedQuestions() {
   usedQuestions.clear();
 }
 
-//reset the question counter
-function resetClickCount() {
-  clickCount = 0;
-}
-
 //reset the timer
 function resetTimer() {
   console.log("Timer reset.");
 }
-
 
 // ===============================================================================
 // ===============================================================================
@@ -135,16 +94,16 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 
-// Example usage of imported functions
-incrementScore(5); // Increment the score by 5 points
 
-// Display the quiz result
-const result: IResult = {
-  points: score.points,
-  correctAnswers: score.correctAnswers,
-  time: 120, // Assume 120 seconds as time taken
-};
-displayResultContainer(result);
+  // After the quiz is finished, update the result container
+  updateScoreContainer();
+  // Call the function to set up label keyboard events
+  setupLabelKeyboardEvents();
+  
+
+  
+
+
 
 // Update the score container manually (if needed)
 updateScoreContainer();

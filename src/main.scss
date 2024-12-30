@@ -1,8 +1,8 @@
-@use "/src/scss/mobile";
+@use "scss/_mobile.scss";
 
-@use "/src/scss/tablet";
+@use "scss/tablet";
 
-@use "/src/scss/desktop.scss";
+@use "scss/desktop.scss";
 
 * {
   margin: 0;
@@ -15,6 +15,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-color: rgb(176, 103, 245);
   height: 100vh;
   font-family: Arial, sans-serif;
 }
@@ -30,6 +31,7 @@ h1 {
   text-align: center;
   padding: 20px;
 }
+
 
 main {
   text-align: center;
@@ -95,3 +97,9 @@ main {
   color: #aaa;
   /* Ljusare text */
 }
+
+/* Universal focus style */
+*:focus {
+  outline: 2px solid red; /* Visible focus ring */
+}
+

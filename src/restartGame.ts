@@ -1,9 +1,9 @@
 import { score, updateScoreContainer } from "./result";
+import { resetClickCount } from "./gameStatus";
 
 // function restar the game quiz
 export function restartGame(
   resetUsedQuestions: () => void,
-  resetClickCount: () => void,
   resetTimer: () => void,
 ): void {
   score.points = 0;
