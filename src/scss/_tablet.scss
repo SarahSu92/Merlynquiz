@@ -16,4 +16,25 @@
   .timer {
     width: 10vw;
   }
+
+  .footer {
+    flex-direction: column;
+    /* Lägg innehållet i kolumn */
+    align-items: center;
+    /* Centrera allt */
+    padding: 10px;
+  }
+
+  .progress-bar {
+    width: 80%;
+    /* Minska bredden något */
+    height: 20px;
+    /* Standardhöjd för tablets */
+    margin-right: 10px;
+  }
+
+  .footer-content {
+    align-items: center;
+    /* Centrera text */
+  }
 }

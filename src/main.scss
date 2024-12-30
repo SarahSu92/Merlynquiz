@@ -17,6 +17,7 @@ body {
   background-position: center;
   background-color: rgb(176, 103, 245);
   height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 section {
@@ -31,10 +32,74 @@ h1 {
   padding: 20px;
 }
 
+
+main {
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.progress-bar {
+  position: relative;
+  width: 60%;
+  /* Standard för desktop */
+  height: 20px;
+  background-color: yellow;
+  /* Bakgrund är gul */
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  /* Börjar med 0% */
+  background-color: green;
+  transition: width 0.3s ease;
+}
+
+.progress-icon {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  z-index: 10;
+  /* Se till att ikonen ligger över progress-elementet */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  /* Förberett för responsivitet */
+  align-items: flex-end;
+}
+
+.question-counter {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #aaa;
+  /* Ljusare text */
+}
+
 /* Universal focus style */
 *:focus {
   outline: 2px solid red; /* Visible focus ring */
 }
-
-
 
