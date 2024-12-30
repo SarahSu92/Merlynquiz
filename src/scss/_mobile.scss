@@ -1,40 +1,10 @@
 .answer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-
-    .answer-quiz {
-        display: block;
-        margin-bottom: 18px;
-        padding: 12px;
-        font-size: 14px;
-        max-width: 300px;
-        width: 200px;
-        font-weight: bold;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #f0f0f0;
-        color: #000;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: translateY(-2px);
-            background-color: #ccc9c9;
-        }
-
-        &:active {
-            transform: scale(0.95);
-        }
-
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+
   .answer-quiz {
     display: block;
     margin-bottom: 18px;
@@ -59,19 +29,48 @@
     &:active {
       transform: scale(0.95);
     }
-  }
 
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .answer-quiz {
+      display: block;
+      margin-bottom: 18px;
+      padding: 12px;
+      font-size: 14px;
+      max-width: 300px;
+      width: 200px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      color: #000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        background-color: #ccc9c9;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
 
     input[type="radio"] {
-        display: none;
+      display: none;
     }
 
-    input[type="radio"]:checked+.answer-quiz {
-        background-color: #ccc9c9;
+    input[type="radio"]:checked + .answer-quiz {
+      background-color: #ccc9c9;
     }
-}
+  }
 
-.timer {
+  .timer {
     justify-content: center;
     text-align: center;
     display: flex;
@@ -80,35 +79,42 @@
     width: 20vw;
     margin-top: 60px;
     border-radius: 10px;
+    position: relative;
+    top: 20px;
+    width: 20vw;
+    backdrop-filter: blur(20px);
+    font-size: 1.5rem;
+    display: none;
+  }
 }
 
 .play-again-btn {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 18px;
-    padding: 8px;
-    font-size: 14px;
-    max-width: 200px;
-    width: 150px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #14e014;
-    color: #fff;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  padding: 8px;
+  font-size: 14px;
+  max-width: 200px;
+  width: 150px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #14e014;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 
-    &:hover {
-        background-color: #097a34;
-        transform: scale(1.05);
-    }
+  &:hover {
+    background-color: #097a34;
+    transform: scale(1.05);
+  }
 
-    &:active {
-        background-color: #003f7f;
-        transform: scale(0.95);
-    }
+  &:active {
+    background-color: #003f7f;
+    transform: scale(0.95);
+  }
 }
 
 /* General focus styles for all interactive elements */
@@ -118,70 +124,66 @@ input:focus,
 select:focus,
 textarea:focus,
 [tabindex]:focus {
-    outline: 2px solid #000102;
-    /* Blue outline to indicate focus */
-
+  outline: 2px solid #000102;
+  /* Blue outline to indicate focus */
 }
 
 /* Specific styles for buttons */
 button:focus {
-    background-color: #0056b3;
-    /* Change background on focus */
-    color: #fff;
-    /* Ensure text is still readable */
+  background-color: #0056b3;
+  /* Change background on focus */
+  color: #fff;
+  /* Ensure text is still readable */
 }
 
 /* Links */
 a:focus {
-    text-decoration: underline;
-    /* Underline for visual indication */
+  text-decoration: underline;
+  /* Underline for visual indication */
 }
 
 /* Input fields */
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: #000409;
-    /* Change border color */
-    box-shadow: 0 0 4px #007BFF;
-    /* Optional glow */
+  border-color: #000409;
+  /* Change border color */
+  box-shadow: 0 0 4px #007bff;
+  /* Optional glow */
 }
 
 .footer {
-    flex-direction: column;
-    /* Vertikal layout */
-    align-items: center;
-    padding: 5px;
+  flex-direction: column;
+  /* Vertikal layout */
+  align-items: center;
+  padding: 5px;
 }
 
 .progress-bar {
-    width: 100%;
-    /* Progress-baren fyller hela bredden */
-    height: 25px;
-    /* Öka höjden för bättre synlighet */
-    margin-right: 0;
+  width: 100%;
+  /* Progress-baren fyller hela bredden */
+  height: 25px;
+  /* Öka höjden för bättre synlighet */
+  margin-right: 0;
 }
 
-
-
 .question-counter {
-    font-size: 12px;
-    /* Mindre textstorlek */
+  font-size: 12px;
+  /* Mindre textstorlek */
 }
 
 .copyright {
-    font-size: 10px;
-    /* Anpassad textstorlek */
+  font-size: 10px;
+  /* Anpassad textstorlek */
 }
 
-  input[type="radio"] {
-    display: none;
-  }
+input[type="radio"] {
+  display: none;
+}
 
-  input[type="radio"]:checked + .answer-quiz {
-    background-color: #5bb92b;
-    color: #fff;
-  }
+input[type="radio"]:checked + .answer-quiz {
+  background-color: #5bb92b;
+  color: #fff;
 }
 
 .result {
@@ -284,10 +286,6 @@ select:focus {
   display: none;
   margin: 70px 0 20px 0;
 }
-.flag {
-  display: none;
-}
-
 
 /* Fade out animation */
 .fade-out {
@@ -328,7 +326,15 @@ select:focus {
     0 0 20px #9d61de;
 }
 
-.flag-image {
-  box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
-}
+.flag {
+  display: none;
 
+  .flag-image {
+    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
+  }
+}
+.score {
+  display: none;
+  position: relative;
+  top: 40px;
+}
