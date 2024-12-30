@@ -1,103 +1,73 @@
-import "./style.scss";
+import "./main.scss";
+import { restartGame } from "./restartGame";
+//import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
+//  TODO: check if this line should be removed
+import { resetClickCount } from "./gameStatus";
+import { createStartGameButton } from "./startGameButton&Logic";
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// Import "fetchQuestions" function from "fetchQuestionsData.ts" file.
-import { fetchQuestions } from "./fetchQuestionsData";
-// Import everything needed from 'result'
-import {
-  IScore,
-  IResult,
-  score,
-  updateScoreContainer,
-  displayResultContainer,
-  incrementScore,
-} from './result';
+import { initializeAutoNextQuestion } from "./nextQuestionLogic";
+import { updateScoreContainer } from "./result";
+import { setupLabelKeyboardEvents } from "./a11y";
 
-// Get the questions data
-const questions = fetchQuestions();
-
-// Loop through the questions array and log the data in the console
-questions.forEach((question) => {
-  console.log(
-    `Country: ${question.name}`,
-    `Flag Image: ${question.flag}`,
-    `Alternatives: ${question.alternative1}, ${question.alternative2}, ${question.alternative3}`,
-  );
-});
-
-/*
-  Function to get a random question from the available questions,
-  ensuring no repetition of previously shown questions.
- */
-function getRandomQuestion() {
-  const usedQuestions: Set<number> = new Set();
-  const remainingQuestions = questions.filter(
-    (_, index) => !usedQuestions.has(index),
-  );
-
-  // Pick a random question from the remaining questions
-  const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
-  const randomQuestion = remainingQuestions[randomIndex];
-
-  // Mark the selected question as used by adding its index to the 'usedQuestions' set
-  usedQuestions.add(questions.indexOf(randomQuestion));
-
-  // Log the data of the randomly selected question to the console
-  console.log(
-    `-Country: ${randomQuestion.name}`,
-    `-Flag Image: ${randomQuestion.flag}`,
-    `-Alternatives: ${randomQuestion.alternative1}, ${randomQuestion.alternative2}, ${randomQuestion.alternative3}`,
-  );
-}
-
-// Create "Next" button (Temporary button)
-const nextButton = document.createElement("button");
-nextButton.textContent = "Next";
-document.body.appendChild(nextButton);
-
-// Variable to count how many times the "Next" button has been clicked
-let clickCount = 0;
-
-// Event listener for the "Next" button
-nextButton.addEventListener("click", () => {
-  clickCount++;
-  // If the click count is 10 or less, show a new random question
-  if (clickCount <= 10) {
-    getRandomQuestion();
-  }
-  // If the click count exceeds 10, log "The End" and stop further clicks
-  else if (clickCount === 11) {
-    console.log("The End");
-  }
-});
-////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================
+// Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
-
+questionContainer.classList.add("question-container");
+questionContainer.style.display = "none";
 questionContainer.innerHTML = `
   <div class="answer-container">
-        <label class="answer-quiz">
-          <input type="radio" id="option1" name="quiz" /> Alternativ 1
-        </label>
-        <label class="answer-quiz">
-          <input type="radio" id="option2" name="quiz" /> Alternativ 2
-        </label>
-        <label class="answer-quiz">
-          <input type="radio" id="option3" name="quiz" /> Alternativ 3
-        </label>
-      </div>
-      <button class="play-again-btn">Play Again</button>
+    <input type="radio" id="option1" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option1" tabindex="0">Alternativ 1</label>
 
+    <input type="radio" id="option2" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option2" tabindex="0">Alternativ 2</label>
+
+    <input type="radio" id="option3" name="quiz" tabindex="0" />
+    <label class="answer-quiz" for="option3" tabindex="0" >Alternativ 3</label>
+  </div>
+  <button class="play-again-btn">Play Again</button>
 `;
 
-// ===============================================================================
-// ================== score & function for answer selection ======================
-// ===============================================================================
-/*
-let score = 0;
-function checkAnswer(selected: string, correct: string) {
-  if (selected === correct) score++;
+//add the question container to the document
+document.body.appendChild(questionContainer);
+
+// Get all the radio buttons for the quiz
+const radioButtons = document.querySelectorAll(
+  'input[name="quiz"]',
+) as NodeListOf<HTMLInputElement>;
+// Initialize the logic for showing the next question when an answer is selected
+initializeAutoNextQuestion(radioButtons);
+
+//================================================================================================
+// Add the "Start Game" button to the document
+const startGameButton = createStartGameButton();
+document.body.appendChild(startGameButton);
+
+//================================================================================================
+const usedQuestions = new Set<number>();
+
+//add event listener for function restartGame when we click the button play-again
+const playAgainButton = document.querySelector(
+  ".play-again-btn",
+) as HTMLButtonElement;
+
+if (playAgainButton) {
+  playAgainButton.addEventListener("click", () => {
+    restartGame(resetUsedQuestions, resetTimer);
+    resetClickCount();
+  });
 }
-*/
+
+//clear all the used questions
+function resetUsedQuestions() {
+  usedQuestions.clear();
+}
+
+//reset the timer
+function resetTimer() {
+  console.log("Timer reset.");
+}
+
 // ===============================================================================
 // ===============================================================================
 // ===============================================================================
@@ -123,44 +93,64 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 
-// _______________________________________________________________________________
+// After the quiz is finished, update the result container
+updateScoreContainer();
+// Call the function to set up label keyboard events
+setupLabelKeyboardEvents();
 
-// ============================================================================
-/*Lägga in gissa landet med hjälp av flaggor.
-10 * 10 frågor.
-En ruta som visar resultat, frågor med rätt svar.
-Skapa ett quiz med minst 20 frågor
-Varje fråga ska ha 3 svarsalternativ och endast 1 svarsalternativ ska vara korrekt
-Frågorna ska presenteras i slumpmässig ordning, och du ska visa 10 frågor per spelomgång
-Om användaren väljer att spela igen, så ska inte samma 10 frågor komma upp på nytt
-Du ska få poäng för rätt svar
-Det ska bara visas en fråga åt gången på skärmen
-Det ska finnas en tidräkning (uppåt). Tidräkningen ska stanna när alla frågor har besvarats.
-Det ska visas en bekräftelseruta som visar hur många frågor spelaren svarade rätt på (av totalt antal frågor), och hur lång tid det tog.
-Varje person ska ha gjort minst två pull requests.*/
-// ==============================================================================================================
+// Update the score container manually (if needed)
+updateScoreContainer();
 
-//create score section
-//Points and correct answers
-//create innerHTML and add style
+// // Skapa footer-elementet
+// const footer = document.createElement("footer");
+// footer.className = "footer";
 
-//Create result
-//Points and time
-//innerHTML
+// footer.innerHTML = `
+//   <div class="progress-bar">
+//     <div class="progress"></div>
+//     <div class="progress-icon">🚗</div>
+//   </div>
+//   <div class="question-counter">
+//     Frågor: <span id="answered-count">0</span>/<span id="total-questions">0</span>
+//   </div>
+//       <div class="copyright">
+//       &copy; 2024 Marlyn Quiz
+//     </div>
+// `;
 
+// // Lägg till footern i DOM
+// document.body.appendChild(footer);
 
-  
-  // Example usage of imported functions
-  incrementScore(5); // Increment the score by 5 points
-  
-  // Display the quiz result
-  const result: IResult = {
-    points: score.points,
-    correctAnswers: score.correctAnswers,
-    time: 120, // Assume 120 seconds as time taken
-  };
-  displayResultContainer(result);
-  
-  // Update the score container manually (if needed)
-  updateScoreContainer();
-  
+// const answeredCountElement = document.getElementById("answered-count")!;
+// const totalQuestionsElement = document.getElementById("total-questions")!;
+// const progressBarElement = document.querySelector(".progress") as HTMLElement;
+// const progressIconElement = document.querySelector(".progress-icon") as HTMLElement;
+
+// const totalQuestions = questions.length;
+// let answeredQuestions = 0;
+
+// // Sätt totalantalet frågor i footern
+// totalQuestionsElement.textContent = totalQuestions.toString();
+
+// // Uppdatera framstegsindikatorn
+// function updateFooterProgress() {
+//   answeredQuestions++;
+//   const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+
+//   // Uppdatera antal besvarade frågor
+//   answeredCountElement.textContent = answeredQuestions.toString();
+
+//   // Uppdatera progress-barens bredd
+//   progressBarElement.style.width = `${progressPercentage}%`;
+
+//   // Flytta ikonen
+//   progressIconElement.style.left = `${progressPercentage}%`;
+// }
+
+// // Anropa `updateFooterProgress` varje gång en fråga besvaras
+// nextButton.addEventListener("click", () => {
+//   const question = getNextQuestion();
+//   if (question) {
+//     updateFooterProgress(); // Uppdatera footern
+//   }
+// });
