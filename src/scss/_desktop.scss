@@ -25,4 +25,23 @@
   .timer {
     width: 10vw;
   }
+
+  .footer {
+    flex-direction: column;
+    /* Standardlayout */
+    align-items: center;
+    /* Centrera vertikalt */
+  }
+
+  .progress-bar {
+    width: 60%;
+    /* Desktop-standardbredd */
+    height: 20px;
+    /* Standardhöjd */
+  }
+
+  .footer-content {
+    align-items: flex-end;
+    /* Behåll högerjustering */
+  }
 }
