@@ -11,7 +11,7 @@
 }
 
 body {
-  background-image: url("public/images/background.png");
+  background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -100,6 +100,6 @@ main {
 
 /* Universal focus style */
 *:focus {
-  outline: 2px solid red; /* Visible focus ring */
+  outline: 2px solid red;
+  /* Visible focus ring */
 }
-
