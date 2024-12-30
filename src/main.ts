@@ -1,6 +1,6 @@
 import "./main.scss";
 import { restartGame } from "./restartGame";
-//import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
+// import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
 //  TODO: check if this line should be removed
 import { resetClickCount } from "./gameStatus";
 import { createStartGameButton } from "./startGameButton&Logic";
@@ -95,69 +95,16 @@ function getNextQuestion() {
 // ===============================================================================
 
 
-  // After the quiz is finished, update the result container
-  updateScoreContainer();
-  // Call the function to set up label keyboard events
-  setupLabelKeyboardEvents();
-  
+// After the quiz is finished, update the result container
+updateScoreContainer();
+// Call the function to set up label keyboard events
+setupLabelKeyboardEvents();
 
-  
+
+
 
 
 
 // Update the score container manually (if needed)
 updateScoreContainer();
 
-// Skapa footer-elementet
-const footer = document.createElement("footer");
-footer.className = "footer";
-
-footer.innerHTML = `
-  <div class="progress-bar">
-    <div class="progress"></div>
-    <div class="progress-icon">🚗</div>
-  </div>
-  <div class="question-counter">
-    Frågor: <span id="answered-count">0</span>/<span id="total-questions">0</span>
-  </div>
-      <div class="copyright">
-      &copy; 2024 Marlyn Quiz
-    </div>
-`;
-
-// Lägg till footern i DOM
-document.body.appendChild(footer);
-
-const answeredCountElement = document.getElementById("answered-count")!;
-const totalQuestionsElement = document.getElementById("total-questions")!;
-const progressBarElement = document.querySelector(".progress") as HTMLElement;
-const progressIconElement = document.querySelector(".progress-icon") as HTMLElement;
-
-const totalQuestions = questions.length;
-let answeredQuestions = 0;
-
-// Sätt totalantalet frågor i footern
-totalQuestionsElement.textContent = totalQuestions.toString();
-
-// Uppdatera framstegsindikatorn
-function updateFooterProgress() {
-  answeredQuestions++;
-  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
-
-  // Uppdatera antal besvarade frågor
-  answeredCountElement.textContent = answeredQuestions.toString();
-
-  // Uppdatera progress-barens bredd
-  progressBarElement.style.width = `${progressPercentage}%`;
-
-  // Flytta ikonen
-  progressIconElement.style.left = `${progressPercentage}%`;
-}
-
-// Anropa `updateFooterProgress` varje gång en fråga besvaras
-nextButton.addEventListener("click", () => {
-  const question = getNextQuestion();
-  if (question) {
-    updateFooterProgress(); // Uppdatera footern
-  }
-});
