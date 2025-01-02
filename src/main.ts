@@ -98,8 +98,6 @@ updateScoreContainer();
 // Call the function to set up label keyboard events
 setupLabelKeyboardEvents();
 
-// Update the score container manually (if needed)
-updateScoreContainer();
 
 // // Skapa footer-elementet
 // const footer = document.createElement("footer");
