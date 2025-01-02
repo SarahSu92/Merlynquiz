@@ -25,7 +25,6 @@ questionContainer.innerHTML = `
     <input type="radio" id="option3" name="quiz" tabindex="0" />
     <label class="answer-quiz" for="option3" tabindex="0" >Alternativ 3</label>
   </div>
-  <button class="play-again-btn">Play Again</button>
 `;
 
 //add the question container to the document

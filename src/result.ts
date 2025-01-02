@@ -18,7 +18,7 @@ export function updateScoreContainer(): void {
 
   if (resultContainer) {
     resultContainer.innerHTML = `
-      <h2>Result</h2>
+      <h2>Results</h2>
       <p><strong>Points:</strong> ${score.points}</p>
       <p><strong>Correct Answers:</strong> ${score.correctAnswers}</p>
       <p><strong>Time:</strong> ${score.time} seconds</p>
@@ -27,11 +27,3 @@ export function updateScoreContainer(): void {
     console.error("Result container not found");
   }
 }
-
-
-
-
-
-
-
-

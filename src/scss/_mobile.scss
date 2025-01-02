@@ -186,7 +186,7 @@ input[type="radio"]:checked + .answer-quiz {
   color: #fff;
 }
 
-.result {
+.game-over {
   display: none;
   position: absolute;
   left: 50%;
@@ -223,7 +223,6 @@ input[type="radio"]:checked + .answer-quiz {
 }
 
 .play-again-btn {
-  display: block;
   padding: 8px;
   font-size: 1rem;
   max-width: 200px;
@@ -237,10 +236,7 @@ input[type="radio"]:checked + .answer-quiz {
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  margin: auto;
-  position: relative;
-  top: -70px;
-  display: none;
+
   &:hover {
     background-color: #097a34;
     transform: scale(1.05);
@@ -332,9 +328,4 @@ input[type="radio"]:checked + .answer-quiz {
   .flag-image {
     box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
   }
-}
-.score {
-  display: none;
-  position: relative;
-  top: 40px;
 }
