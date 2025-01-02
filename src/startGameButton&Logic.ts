@@ -30,7 +30,7 @@ function handleStartGame(): void {
   const questionPhrase = document.getElementById("question") as HTMLElement;
   const flagImage = document.querySelector(".flag") as HTMLElement;
   const timer = document.getElementById("timer") as HTMLElement;
-  const result = document.getElementById("result") as HTMLElement;
+  const score = document.getElementById("score") as HTMLElement;
 
   // Add fade-out animation to the Start Game button and welcome message
   startGameButton?.classList.add("fade-out");
@@ -60,13 +60,13 @@ function handleStartGame(): void {
     questionPhrase.style.display = "flex";
     flagImage.style.display = "flex";
     timer.style.display = "flex";
-   
+    score.style.display = "flex";
 
     questionContainer.classList.add("fade-in");
     questionPhrase.classList.add("fade-in");
     flagImage.classList.add("fade-in");
     timer.classList.add("fade-in");
-    result.classList.add("fade-in");
+    score.classList.add("fade-in");
 
     // Ensure all elements are ready for the next fade-out after fade-in completes
     setTimeout(() => {
