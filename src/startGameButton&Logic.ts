@@ -1,4 +1,5 @@
 import { getNextQuestion } from "./nextQuestionLogic";
+import { startTimer } from './timer';
 
 // Function to start the game
 export function createStartGameButton(): HTMLButtonElement {
@@ -16,9 +17,10 @@ export function createStartGameButton(): HTMLButtonElement {
 }
 
 // Function to handle the "Start Game" button click
-function handleStartGame(): void {
+export function handleStartGame(): void {
   console.log("Game started!");
-
+  startTimer(); // Start the timer when the button is clicked
+  
   // Elements to animate
   const startGameButton = document.getElementById(
     "start-game-btn",
@@ -31,6 +33,7 @@ function handleStartGame(): void {
   const flagImage = document.querySelector(".flag") as HTMLElement;
   const timer = document.getElementById("timer") as HTMLElement;
   const score = document.getElementById("score") as HTMLElement;
+
 
   // Add fade-out animation to the Start Game button and welcome message
   startGameButton?.classList.add("fade-out");

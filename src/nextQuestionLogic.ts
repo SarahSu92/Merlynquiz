@@ -1,5 +1,6 @@
 import { incrementClickCount, clickCount } from "./gameStatus";
 import { Question, questions } from "./questionsData";
+import { stopTimer } from './timer';
 
 // Function to create a generator for random questions
 function createQuestionGenerator() {
@@ -48,6 +49,7 @@ function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
     radioButtons.forEach(resetRadioButton);
   } else {
     console.log("The End! No more questions available.");
+    stopTimer();
     // Optionally display a message or trigger game-end logic
   }
 }
