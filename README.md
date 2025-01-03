@@ -7,3 +7,7 @@ We appoint Omar as Scrum Master for weeks 1 and 2. After that, we will see who w
 Meeting minutes week 2.
 
 We continue coding and testing. Remove buggs and make sure everyone has something  to work with. 
+
+Meeting minutes week 3.
+
+We continue with the game logic and complete the final stage of testing and merging, hopefully we get the game finished by the end of the week.
