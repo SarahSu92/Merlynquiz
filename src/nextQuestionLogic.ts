@@ -1,6 +1,8 @@
 import { incrementClickCount, clickCount } from "./gameStatus";
 import { Question, questions } from "./questionsData";
+import { stopTimer } from './timer';
 import { handleEndGame } from "./finishedGameLogic";
+
 
 // Function to create a generator for random questions
 function createQuestionGenerator() {
@@ -48,6 +50,7 @@ function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
     // Reset all radio buttons (uncheck them) for the next question
     radioButtons.forEach(resetRadioButton);
   } else {
+    stopTimer();
     handleEndGame(); // No more questions, end the game
   }
 }
