@@ -1,13 +1,12 @@
 // Define the Question interface
 export interface Question {
-  answer: string;
-  points: number;
   id: number;
   name: string;
   flag: string;
   alternative1: string;
   alternative2: string;
   alternative3: string;
+  correctAnswer: string;
 }
 
 // Export the questions array
@@ -19,8 +18,7 @@ export const questions: Question[] = [
     alternative1: "Argentina",
     alternative2: "Brazil",
     alternative3: "Canada",
-    answer: "",
-    points: 0
+    correctAnswer: "Argentina",
   },
   {
     id: 2,
@@ -29,8 +27,7 @@ export const questions: Question[] = [
     alternative1: "France",
     alternative2: "Austria",
     alternative3: "Japan",
-    answer: "",
-    points: 0
+    correctAnswer: "Austria",
   },
   {
     id: 3,
@@ -39,8 +36,7 @@ export const questions: Question[] = [
     alternative1: "Mexico",
     alternative2: "Chile",
     alternative3: "Australia",
-    answer: "",
-    points: 0
+    correctAnswer: "Chile",
   },
   {
     id: 4,
@@ -49,8 +45,7 @@ export const questions: Question[] = [
     alternative1: "Italy",
     alternative2: "India",
     alternative3: "Czech Republic",
-    answer: "",
-    points: 0
+    correctAnswer: "Czech Republic",
   },
   {
     id: 5,
@@ -59,8 +54,7 @@ export const questions: Question[] = [
     alternative1: "Saudi Arabia",
     alternative2: "Morocco",
     alternative3: "Egypt",
-    answer: "",
-    points: 0
+    correctAnswer: "Egypt",
   },
   {
     id: 6,
@@ -69,8 +63,7 @@ export const questions: Question[] = [
     alternative1: "Estonia",
     alternative2: "Latvia",
     alternative3: "Lithuania",
-    answer: "",
-    points: 0
+    correctAnswer: "Estonia",
   },
   {
     id: 7,
@@ -79,8 +72,7 @@ export const questions: Question[] = [
     alternative1: "Switzerland",
     alternative2: "Finland",
     alternative3: "Norway",
-    answer: "",
-    points: 0
+    correctAnswer: "Finland",
   },
   {
     id: 8,
@@ -89,8 +81,7 @@ export const questions: Question[] = [
     alternative1: "United States",
     alternative2: "Germany",
     alternative3: "Poland",
-    answer: "",
-    points: 0
+    correctAnswer: "Germany",
   },
   {
     id: 9,
@@ -99,8 +90,7 @@ export const questions: Question[] = [
     alternative1: "Nigeria",
     alternative2: "Ghana",
     alternative3: "Kenya",
-    answer: "",
-    points: 0
+    correctAnswer: "Ghana",
   },
   {
     id: 10,
@@ -109,8 +99,7 @@ export const questions: Question[] = [
     alternative1: "Tunisia",
     alternative2: "Morocco",
     alternative3: "Algeria",
-    answer: "",
-    points: 0
+    correctAnswer: "Morocco",
   },
   {
     id: 11,
@@ -119,8 +108,7 @@ export const questions: Question[] = [
     alternative1: "Sweden",
     alternative2: "Denmark",
     alternative3: "Norway",
-    answer: "",
-    points: 0
+    correctAnswer: "Norway",
   },
   {
     id: 12,
@@ -129,8 +117,7 @@ export const questions: Question[] = [
     alternative1: "Portugal",
     alternative2: "Brazil",
     alternative3: "Spain",
-    answer: "",
-    points: 0
+    correctAnswer: "Portugal",
   },
   {
     id: 13,
@@ -139,8 +126,7 @@ export const questions: Question[] = [
     alternative1: "South Africa",
     alternative2: "Zambia",
     alternative3: "Zimbabwe",
-    answer: "",
-    points: 0
+    correctAnswer: "South Africa",
   },
   {
     id: 14,
@@ -149,8 +135,7 @@ export const questions: Question[] = [
     alternative1: "Portugal",
     alternative2: "Spain",
     alternative3: "Italy",
-    answer: "",
-    points: 0
+    correctAnswer: "Spain",
   },
   {
     id: 15,
@@ -159,8 +144,7 @@ export const questions: Question[] = [
     alternative1: "Sweden",
     alternative2: "Norway",
     alternative3: "Finland",
-    answer: "",
-    points: 0
+    correctAnswer: "Sweden",
   },
   {
     id: 16,
@@ -169,8 +153,7 @@ export const questions: Question[] = [
     alternative1: "Vietnam",
     alternative2: "Cambodia",
     alternative3: "Thailand",
-    answer: "",
-    points: 0
+    correctAnswer: "Thailand",
   },
   {
     id: 17,
@@ -179,8 +162,7 @@ export const questions: Question[] = [
     alternative1: "Ukraine",
     alternative2: "Belarus",
     alternative3: "Russia",
-    answer: "",
-    points: 0
+    correctAnswer: "Ukraine",
   },
   {
     id: 18,
@@ -189,8 +171,7 @@ export const questions: Question[] = [
     alternative1: "United States",
     alternative2: "Canada",
     alternative3: "United Kingdom",
-    answer: "",
-    points: 0
+    correctAnswer: "United Kingdom",
   },
   {
     id: 19,
@@ -199,8 +180,7 @@ export const questions: Question[] = [
     alternative1: "United States",
     alternative2: "Mexico",
     alternative3: "Australia",
-    answer: "",
-    points: 0
+    correctAnswer: "United States",
   },
   {
     id: 20,
@@ -209,8 +189,7 @@ export const questions: Question[] = [
     alternative1: "Paraguay",
     alternative2: "Uruguay",
     alternative3: "Argentina",
-    answer: "",
-    points: 0
+    correctAnswer: "Uruguay",
   },
   {
     id: 21,
@@ -219,18 +198,16 @@ export const questions: Question[] = [
     alternative1: "Romania",
     alternative2: "Azerbaijan",
     alternative3: "Armenia",
-    answer: "",
-    points: 0
+    correctAnswer: "Armenia",
   },
   {
     id: 22,
     name: "Hong Kong",
     flag: "./flags-images/Hong_Kong.jpg",
-    alternative1: "Vetnam",
+    alternative1: "Vietnam",
     alternative2: "Hong Kong",
     alternative3: "Taiwan",
-    answer: "",
-    points: 0
+    correctAnswer: "Hong Kong",
   },
   {
     id: 23,
@@ -239,8 +216,7 @@ export const questions: Question[] = [
     alternative1: "Malaysia",
     alternative2: "Indonesia",
     alternative3: "Philippines",
-    answer: "",
-    points: 0
+    correctAnswer: "Indonesia",
   },
   {
     id: 24,
@@ -249,8 +225,7 @@ export const questions: Question[] = [
     alternative1: "Jamaica",
     alternative2: "Bahamas",
     alternative3: "Cuba",
-    answer: "",
-    points: 0
+    correctAnswer: "Jamaica",
   },
   {
     id: 25,
@@ -259,18 +234,16 @@ export const questions: Question[] = [
     alternative1: "Kazakhstan",
     alternative2: "Uzbekistan",
     alternative3: "Turkmenistan",
-    answer: "",
-    points: 0
+    correctAnswer: "Kazakhstan",
   },
   {
     id: 26,
     name: "Kuwait",
     flag: "./flags-images/Kuwait.jpg",
-    alternative1: "Bahrein",
+    alternative1: "Bahrain",
     alternative2: "Kuwait",
     alternative3: "Qatar",
-    answer: "",
-    points: 0
+    correctAnswer: "Kuwait",
   },
   {
     id: 27,
@@ -279,8 +252,7 @@ export const questions: Question[] = [
     alternative1: "Malta",
     alternative2: "Lebanon",
     alternative3: "Jordan",
-    answer: "",
-    points: 0
+    correctAnswer: "Lebanon",
   },
   {
     id: 28,
@@ -289,8 +261,7 @@ export const questions: Question[] = [
     alternative1: "Turkey",
     alternative2: "Algeria",
     alternative3: "Tunisia",
-    answer: "",
-    points: 0
+    correctAnswer: "Tunisia",
   },
   {
     id: 29,
@@ -299,8 +270,7 @@ export const questions: Question[] = [
     alternative1: "Mexico",
     alternative2: "Guatemala",
     alternative3: "Cuba",
-    answer: "",
-    points: 0
+    correctAnswer: "Mexico",
   },
   {
     id: 30,
@@ -309,8 +279,7 @@ export const questions: Question[] = [
     alternative1: "Nigeria",
     alternative2: "Ghana",
     alternative3: "Cameroon",
-    answer: "",
-    points: 0
+    correctAnswer: "Nigeria",
   },
   {
     id: 31,
@@ -319,8 +288,7 @@ export const questions: Question[] = [
     alternative1: "Romania",
     alternative2: "Austria",
     alternative3: "Bulgaria",
-    answer: "",
-    points: 0
+    correctAnswer: "Romania",
   },
   {
     id: 32,
@@ -329,8 +297,7 @@ export const questions: Question[] = [
     alternative1: "Rwanda",
     alternative2: "Uganda",
     alternative3: "Burundi",
-    answer: "",
-    points: 0
+    correctAnswer: "Rwanda",
   },
   {
     id: 33,
@@ -339,7 +306,6 @@ export const questions: Question[] = [
     alternative1: "Mali",
     alternative2: "Senegal",
     alternative3: "Guinea",
-    answer: "",
-    points: 0
+    correctAnswer: "Senegal",
   },
 ];
