@@ -22,7 +22,6 @@ export function handleEndGame(): void {
 
   // Wait for the fade-out animation to complete before hiding elements
   setTimeout(() => {
-    // Hide the question, flag, and timer
     questionContainer.style.display = "none";
     questionPhrase.style.display = "none";
     flagImage.style.display = "none";
@@ -48,7 +47,7 @@ function launchFireworks(): void {
   (function frame() {
     // Launch multiple fireworks at random positions
     confetti({
-      particleCount: 5,
+      particleCount: 10,
       angle: Math.random() * 360,
       spread: 55,
       origin: {
