@@ -1,6 +1,9 @@
 // import { incrementClickCount, clickCount } from "./gameStatus";
 import { Question, questions } from "./questionsData";
 import { updateFooterProgress, setTotalQuestions } from "./footer";
+import { validateAnswer } from "./answerValidation";
+
+let currentQuestion: Question | null = null;
 
 // Function to create a generator for random questions
 function createQuestionGenerator() {
@@ -31,9 +34,17 @@ function resetRadioButton(radioButton: HTMLInputElement) {
   radioButton.checked = false; // Uncheck the radio button
 }
 
-function handleRadioButtonChange(
+export function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
+  const selectedOption = Array.from(radioButtons).find((rb) => rb.checked);
+  if (selectedOption && currentQuestion) {
+    const isCorrect = validateAnswer(selectedOption.nextElementSibling?.textContent || "", currentQuestion);
+    console.log(isCorrect ? "Correct answer!" : "Wrong answer!");
+  } else {
+    console.log("No answer selected or currentQuestion is null.");
+  }
+
   setTimeout(() => {
     // Add the fade-out class to the current question elements
     const flagImage = document.getElementById("flag-image");
@@ -50,6 +61,7 @@ function handleRadioButtonChange(
       // Show the next question
       const question = getNextQuestion();
       if (question) {
+        currentQuestion = question; // Uppdatera frågan
         updateFooterProgress(); // Uppdatera fotern här
 
         // Update the UI with the new question and answers

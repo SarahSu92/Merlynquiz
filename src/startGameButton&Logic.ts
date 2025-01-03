@@ -53,6 +53,7 @@ function handleStartGame(): void {
         firstQuestion.alternative2;
       document.getElementById("option3")!.nextElementSibling!.textContent =
         firstQuestion.alternative3;
+        
     }
 
     // Fade in the question, flag and alternatives.

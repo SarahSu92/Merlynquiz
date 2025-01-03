@@ -9,7 +9,6 @@ import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 import { updateScoreContainer } from "./result";
 import { setupLabelKeyboardEvents } from "./a11y";
 
-
 //================================================================================================
 // Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
@@ -100,11 +99,5 @@ updateScoreContainer();
 // Call the function to set up label keyboard events
 setupLabelKeyboardEvents();
 
-
-
-
-
-
 // Update the score container manually (if needed)
 updateScoreContainer();
-
