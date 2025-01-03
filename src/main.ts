@@ -9,7 +9,6 @@ import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 import { updateScoreContainer } from "./result";
 import { setupLabelKeyboardEvents } from "./a11y";
 
-
 //================================================================================================
 // Create the alternatives answers buttons and the play again button
 const questionContainer = document.createElement("section");
@@ -26,7 +25,6 @@ questionContainer.innerHTML = `
     <input type="radio" id="option3" name="quiz" tabindex="0" />
     <label class="answer-quiz" for="option3" tabindex="0" >Alternativ 3</label>
   </div>
-  <button class="play-again-btn">Play Again</button>
 `;
 
 //add the question container to the document
@@ -94,17 +92,10 @@ function getNextQuestion() {
 // ===============================================================================
 // ===============================================================================
 
-
 // After the quiz is finished, update the result container
 updateScoreContainer();
 // Call the function to set up label keyboard events
 setupLabelKeyboardEvents();
 
-
-
-
-
-
 // Update the score container manually (if needed)
 updateScoreContainer();
-

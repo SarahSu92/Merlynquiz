@@ -42,24 +42,20 @@
   <link rel="stylesheet" href="src/style.scss" type="text/css" />
 </head>
 
-<body>
-  <header>
-    <section class="timer" id="timer">00:00</section>
-    <h1 id="welcome" class="welcome">Welcome to The Marlyn Quiz Game!</h1>
-  </header>
+    <main>
+      <section id="game-over" class="game-over">
+        <article class="result" id="result">Results</article>
+        <button id="play-again-btn" class="play-again-btn">Play Again</button>
+      </section>
 
-  <main>
-    <section class="score" id="score">Score:0</section>
-    <section class="result" id="result">Result</section>
-    <section class="question" id="question">
-      Which country's flag is this?
-    </section>
-    <section class="flag">
-      <img id="flag-image" class="flag-image" alt="flag image" />
-    </section>
-  </main>
+      <section class="question" id="question">
+        Which country's flag is this?
+      </section>
+      <section class="flag">
+        <img id="flag-image" class="flag-image" alt="flag image" />
+      </section>
+    </main>
 
-  <script type="module" src="src/main.ts"></script>
-</body>
-
+    <script type="module" src="src/main.ts"></script>
+  </body>
 </html>
