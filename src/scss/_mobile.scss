@@ -3,11 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 40px;
 
   .answer-quiz {
     display: block;
-    margin-bottom: 18px;
     padding: 12px;
     font-size: 14px;
     max-width: 300px;
@@ -20,7 +19,11 @@
     color: #000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     &:hover {
       transform: translateY(-2px);
       background-color: #ccc9c9;
@@ -28,37 +31,6 @@
 
     &:active {
       transform: scale(0.95);
-    }
-
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .answer-quiz {
-      display: block;
-      margin-bottom: 18px;
-      padding: 12px;
-      font-size: 14px;
-      max-width: 300px;
-      width: 200px;
-      font-weight: bold;
-      text-align: center;
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: #f0f0f0;
-      color: #000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        background-color: #ccc9c9;
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
     }
 
     input[type="radio"] {
@@ -117,40 +89,6 @@
   }
 }
 
-/* General focus styles for all interactive elements */
-button:focus,
-a:focus,
-input:focus,
-select:focus,
-textarea:focus,
-[tabindex]:focus {
-  outline: 2px solid #000102;
-  /* Blue outline to indicate focus */
-}
-
-/* Specific styles for buttons */
-button:focus {
-  background-color: #0056b3;
-  /* Change background on focus */
-  color: #fff;
-  /* Ensure text is still readable */
-}
-
-/* Links */
-a:focus {
-  text-decoration: underline;
-  /* Underline for visual indication */
-}
-
-/* Input fields */
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #000409;
-  /* Change border color */
-  box-shadow: 0 0 4px #007bff;
-  /* Optional glow */
-}
 
 .footer {
   flex-direction: column;
@@ -186,7 +124,7 @@ input[type="radio"]:checked + .answer-quiz {
   color: #fff;
 }
 
-.result {
+.game-over {
   display: none;
   position: absolute;
   left: 50%;
@@ -223,7 +161,6 @@ input[type="radio"]:checked + .answer-quiz {
 }
 
 .play-again-btn {
-  display: block;
   padding: 8px;
   font-size: 1rem;
   max-width: 200px;
@@ -237,10 +174,7 @@ input[type="radio"]:checked + .answer-quiz {
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  margin: auto;
-  position: relative;
-  top: -70px;
-  display: none;
+
   &:hover {
     background-color: #097a34;
     transform: scale(1.05);
@@ -332,9 +266,4 @@ input[type="radio"]:checked + .answer-quiz {
   .flag-image {
     box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
   }
-}
-.score {
-  display: none;
-  position: relative;
-  top: 40px;
 }
