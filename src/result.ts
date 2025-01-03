@@ -83,7 +83,7 @@ export function updateScoreContainer(): void {
 
   if (resultContainer) {
     resultContainer.innerHTML = `
-      <h2>Result</h2>
+      <h2>Results</h2>
       <p><strong>Points:</strong> ${score.points}</p>
       <p><strong>Correct Answers:</strong> ${score.correctAnswers}</p>
       <p><strong>Time:</strong> ${formatTime(score.time)}</p>
@@ -94,15 +94,5 @@ export function updateScoreContainer(): void {
 }
 
 // Start the quiz when the page is ready
-startQuestion();
-
-
-
-
-
-
-
-
-
-
+//startQuestion();
 
