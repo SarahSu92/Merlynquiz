@@ -10,7 +10,9 @@ const allElements = [...labels, ...inputs];
 function handleArrowNavigation(event: KeyboardEvent) {
     const currentIndex = allElements.findIndex(el => el === document.activeElement);
 
-    if (currentIndex === -1) return; // Ensure the currently focused element is in the array
+    if (currentIndex === -1) {
+        return;
+     } // Ensure the currently focused element is in the array
 
     let nextIndex = currentIndex;
 
