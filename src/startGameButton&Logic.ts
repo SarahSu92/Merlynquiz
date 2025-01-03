@@ -62,6 +62,7 @@ export function handleStartGame(): void {
     flagImage.style.display = "flex";
     timer.style.display = "flex";
 
+
     questionContainer.classList.add("fade-in");
     questionPhrase.classList.add("fade-in");
     flagImage.classList.add("fade-in");

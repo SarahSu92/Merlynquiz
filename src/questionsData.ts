@@ -15,7 +15,7 @@ export const questions: Question[] = [
   {
     id: 1,
     name: "Argentina",
-    flag: "public/flags-images/Argentina.jpg",
+    flag: "./flags-images/Argentina.jpg",
     alternative1: "Argentina",
     alternative2: "Brazil",
     alternative3: "Canada",
@@ -25,7 +25,7 @@ export const questions: Question[] = [
   {
     id: 2,
     name: "Austria",
-    flag: "public/flags-images/Austria.jpg",
+    flag: "./flags-images/Austria.jpg",
     alternative1: "France",
     alternative2: "Austria",
     alternative3: "Japan",
@@ -35,7 +35,7 @@ export const questions: Question[] = [
   {
     id: 3,
     name: "Chile",
-    flag: "public/flags-images/Chile.jpg",
+    flag: "./flags-images/Chile.jpg",
     alternative1: "Mexico",
     alternative2: "Chile",
     alternative3: "Australia",
@@ -45,7 +45,7 @@ export const questions: Question[] = [
   {
     id: 4,
     name: "Czech Republic",
-    flag: "public/flags-images/Czech_Republic.jpg",
+    flag: "./flags-images/Czech_Republic.jpg",
     alternative1: "Italy",
     alternative2: "India",
     alternative3: "Czech Republic",
@@ -55,7 +55,7 @@ export const questions: Question[] = [
   {
     id: 5,
     name: "Egypt",
-    flag: "public/flags-images/Egypt.jpg",
+    flag: "./flags-images/Egypt.jpg",
     alternative1: "Saudi Arabia",
     alternative2: "Morocco",
     alternative3: "Egypt",
@@ -65,7 +65,7 @@ export const questions: Question[] = [
   {
     id: 6,
     name: "Estonia",
-    flag: "public/flags-images/Estonia.jpg",
+    flag: "./flags-images/Estonia.jpg",
     alternative1: "Estonia",
     alternative2: "Latvia",
     alternative3: "Lithuania",
@@ -75,7 +75,7 @@ export const questions: Question[] = [
   {
     id: 7,
     name: "Finland",
-    flag: "public/flags-images/Finland.jpg",
+    flag: "./flags-images/Finland.jpg",
     alternative1: "Switzerland",
     alternative2: "Finland",
     alternative3: "Norway",
@@ -85,7 +85,7 @@ export const questions: Question[] = [
   {
     id: 8,
     name: "Germany",
-    flag: "public/flags-images/Germany.jpg",
+    flag: "./flags-images/Germany.jpg",
     alternative1: "United States",
     alternative2: "Germany",
     alternative3: "Poland",
@@ -95,7 +95,7 @@ export const questions: Question[] = [
   {
     id: 9,
     name: "Ghana",
-    flag: "public/flags-images/Ghana.jpg",
+    flag: "./flags-images/Ghana.jpg",
     alternative1: "Nigeria",
     alternative2: "Ghana",
     alternative3: "Kenya",
@@ -105,7 +105,7 @@ export const questions: Question[] = [
   {
     id: 10,
     name: "Morocco",
-    flag: "public/flags-images/Morocco.jpg",
+    flag: "./flags-images/Morocco.jpg",
     alternative1: "Tunisia",
     alternative2: "Morocco",
     alternative3: "Algeria",
@@ -115,7 +115,7 @@ export const questions: Question[] = [
   {
     id: 11,
     name: "Norway",
-    flag: "public/flags-images/Norway.jpg",
+    flag: "./flags-images/Norway.jpg",
     alternative1: "Sweden",
     alternative2: "Denmark",
     alternative3: "Norway",
@@ -125,7 +125,7 @@ export const questions: Question[] = [
   {
     id: 12,
     name: "Portugal",
-    flag: "public/flags-images/Portugal.jpg",
+    flag: "./flags-images/Portugal.jpg",
     alternative1: "Portugal",
     alternative2: "Brazil",
     alternative3: "Spain",
@@ -135,7 +135,7 @@ export const questions: Question[] = [
   {
     id: 13,
     name: "South Africa",
-    flag: "public/flags-images/South_Africa.jpg",
+    flag: "./flags-images/South_Africa.jpg",
     alternative1: "South Africa",
     alternative2: "Zambia",
     alternative3: "Zimbabwe",
@@ -145,7 +145,7 @@ export const questions: Question[] = [
   {
     id: 14,
     name: "Spain",
-    flag: "public/flags-images/Spain.jpg",
+    flag: "./flags-images/Spain.jpg",
     alternative1: "Portugal",
     alternative2: "Spain",
     alternative3: "Italy",
@@ -155,7 +155,7 @@ export const questions: Question[] = [
   {
     id: 15,
     name: "Sweden",
-    flag: "public/flags-images/Sweden.jpg",
+    flag: "./flags-images/Sweden.jpg",
     alternative1: "Sweden",
     alternative2: "Norway",
     alternative3: "Finland",
@@ -165,7 +165,7 @@ export const questions: Question[] = [
   {
     id: 16,
     name: "Thailand",
-    flag: "public/flags-images/Thailand.jpg",
+    flag: "./flags-images/Thailand.jpg",
     alternative1: "Vietnam",
     alternative2: "Cambodia",
     alternative3: "Thailand",
@@ -175,7 +175,7 @@ export const questions: Question[] = [
   {
     id: 17,
     name: "Ukraine",
-    flag: "public/flags-images/Ukraine.jpg",
+    flag: "./flags-images/Ukraine.jpg",
     alternative1: "Ukraine",
     alternative2: "Belarus",
     alternative3: "Russia",
@@ -185,7 +185,7 @@ export const questions: Question[] = [
   {
     id: 18,
     name: "United Kingdom",
-    flag: "public/flags-images/United_Kingdom.jpg",
+    flag: "./flags-images/United_Kingdom.jpg",
     alternative1: "United States",
     alternative2: "Canada",
     alternative3: "United Kingdom",
@@ -195,7 +195,7 @@ export const questions: Question[] = [
   {
     id: 19,
     name: "United States",
-    flag: "public/flags-images/United_States.jpg",
+    flag: "./flags-images/United_States.jpg",
     alternative1: "United States",
     alternative2: "Mexico",
     alternative3: "Australia",
@@ -205,7 +205,7 @@ export const questions: Question[] = [
   {
     id: 20,
     name: "Uruguay",
-    flag: "public/flags-images/Uruguay.jpg",
+    flag: "./flags-images/Uruguay.jpg",
     alternative1: "Paraguay",
     alternative2: "Uruguay",
     alternative3: "Argentina",
@@ -215,7 +215,7 @@ export const questions: Question[] = [
   {
     id: 21,
     name: "Armenia",
-    flag: "public/flags-images/Armenia.jpg",
+    flag: "./flags-images/Armenia.jpg",
     alternative1: "Romania",
     alternative2: "Azerbaijan",
     alternative3: "Armenia",
@@ -225,7 +225,7 @@ export const questions: Question[] = [
   {
     id: 22,
     name: "Hong Kong",
-    flag: "public/flags-images/Hong_Kong.jpg",
+    flag: "./flags-images/Hong_Kong.jpg",
     alternative1: "Vetnam",
     alternative2: "Hong Kong",
     alternative3: "Taiwan",
@@ -235,7 +235,7 @@ export const questions: Question[] = [
   {
     id: 23,
     name: "Indonesia",
-    flag: "public/flags-images/Indonesia.jpg",
+    flag: "./flags-images/Indonesia.jpg",
     alternative1: "Malaysia",
     alternative2: "Indonesia",
     alternative3: "Philippines",
@@ -245,7 +245,7 @@ export const questions: Question[] = [
   {
     id: 24,
     name: "Jamaica",
-    flag: "public/flags-images/Jamaica.jpg",
+    flag: "./flags-images/Jamaica.jpg",
     alternative1: "Jamaica",
     alternative2: "Bahamas",
     alternative3: "Cuba",
@@ -255,7 +255,7 @@ export const questions: Question[] = [
   {
     id: 25,
     name: "Kazakhstan",
-    flag: "public/flags-images/Kazakhstan.jpg",
+    flag: "./flags-images/Kazakhstan.jpg",
     alternative1: "Kazakhstan",
     alternative2: "Uzbekistan",
     alternative3: "Turkmenistan",
@@ -265,7 +265,7 @@ export const questions: Question[] = [
   {
     id: 26,
     name: "Kuwait",
-    flag: "public/flags-images/Kuwait.jpg",
+    flag: "./flags-images/Kuwait.jpg",
     alternative1: "Bahrein",
     alternative2: "Kuwait",
     alternative3: "Qatar",
@@ -275,7 +275,7 @@ export const questions: Question[] = [
   {
     id: 27,
     name: "Lebanon",
-    flag: "public/flags-images/Lebanon.jpg",
+    flag: "./flags-images/Lebanon.jpg",
     alternative1: "Malta",
     alternative2: "Lebanon",
     alternative3: "Jordan",
@@ -285,7 +285,7 @@ export const questions: Question[] = [
   {
     id: 28,
     name: "Tunisia",
-    flag: "public/flags-images/Tunisia.jpg",
+    flag: "./flags-images/Tunisia.jpg",
     alternative1: "Turkey",
     alternative2: "Algeria",
     alternative3: "Tunisia",
@@ -295,7 +295,7 @@ export const questions: Question[] = [
   {
     id: 29,
     name: "Mexico",
-    flag: "public/flags-images/Mexico.jpg",
+    flag: "./flags-images/Mexico.jpg",
     alternative1: "Mexico",
     alternative2: "Guatemala",
     alternative3: "Cuba",
@@ -305,7 +305,7 @@ export const questions: Question[] = [
   {
     id: 30,
     name: "Nigeria",
-    flag: "public/flags-images/Nigeria.jpg",
+    flag: "./flags-images/Nigeria.jpg",
     alternative1: "Nigeria",
     alternative2: "Ghana",
     alternative3: "Cameroon",
@@ -315,7 +315,7 @@ export const questions: Question[] = [
   {
     id: 31,
     name: "Romania",
-    flag: "public/flags-images/Romania.jpg",
+    flag: "./flags-images/Romania.jpg",
     alternative1: "Romania",
     alternative2: "Austria",
     alternative3: "Bulgaria",
@@ -325,7 +325,7 @@ export const questions: Question[] = [
   {
     id: 32,
     name: "Rwanda",
-    flag: "public/flags-images/Rwanda.jpg",
+    flag: "./flags-images/Rwanda.jpg",
     alternative1: "Rwanda",
     alternative2: "Uganda",
     alternative3: "Burundi",
@@ -335,7 +335,7 @@ export const questions: Question[] = [
   {
     id: 33,
     name: "Senegal",
-    flag: "public/flags-images/Senegal.jpg",
+    flag: "./flags-images/Senegal.jpg",
     alternative1: "Mali",
     alternative2: "Senegal",
     alternative3: "Guinea",

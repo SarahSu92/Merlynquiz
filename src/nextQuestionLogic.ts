@@ -1,15 +1,21 @@
-import { incrementClickCount, clickCount } from "./gameStatus";
+// import { incrementClickCount, clickCount } from "./gameStatus";
 import { Question, questions } from "./questionsData";
+
+import { updateFooterProgress, setTotalQuestions } from "./footer";
+
 import { stopTimer } from './timer';
 import { handleEndGame } from "./finishedGameLogic";
-
 
 // Function to create a generator for random questions
 function createQuestionGenerator() {
   const usedIndices: number[] = [];
   const maxQuestions = 10; // Limit to 10 questions
 
-  // Function that returns the next random question or null if all questions are used
+  // Sätt maxantalet frågor i footern
+  setTotalQuestions(maxQuestions);
+
+
+
   return function getNextQuestion(): Question | null {
     if (usedIndices.length === maxQuestions) {
       return null; // No more questions
@@ -60,7 +66,6 @@ function resetRadioButton(radioButton: HTMLInputElement) {
   radioButton.checked = false; // Uncheck the radio button
 }
 
-// Function to handle what happens when a radio button is selected
 function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
@@ -78,9 +83,21 @@ function handleRadioButtonChange(
 
     setTimeout(() => {
       // Show the next question
-      showNextQuestion(radioButtons);
+      const question = getNextQuestion();
+      if (question) {
+        updateFooterProgress(); // Uppdatera fotern här
 
-      // Add fade-in class for the new question elements
+        // Update the UI with the new question and answers
+        flagImage?.setAttribute("src", question.flag);
+        option1Label.textContent = question.alternative1;
+        option2Label.textContent = question.alternative2;
+        option3Label.textContent = question.alternative3;
+
+        radioButtons.forEach(resetRadioButton);
+      } else {
+        console.log("The End! No more questions available.");
+      }
+
       flagImage?.classList.remove("fade-out");
       flagImage?.classList.add("fade-in");
       option1Label.classList.remove("fade-out");
@@ -91,7 +108,6 @@ function handleRadioButtonChange(
       option3Label.classList.add("fade-in");
 
       setTimeout(() => {
-        // Cleanup the fade-in class
         flagImage?.classList.remove("fade-in");
         option1Label.classList.remove("fade-in");
         option2Label.classList.remove("fade-in");
@@ -101,18 +117,14 @@ function handleRadioButtonChange(
   }, 800); // Wait for initial delay before fade-out
 }
 
-// Function to initialize the logic for automatically showing the next question
 export function initializeAutoNextQuestion(
   radioButtons: NodeListOf<HTMLInputElement>,
 ) {
-  // Add event listeners to each radio button
   function addRadioEventListeners(radioButton: HTMLInputElement) {
-    // When a radio button is changed, trigger the handleRadioButtonChange function
     radioButton.addEventListener("change", () =>
       handleRadioButtonChange(radioButtons),
     );
   }
 
-  // Loop through each radio button and attach the event listener
   radioButtons.forEach(addRadioEventListeners);
 }
