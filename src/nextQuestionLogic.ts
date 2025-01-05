@@ -76,7 +76,7 @@ export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
 }
 
 // Function to reset a radio button (uncheck it)
-function resetRadioButton(radioButton: HTMLInputElement) {
+export function resetRadioButton(radioButton: HTMLInputElement) {
   radioButton.checked = false; // Uncheck the radio button
 }
 
@@ -95,6 +95,7 @@ export function handleRadioButtonChange(
   }
 
   setTimeout(() => {
+    // Update the footer progress after a short delay
     updateFooterProgress();
     // Add the fade-out class to the current question elements
     const flagImage = document.getElementById("flag-image");
