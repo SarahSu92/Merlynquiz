@@ -3,7 +3,7 @@ import { IQuestion, questions } from "./questionsData";
 import { updateFooterProgress, setTotalQuestions } from "./footer";
 import { validateAnswer } from "./answerValidation";
 import { stopTimer } from "./timer";
-import { handleEndGame } from "./finishedGameLogic";
+import { handleEndGame } from "./finishGameLogic";
 
 const currentQuestion: IQuestion | null = null;
 
