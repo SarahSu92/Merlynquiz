@@ -1,8 +1,7 @@
 import "./main.scss";
-import { restartGame } from "./restartGame";
-// import { clickCount, incrementClickCount, resetClickCount } from "./gameStatus";
-//  TODO: check if this line should be removed
-import { resetClickCount } from "./gameStatus";
+import { restartGame } from "./playAgainLogic";
+
+// import { resetClickCount } from "./gameStatus";
 import { createStartGameButton } from "./startGameButton&Logic";
 
 import { initializeAutoNextQuestion } from "./nextQuestionLogic";
@@ -43,29 +42,29 @@ const startGameButton = createStartGameButton();
 document.body.appendChild(startGameButton);
 
 //================================================================================================
-const usedQuestions = new Set<number>();
+// const usedQuestions = new Set<number>();
 
 //add event listener for function restartGame when we click the button play-again
-const playAgainButton = document.querySelector(
-  ".play-again-btn",
-) as HTMLButtonElement;
+// const playAgainButton = document.querySelector(
+//   ".play-again-btn",
+// ) as HTMLButtonElement;
 
-if (playAgainButton) {
-  playAgainButton.addEventListener("click", () => {
-    restartGame(resetUsedQuestions, resetTimer);
-    resetClickCount();
-  });
-}
+// if (playAgainButton) {
+//   playAgainButton.addEventListener("click", () => {
+//     restartGame(resetUsedQuestions, resetTimer);
+//     resetClickCount();
+//   });
+// }
 
-//clear all the used questions
-function resetUsedQuestions() {
-  usedQuestions.clear();
-}
+// //clear all the used questions
+// function resetUsedQuestions() {
+//   usedQuestions.clear();
+// }
 
-//reset the timer
-function resetTimer() {
-  console.log("Timer reset.");
-}
+// //reset the timer
+// function resetTimer() {
+//   console.log("Timer reset.");
+// }
 
 // ===============================================================================
 // ===============================================================================
@@ -73,29 +72,17 @@ function resetTimer() {
 
 // _______________________________________________________________________________
 
-// ===============================================================================
-// ====== array to store the used questions and function to avoid reuse ==========
-// ===============================================================================
-/*
-let usedIndices: number[] = [];
-
-function getNextQuestion() {
-  let index;
-  do {
-    index = Math.floor(Math.random() * questions.length);
-  } while (usedIndices.includes(index));
-  usedIndices.push(index);
-  return questions[index];
-}
-*/
-// ===============================================================================
-// ===============================================================================
-// ===============================================================================
-
 // After the quiz is finished, update the result container
-updateScoreContainer();
+// updateScoreContainer();
 // Call the function to set up label keyboard events
 setupLabelKeyboardEvents();
 
 // Update the score container manually (if needed)
 updateScoreContainer();
+
+// ===============================================================================
+// Add event listener to the "Play Again" button
+const playAgainButton = document.getElementById("play-again-btn");
+if (playAgainButton) {
+  playAgainButton.addEventListener("click", () => restartGame());
+}

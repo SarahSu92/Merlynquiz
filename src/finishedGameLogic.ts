@@ -18,7 +18,7 @@ export function handleEndGame(): void {
   questionContainer?.classList.add("fade-out");
   questionPhrase?.classList.add("fade-out");
   flagImage?.classList.add("fade-out");
-  timer?.classList.add("fade-out");
+  //timer?.classList.add("fade-out");
 
   // Wait for the fade-out animation to complete before hiding elements
   setTimeout(() => {
@@ -28,7 +28,7 @@ export function handleEndGame(): void {
     timer.style.display = "none";
 
     // Display the game over section with fade-in animation
-    gameOverSection.style.display = "block";
+    gameOverSection.style.display = "flex";
     gameOverSection.classList.add("fade-in");
 
     setTimeout(() => {
@@ -40,7 +40,7 @@ export function handleEndGame(): void {
 
 // Function to launch fireworks
 function launchFireworks(): void {
-  const duration = 8 * 1000; // Fireworks duration (8 seconds)
+  const duration = 6 * 1000; // Fireworks duration (6 seconds)
   const end = Date.now() + duration;
   const colors = ["#ff0000", "#00ff00", "#0000ff", "#ff7700", "#ff0077"];
 

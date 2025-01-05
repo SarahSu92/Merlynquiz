@@ -1,25 +1,28 @@
-// import { incrementClickCount, clickCount } from "./gameStatus";
+import { incrementClickCount, clickCount } from "./gameStatus";
 import { Question, questions } from "./questionsData";
-
 import { updateFooterProgress, setTotalQuestions } from "./footer";
 import { validateAnswer } from "./answerValidation";
-
-let currentQuestion: Question | null = null;
-
-import { stopTimer } from './timer';
+import { stopTimer } from "./timer";
 import { handleEndGame } from "./finishedGameLogic";
 
-// Function to create a generator for random questions
+const currentQuestion: Question | null = null;
+
+/// Function to create a generator for random questions
 function createQuestionGenerator() {
-  const usedIndices: number[] = [];
+  let usedIndices: number[] = [];
   const maxQuestions = 10; // Limit to 10 questions
 
-  // Sätt maxantalet frågor i footern
+  // Set the total questions in the footer
   setTotalQuestions(maxQuestions);
 
+  // Function to reset the usedIndices array
+  function resetGenerator() {
+    usedIndices = [];
+    console.log("Questions array reset");
+  }
 
-
-  return function getNextQuestion(): Question | null {
+  // Function that returns the next random question or null if all questions are used
+  function getNextQuestion(): Question | null {
     if (usedIndices.length === maxQuestions) {
       return null; // No more questions
     }
@@ -29,13 +32,20 @@ function createQuestionGenerator() {
     } while (usedIndices.includes(randomIndex));
     usedIndices.push(randomIndex);
     return questions[randomIndex];
+  }
+
+  return {
+    getNextQuestion,
+    resetGenerator,
   };
 }
 
-export const getNextQuestion = createQuestionGenerator();
+const questionGenerator = createQuestionGenerator();
+export const getNextQuestion = questionGenerator.getNextQuestion;
+export const resetQuestionGenerator = questionGenerator.resetGenerator;
 
 // Function to show the next question and update the UI
-function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
+export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
   // Increment the click count for tracking user progress
   incrementClickCount();
   console.log("Click count:", clickCount);
@@ -44,6 +54,7 @@ function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
   const question = getNextQuestion();
 
   if (question) {
+    console.log("Current question:", question);
     // Update the UI with the new question and answers
     const flagImage = document.getElementById("flag-image");
     const option1Label = document.querySelector('label[for="option1"]')!;
@@ -74,13 +85,17 @@ export function handleRadioButtonChange(
 ): void {
   const selectedOption = Array.from(radioButtons).find((rb) => rb.checked);
   if (selectedOption && currentQuestion) {
-    const isCorrect = validateAnswer(selectedOption.nextElementSibling?.textContent || "", currentQuestion);
+    const isCorrect = validateAnswer(
+      selectedOption.nextElementSibling?.textContent || "",
+      currentQuestion,
+    );
     console.log(isCorrect ? "Correct answer!" : "Wrong answer!");
   } else {
     console.log("No answer selected or currentQuestion is null.");
   }
 
   setTimeout(() => {
+    updateFooterProgress();
     // Add the fade-out class to the current question elements
     const flagImage = document.getElementById("flag-image");
     const option1Label = document.querySelector('label[for="option1"]')!;
@@ -94,22 +109,9 @@ export function handleRadioButtonChange(
 
     setTimeout(() => {
       // Show the next question
-      const question = getNextQuestion();
-      if (question) {
-        currentQuestion = question; // Uppdatera frågan
-        updateFooterProgress(); // Uppdatera fotern här
+      showNextQuestion(radioButtons);
 
-        // Update the UI with the new question and answers
-        flagImage?.setAttribute("src", question.flag);
-        option1Label.textContent = question.alternative1;
-        option2Label.textContent = question.alternative2;
-        option3Label.textContent = question.alternative3;
-
-        radioButtons.forEach(resetRadioButton);
-      } else {
-        console.log("The End! No more questions available.");
-      }
-
+      // Add fade-in class for the new question elements
       flagImage?.classList.remove("fade-out");
       flagImage?.classList.add("fade-in");
       option1Label.classList.remove("fade-out");
