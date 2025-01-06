@@ -11,13 +11,12 @@
 }
 
 body {
-  background-image: url("public/images/background.png");
+  //background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: rgb(176, 103, 245);
+  background-color: rgb(141, 84, 195);
   height: 100vh;
-  font-family: Arial, sans-serif;
 }
 
 section {
@@ -31,7 +30,6 @@ h1 {
   text-align: center;
   padding: 20px;
 }
-
 
 main {
   text-align: center;
@@ -59,6 +57,7 @@ main {
   border-radius: 10px;
   overflow: hidden;
   margin-right: 10px;
+  border: 2px solid #a1d895;
 }
 
 .progress {
@@ -67,17 +66,18 @@ main {
   width: 0%;
   /* Börjar med 0% */
   background-color: green;
-  transition: width 0.3s ease;
+  transition: width 0.5s ease;
 }
 
 .progress-icon {
   position: absolute;
   top: 50%;
   left: 0%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
-  z-index: 10;
-  /* Se till att ikonen ligger över progress-elementet */
+  transform: translate(-50%, -50%) scaleX(-1);
+  transition: all 0.5s ease;
+  transform-origin: center;
+  font-size: 1.5rem;
+  z-index: 1;
 }
 
 .footer-content {
@@ -89,17 +89,10 @@ main {
 
 .question-counter {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin: 5px;
 }
 
 .copyright {
   font-size: 12px;
   color: #aaa;
-  /* Ljusare text */
 }
-
-/* Universal focus style */
-*:focus {
-  outline: 2px solid red; /* Visible focus ring */
-}
-

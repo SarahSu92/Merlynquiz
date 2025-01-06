@@ -7,4 +7,5 @@ export function incrementClickCount(): void {
 
 export function resetClickCount(): void {
   clickCount = 0;
+  console.log("Click count reset.");
 }

@@ -1,13 +1,28 @@
 import { incrementClickCount, clickCount } from "./gameStatus";
-import { Question, questions } from "./questionsData";
+import { IQuestion, questions } from "./questionsData";
+import { updateFooterProgress, setTotalQuestions } from "./footer";
+import { validateAnswer } from "./answerValidation";
+import { stopTimer } from "./timer";
+import { handleEndGame } from "./finishGameLogic";
 
-// Function to create a generator for random questions
+const currentQuestion: IQuestion | null = null;
+
+/// Function to create a generator for random questions
 function createQuestionGenerator() {
-  const usedIndices: number[] = [];
+  let usedIndices: number[] = [];
   const maxQuestions = 10; // Limit to 10 questions
 
+  // Set the total questions in the footer
+  setTotalQuestions(maxQuestions);
+
+  // Function to reset the usedIndices array
+  function resetGenerator() {
+    usedIndices = [];
+    console.log("Questions array reset");
+  }
+
   // Function that returns the next random question or null if all questions are used
-  return function getNextQuestion(): Question | null {
+  function getNextQuestion(): IQuestion | null {
     if (usedIndices.length === maxQuestions) {
       return null; // No more questions
     }
@@ -17,13 +32,20 @@ function createQuestionGenerator() {
     } while (usedIndices.includes(randomIndex));
     usedIndices.push(randomIndex);
     return questions[randomIndex];
+  }
+
+  return {
+    getNextQuestion,
+    resetGenerator,
   };
 }
 
-export const getNextQuestion = createQuestionGenerator();
+const questionGenerator = createQuestionGenerator();
+export const getNextQuestion = questionGenerator.getNextQuestion;
+export const resetQuestionGenerator = questionGenerator.resetGenerator;
 
 // Function to show the next question and update the UI
-function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
+export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
   // Increment the click count for tracking user progress
   incrementClickCount();
   console.log("Click count:", clickCount);
@@ -32,6 +54,7 @@ function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
   const question = getNextQuestion();
 
   if (question) {
+    console.log("Current question:", question);
     // Update the UI with the new question and answers
     const flagImage = document.getElementById("flag-image");
     const option1Label = document.querySelector('label[for="option1"]')!;
@@ -47,21 +70,33 @@ function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
     // Reset all radio buttons (uncheck them) for the next question
     radioButtons.forEach(resetRadioButton);
   } else {
-    console.log("The End! No more questions available.");
-    // Optionally display a message or trigger game-end logic
+    stopTimer();
+    handleEndGame(); // No more questions, end the game
   }
 }
 
 // Function to reset a radio button (uncheck it)
-function resetRadioButton(radioButton: HTMLInputElement) {
+export function resetRadioButton(radioButton: HTMLInputElement) {
   radioButton.checked = false; // Uncheck the radio button
 }
 
-// Function to handle what happens when a radio button is selected
-function handleRadioButtonChange(
+export function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
+  const selectedOption = Array.from(radioButtons).find((rb) => rb.checked);
+  if (selectedOption && currentQuestion) {
+    const isCorrect = validateAnswer(
+      selectedOption.nextElementSibling?.textContent || "",
+      currentQuestion,
+    );
+    console.log(isCorrect ? "Correct answer!" : "Wrong answer!");
+  } else {
+    console.log("No answer selected or currentQuestion is null.");
+  }
+
   setTimeout(() => {
+    // Update the footer progress after a short delay
+    updateFooterProgress();
     // Add the fade-out class to the current question elements
     const flagImage = document.getElementById("flag-image");
     const option1Label = document.querySelector('label[for="option1"]')!;
@@ -88,7 +123,6 @@ function handleRadioButtonChange(
       option3Label.classList.add("fade-in");
 
       setTimeout(() => {
-        // Cleanup the fade-in class
         flagImage?.classList.remove("fade-in");
         option1Label.classList.remove("fade-in");
         option2Label.classList.remove("fade-in");
@@ -98,18 +132,14 @@ function handleRadioButtonChange(
   }, 800); // Wait for initial delay before fade-out
 }
 
-// Function to initialize the logic for automatically showing the next question
 export function initializeAutoNextQuestion(
   radioButtons: NodeListOf<HTMLInputElement>,
 ) {
-  // Add event listeners to each radio button
   function addRadioEventListeners(radioButton: HTMLInputElement) {
-    // When a radio button is changed, trigger the handleRadioButtonChange function
     radioButton.addEventListener("change", () =>
       handleRadioButtonChange(radioButtons),
     );
   }
 
-  // Loop through each radio button and attach the event listener
   radioButtons.forEach(addRadioEventListeners);
 }
