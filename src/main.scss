@@ -96,3 +96,14 @@ main {
   font-size: 12px;
   color: #aaa;
 }
+
+//Dont remove a11y!
+/* General focus styles for all interactive elements */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid #040404;
+}
