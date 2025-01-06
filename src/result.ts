@@ -1,40 +1,33 @@
-import { startTimer, stopTimer, resetTimer } from './timer.js';
-//import { questions } from "./questionsData.ts";
+// results.ts
+import { elapsedSeconds } from "./timer"; // Import elapsedSeconds from the timer module
 
 export interface IResult {
   points: number;
-  correctAnswers: number;
   time: number; // Time in seconds
 }
 
 export const score: IResult = {
   points: 0,
-  correctAnswers: 0,
-  time: 0,
+  time: 0, // Initialize the time to 0
 };
-
-// Add event listeners for buttons
-document.getElementById("start-btn")?.addEventListener("click", startTimer);
-document.getElementById("stop-btn")?.addEventListener("click", stopTimer);
-document.getElementById("reset-btn")?.addEventListener("click", resetTimer);
-
 
 // Function to update the Result container
 export function updateScoreContainer(): void {
+  // Update score.time with the current elapsed time from the timer
+  score.time = elapsedSeconds; // Assign the value of elapsedSeconds to score.time
+
   const resultContainer = document.querySelector("#result") as HTMLElement;
 
   if (resultContainer) {
     resultContainer.innerHTML = `
       <h2>Results</h2>
       <p><strong>Points:</strong> ${score.points}</p>
-      <p><strong>Correct Answers:</strong> ${score.correctAnswers}</p>
-      <p><strong>Time:</strong>  ${formatTime(score.time)}</p>
+      <p><strong>Time:</strong>  ${formatTime(score.time)}</p> 
     `;
   } else {
     console.error("Result container not found");
   }
 }
-
 
 /**
  * Formats time as "MM:SS".
@@ -46,3 +39,6 @@ function formatTime(seconds: number): string {
   const remainingSeconds = seconds % 60;
   return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
+
+
+

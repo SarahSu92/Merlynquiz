@@ -1,6 +1,6 @@
 /*Timer*/
 let timerInterval: number | null = null;
-let elapsedSeconds = 0;
+export let elapsedSeconds = 0;
 
 /**
  * Starts the timer and updates the value in the element with ID "timer".
