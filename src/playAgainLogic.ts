@@ -3,6 +3,7 @@ import { resetTimer } from "./timer";
 // import { handleStartGame } from "./startGameButton&Logic";
 import { resetFooterProgress } from "./footer";
 import { resetQuestionGenerator } from "./nextQuestionLogic";
+import { resetRadioButton } from "./nextQuestionLogic";
 
 // Function to restart the game quiz
 export function restartGame(): void {
@@ -15,8 +16,14 @@ export function restartGame(): void {
   resetQuestionGenerator();
   // Reset the footer progress bar and counter
   resetFooterProgress();
-  // DOM elements
+  // Reset the radio buttons
+  const radioButtons = document.querySelectorAll(
+    'input[type="radio"]',
+  ) as NodeListOf<HTMLInputElement>;
+  radioButtons.forEach(resetRadioButton);
+  console.log("Radio buttons reset.");
 
+  // DOM elements
   const gameOverSection = document.getElementById("game-over") as HTMLElement;
   const footer = document.querySelector(".footer") as HTMLElement;
 

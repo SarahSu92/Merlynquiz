@@ -1,11 +1,11 @@
 import { incrementClickCount, clickCount } from "./gameStatus";
-import { Question, questions } from "./questionsData";
+import { IQuestion, questions } from "./questionsData";
 import { updateFooterProgress, setTotalQuestions } from "./footer";
 import { validateAnswer } from "./answerValidation";
 import { stopTimer } from "./timer";
-import { handleEndGame } from "./finishedGameLogic";
+import { handleEndGame } from "./finishGameLogic";
 
-const currentQuestion: Question | null = null;
+const currentQuestion: IQuestion | null = null;
 
 /// Function to create a generator for random questions
 function createQuestionGenerator() {
@@ -22,7 +22,7 @@ function createQuestionGenerator() {
   }
 
   // Function that returns the next random question or null if all questions are used
-  function getNextQuestion(): Question | null {
+  function getNextQuestion(): IQuestion | null {
     if (usedIndices.length === maxQuestions) {
       return null; // No more questions
     }
@@ -76,7 +76,7 @@ export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
 }
 
 // Function to reset a radio button (uncheck it)
-function resetRadioButton(radioButton: HTMLInputElement) {
+export function resetRadioButton(radioButton: HTMLInputElement) {
   radioButton.checked = false; // Uncheck the radio button
 }
 
@@ -95,6 +95,7 @@ export function handleRadioButtonChange(
   }
 
   setTimeout(() => {
+    // Update the footer progress after a short delay
     updateFooterProgress();
     // Add the fade-out class to the current question elements
     const flagImage = document.getElementById("flag-image");

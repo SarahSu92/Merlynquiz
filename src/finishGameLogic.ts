@@ -18,7 +18,7 @@ export function handleEndGame(): void {
   questionContainer?.classList.add("fade-out");
   questionPhrase?.classList.add("fade-out");
   flagImage?.classList.add("fade-out");
-  //timer?.classList.add("fade-out");
+  timer?.classList.add("fade-out");
 
   // Wait for the fade-out animation to complete before hiding elements
   setTimeout(() => {
@@ -26,6 +26,12 @@ export function handleEndGame(): void {
     questionPhrase.style.display = "none";
     flagImage.style.display = "none";
     timer.style.display = "none";
+
+    //Remove the fade-out class
+    questionContainer.classList.remove("fade-out");
+    questionPhrase.classList.remove("fade-out");
+    flagImage.classList.remove("fade-out");
+    timer.classList.remove("fade-out");
 
     // Display the game over section with fade-in animation
     gameOverSection.style.display = "flex";

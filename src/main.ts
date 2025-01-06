@@ -1,15 +1,13 @@
 import "./main.scss";
 import { restartGame } from "./playAgainLogic";
-
-// import { resetClickCount } from "./gameStatus";
 import { createStartGameButton } from "./startGameButton&Logic";
-
 import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 import { updateScoreContainer } from "./result";
 import { setupLabelKeyboardEvents } from "./a11y";
 
 //================================================================================================
 // Create the alternatives answers buttons and the play again button
+
 const questionContainer = document.createElement("section");
 questionContainer.classList.add("question-container");
 questionContainer.style.display = "none";
@@ -26,6 +24,7 @@ questionContainer.innerHTML = `
   </div>
 `;
 
+//================================================================================================
 //add the question container to the document
 document.body.appendChild(questionContainer);
 
@@ -38,51 +37,22 @@ initializeAutoNextQuestion(radioButtons);
 
 //================================================================================================
 // Add the "Start Game" button to the document
+
 const startGameButton = createStartGameButton();
 document.body.appendChild(startGameButton);
 
 //================================================================================================
-// const usedQuestions = new Set<number>();
-
-//add event listener for function restartGame when we click the button play-again
-// const playAgainButton = document.querySelector(
-//   ".play-again-btn",
-// ) as HTMLButtonElement;
-
-// if (playAgainButton) {
-//   playAgainButton.addEventListener("click", () => {
-//     restartGame(resetUsedQuestions, resetTimer);
-//     resetClickCount();
-//   });
-// }
-
-// //clear all the used questions
-// function resetUsedQuestions() {
-//   usedQuestions.clear();
-// }
-
-// //reset the timer
-// function resetTimer() {
-//   console.log("Timer reset.");
-// }
-
-// ===============================================================================
-// ===============================================================================
-// ===============================================================================
-
-// _______________________________________________________________________________
-
-// After the quiz is finished, update the result container
-// updateScoreContainer();
-// Call the function to set up label keyboard events
-setupLabelKeyboardEvents();
-
-// Update the score container manually (if needed)
-updateScoreContainer();
-
-// ===============================================================================
 // Add event listener to the "Play Again" button
+
 const playAgainButton = document.getElementById("play-again-btn");
 if (playAgainButton) {
   playAgainButton.addEventListener("click", () => restartGame());
 }
+// ===============================================================================
+// After the quiz is finished, update the result container
+updateScoreContainer();
+// Call the function to set up label keyboard events
+setupLabelKeyboardEvents();
+// Update the score container manually (if needed)
+updateScoreContainer();
+// ===============================================================================

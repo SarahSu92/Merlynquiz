@@ -1,5 +1,5 @@
 // Define the Question interface
-export interface Question {
+export interface IQuestion {
   id: number;
   name: string;
   flag: string;
@@ -9,7 +9,7 @@ export interface Question {
 }
 
 // Export the questions array
-export const questions: Question[] = [
+export const questions: IQuestion[] = [
   {
     id: 1,
     name: "Argentina",
