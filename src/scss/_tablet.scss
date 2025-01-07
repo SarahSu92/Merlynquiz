@@ -2,7 +2,7 @@
   .answer-quiz {
     max-width: 350px;
     padding: 12px;
-    font-size: 1.5rem
+    font-size: 1.1rem
   }
 
   h1 {
@@ -14,8 +14,8 @@
   }
 
   .question {
-    margin-top: 280px;
-    font-size: 2.3rem;
+    margin-top: 120px;
+    font-size: 2rem;
   }
 
   .alternative {
@@ -23,18 +23,18 @@
   }
 
   .timer {
-    width: 15vw;
-    font-size: 1.8rem;
+    width: 10vw;
+    font-size: 1.2rem;
   }
 
   .flag .flag-image {
-    margin-top: 20px;
-    width: 500px;
-    height: 300px;
+    margin-top: 5px;
+    width: 350px;
+    height: 180px;
   }
 
   .flags-icon {
-    top: 28vh;
+    top: 10vh;
   }
 
   .start-game-btn {
@@ -47,7 +47,7 @@
   }
 
   .footer {
-    height: 80px;
+    height: 60px;
   }
 
 }
