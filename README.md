@@ -11,3 +11,7 @@ We continue coding and testing. Remove buggs and make sure everyone has somethin
 Meeting minutes week 3.
 
 We continue with the game logic and complete the final stage of testing and merging, hopefully we get the game finished by the end of the week.
+
+Meeting minutes week 4.
+
+We finish the code and complete the project. We begin the presentation and fix all the buggs with the code and merge to main. 
