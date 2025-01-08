@@ -1,4 +1,3 @@
-import { incrementClickCount, clickCount } from "./gameStatus";
 import { IQuestion, questions } from "./questionsData";
 import { updateFooterProgress, setTotalQuestions } from "./footer";
 import { validateAnswer } from "./answerValidation";
@@ -18,7 +17,7 @@ function createQuestionGenerator() {
   // Function to reset the usedIndices array
   function resetGenerator() {
     usedIndices = [];
-    console.log("Questions array reset"); 
+    console.log("Questions array reset");
   }
 
   // Function that returns the next random question or null if all questions are used
@@ -48,10 +47,10 @@ export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
   const question = getNextQuestion();
 
   if (question) {
-    currentQuestion = question; // Uppdatera den aktuella frågan
+    currentQuestion = question; // Update the current question
     console.log("Current question:", question);
 
-    // Uppdatera UI med flagga och svarsalternativ
+    // Update UI with flag and alternatives.
     const flagImage = document.getElementById("flag-image");
     const option1Label = document.querySelector('label[for="option1"]')!;
     const option2Label = document.querySelector('label[for="option2"]')!;
@@ -62,7 +61,7 @@ export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
     option2Label.textContent = question.alternative2;
     option3Label.textContent = question.alternative3;
 
-    // Återställ alla radioknappar för nästa fråga
+    // Reset radio buttons
     radioButtons.forEach(resetRadioButton);
   } else {
     console.log("No more questions available.");
@@ -76,6 +75,7 @@ export function resetRadioButton(radioButton: HTMLInputElement) {
   radioButton.checked = false; // Uncheck the radio button
 }
 
+// Function to validate the selected answer
 export function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
@@ -88,43 +88,42 @@ export function handleRadioButtonChange(
   } else {
     console.log("No answer selected or currentQuestion is null.");
   }
-
-  // Update the footer progress
-  updateFooterProgress();
-
-  // Fade-out current question elements
-  const flagImage = document.getElementById("flag-image");
-  const option1Label = document.querySelector('label[for="option1"]')!;
-  const option2Label = document.querySelector('label[for="option2"]')!;
-  const option3Label = document.querySelector('label[for="option3"]')!;
-
-  flagImage?.classList.add("fade-out");
-  option1Label.classList.add("fade-out");
-  option2Label.classList.add("fade-out");
-  option3Label.classList.add("fade-out");
-
   setTimeout(() => {
-    // Show the next question
-    showNextQuestion(radioButtons);
+    // Update the footer progress after a short delay
+    updateFooterProgress();
+    // Add the fade-out class to the current question elements
+    const flagImage = document.getElementById("flag-image");
+    const option1Label = document.querySelector('label[for="option1"]')!;
+    const option2Label = document.querySelector('label[for="option2"]')!;
+    const option3Label = document.querySelector('label[for="option3"]')!;
 
-    // Fade-in new question elements
-    flagImage?.classList.remove("fade-out");
-    flagImage?.classList.add("fade-in");
-    option1Label.classList.remove("fade-out");
-    option1Label.classList.add("fade-in");
-    option2Label.classList.remove("fade-out");
-    option2Label.classList.add("fade-in");
-    option3Label.classList.remove("fade-out");
-    option3Label.classList.add("fade-in");
+    flagImage?.classList.add("fade-out");
+    option1Label.classList.add("fade-out");
+    option2Label.classList.add("fade-out");
+    option3Label.classList.add("fade-out");
 
     setTimeout(() => {
-      // Clean up fade-in classes after animation
-      flagImage?.classList.remove("fade-in");
-      option1Label.classList.remove("fade-in");
-      option2Label.classList.remove("fade-in");
-      option3Label.classList.remove("fade-in");
-    }, 300); // Match fade-in duration
-  }, 800); // Match fade-out duration
+      // Show the next question
+      showNextQuestion(radioButtons);
+
+      // Add fade-in class for the new question elements
+      flagImage?.classList.remove("fade-out");
+      flagImage?.classList.add("fade-in");
+      option1Label.classList.remove("fade-out");
+      option1Label.classList.add("fade-in");
+      option2Label.classList.remove("fade-out");
+      option2Label.classList.add("fade-in");
+      option3Label.classList.remove("fade-out");
+      option3Label.classList.add("fade-in");
+
+      setTimeout(() => {
+        flagImage?.classList.remove("fade-in");
+        option1Label.classList.remove("fade-in");
+        option2Label.classList.remove("fade-in");
+        option3Label.classList.remove("fade-in");
+      }, 400); // Match the fade-in duration
+    }, 400); // Match the fade-out duration
+  }, 800); // Wait for initial delay before fade-out
 }
 
 // Function to reset event listeners for radio buttons

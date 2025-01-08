@@ -11,13 +11,13 @@
 }
 
 body {
-  background-image: url("/images/background.png");
+  // background-image: url("/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-color: rgb(141, 84, 195);
   height: 100vh;
-  font-family: 'Arial Narrow Bold', sans-serif;
+  font-family: "Arial Narrow Bold", sans-serif;
 }
 
 section {
@@ -101,7 +101,7 @@ main {
 }
 
 .copyright {
-  font-size: 0.7rem
+  font-size: 0.7rem;
 }
 
 /* General focus styles for all interactive elements */
@@ -116,4 +116,34 @@ textarea:focus,
 
 .timer {
   font-family: "Orbitron", sans-serif;
+}
+
+/* Fade out animation */
+.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -6,16 +6,6 @@ import { updateScoreContainer } from "./result";
 import { setupLabelKeyboardEvents } from "./a11y";
 
 //================================================================================================
-// Create the alternatives answers buttons and the play again button
-
-const questionContainer = document.createElement("section");
-questionContainer.classList.add("question-container");
-questionContainer.style.display = "none";
-
-//================================================================================================
-//add the question container to the document
-document.body.appendChild(questionContainer);
-
 // Get all the radio buttons for the quiz
 const radioButtons = document.querySelectorAll(
   'input[name="quiz"]',
