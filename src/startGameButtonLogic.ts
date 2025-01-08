@@ -1,6 +1,9 @@
-import { getNextQuestion } from "./nextQuestionLogic";
+import {
+  showNextQuestion,
+  initializeAutoNextQuestion,
+} from "./nextQuestionLogic";
 import { startTimer } from "./timer";
-// import { showNextQuestion } from "./nextQuestionLogic";
+
 // Function to start the game
 export function createStartGameButton(): HTMLButtonElement {
   // Create the "Start Game" button
@@ -16,12 +19,11 @@ export function createStartGameButton(): HTMLButtonElement {
   return startGameButton;
 }
 
-// Function to handle the "Start Game" button click
 export function handleStartGame(): void {
   console.log("Game started!");
   startTimer(); // Start the timer when the button is clicked
 
-  //  DOM Elements to animate
+  // DOM Elements to animate
   const startGameButton = document.getElementById(
     "start-game-btn",
   ) as HTMLButtonElement;
@@ -35,6 +37,7 @@ export function handleStartGame(): void {
   const timer = document.getElementById("timer") as HTMLElement;
   const footer = document.querySelector(".footer") as HTMLElement;
 
+
   // Add fade-out animation to the Start Game button and welcome message
   startGameButton?.classList.add("fade-out");
   welcomeMessage?.classList.add("fade-out");
@@ -45,23 +48,9 @@ export function handleStartGame(): void {
     startGameButton.style.display = "none";
     welcomeMessage.style.display = "none";
     flagsIcon.style.display = "none";
+    
 
-    // Update the first question
-    const firstQuestion = getNextQuestion();
-    if (firstQuestion) {
-      document
-        .getElementById("flag-image")
-        ?.setAttribute("src", firstQuestion.flag);
-      document.getElementById("option1")!.nextElementSibling!.textContent =
-        firstQuestion.alternative1;
-      document.getElementById("option2")!.nextElementSibling!.textContent =
-        firstQuestion.alternative2;
-      document.getElementById("option3")!.nextElementSibling!.textContent =
-        firstQuestion.alternative3;
-      console.log("Current question:", firstQuestion);
-    }
-
-    // Fade in the question, flag and alternatives.
+    // Fade in the question, flag and alternatives
     questionContainer.style.display = "block";
     questionPhrase.style.display = "block";
     flagImage.style.display = "flex";
@@ -73,17 +62,19 @@ export function handleStartGame(): void {
     flagImage.classList.add("fade-in");
     timer.classList.add("fade-in");
     footer.classList.add("fade-in");
-    // Ensure all elements are ready for the next fade-out after fade-in completes
+
+    // Fetch and display the first question
     setTimeout(() => {
       questionContainer.classList.remove("fade-in");
       questionPhrase.classList.remove("fade-in");
       flagImage.classList.remove("fade-in");
       timer.classList.remove("fade-in");
-      // Fetch and display the first question
-      // const radioButtons = document.querySelectorAll(
-      //   'input[type="radio"]',
-      // ) as NodeListOf<HTMLInputElement>;
-      // showNextQuestion(radioButtons); // Show the first question
+
+      const radioButtons = document.querySelectorAll(
+        'input[type="radio"]',
+      ) as NodeListOf<HTMLInputElement>;
+      showNextQuestion(radioButtons); // Show the first question
+      initializeAutoNextQuestion(radioButtons); // Set up event listeners
     }, 300); // Match the fade-in duration
   }, 300); // Match the fade-out duration
 }
