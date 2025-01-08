@@ -1,17 +1,13 @@
-@media (min-width: 400px) {
-
-
 .answer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  margin-bottom: 10px;
 }
 .answer-quiz {
   margin-top: 10px;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 12px;
@@ -43,7 +39,6 @@
     }
   }
 }
-
 
 .play-again-btn {
   display: block;
@@ -174,36 +169,6 @@ input[type="radio"]:checked + .answer-quiz {
   margin: 110px 0 20px 0;
 }
 
-/* Fade out animation */
-.fade-out {
-  animation: fadeOut 0.3s forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-/* Fade in animation */
-.fade-in {
-  animation: fadeIn 0.3s forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .flag {
   display: none;
 
@@ -217,12 +182,9 @@ input[type="radio"]:checked + .answer-quiz {
   left: 50%;
   transform: translateX(-50%);
   top: 20px;
-  
 }
 
 .flag .flag-image {
   width: 300px;
   height: 170px;
-  
-}
 }
