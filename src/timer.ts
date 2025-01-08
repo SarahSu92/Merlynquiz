@@ -1,6 +1,6 @@
-/*Timer*/
+
 let timerInterval: number | null = null;
-let elapsedSeconds = 0;
+export let elapsedSeconds = 0;
 
 /**
  * Starts the timer and updates the value in the element with ID "timer".
@@ -34,6 +34,25 @@ export function stopTimer(): void {
     clearInterval(timerInterval);
     timerInterval = null;
   }
+
+  // Trigger updating the results when the timer stops
+  updateResultsOnStop();
+}
+
+/**
+ * Resets the timer.
+ */
+export function resetTimer(): void {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  elapsedSeconds = 0;
+  const timerDisplay = document.getElementById("timer");
+  if (timerDisplay) {
+    timerDisplay.textContent = formatTime(elapsedSeconds);
+  }
+  console.log("Timer reset.");
 }
 
 /**
@@ -47,6 +66,12 @@ function formatTime(seconds: number): string {
   return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
 
-export function resetTimer() {
-  console.log("Timer reset.");
+/**
+ * Calls the function to update the score container when the timer stops.
+ */
+function updateResultsOnStop(): void {
+  import("./result").then((module) => {
+    module.updateScoreContainer();
+  });
 }
+

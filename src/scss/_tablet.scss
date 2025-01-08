@@ -2,11 +2,20 @@
   .answer-quiz {
     max-width: 350px;
     padding: 12px;
-    font-size: 18px;
+    font-size: 1.1rem
   }
 
   h1 {
     font-size: 2em;
+  }
+
+  .welcome {
+    top: 50vh;
+  }
+
+  .question {
+    margin-top: 120px;
+    font-size: 2rem;
   }
 
   .alternative {
@@ -15,26 +24,30 @@
 
   .timer {
     width: 10vw;
+    font-size: 1.2rem;
+  }
+
+  .flag .flag-image {
+    margin-top: 5px;
+    width: 350px;
+    height: 180px;
+  }
+
+  .flags-icon {
+    top: 10vh;
+  }
+
+  .start-game-btn {
+  top: 55vh;
+  font-size: 1.5;
+  }
+
+  .game-over {
+    height: 35vh;
   }
 
   .footer {
-    flex-direction: column;
-    /* Lägg innehållet i kolumn */
-    align-items: center;
-    /* Centrera allt */
-    padding: 10px;
+    height: 60px;
   }
 
-  .progress-bar {
-    width: 80%;
-    /* Minska bredden något */
-    height: 20px;
-    /* Standardhöjd för tablets */
-    margin-right: 10px;
-  }
-
-  .footer-content {
-    align-items: center;
-    /* Centrera text */
-  }
 }

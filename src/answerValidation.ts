@@ -9,6 +9,7 @@ export function validateAnswer(
   currentQuestion: IQuestion,
 ): boolean {
   console.log("Selected Answer:", selectedAnswer);
-  console.log("Correct Answer:", currentQuestion.name);
-  return selectedAnswer === currentQuestion.name;
+  console.log("Correct Answer:", currentQuestion.correctAnswer);
+  return selectedAnswer === currentQuestion.correctAnswer;
+
 }
