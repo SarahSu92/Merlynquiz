@@ -26,6 +26,7 @@ export function handleEndGame(): void {
     questionPhrase.style.display = "none";
     flagImage.style.display = "none";
     timer.style.display = "none";
+    
 
     //Remove the fade-out class
     questionContainer.classList.remove("fade-out");
