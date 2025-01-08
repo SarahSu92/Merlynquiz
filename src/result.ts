@@ -1,5 +1,6 @@
 import { elapsedSeconds } from "./timer"; // Import elapsedSeconds from the timer module
 
+
 export interface IResult {
   points: number;
   time: number; // Time in seconds
@@ -38,7 +39,4 @@ function formatTime(seconds: number): string {
   const remainingSeconds = seconds % 60;
   return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
-
-
-
 
