@@ -1,98 +1,80 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- General Metadata -->
-    <meta charset="utf-8" />
-    <!-- Page Title -->
-    <title>Marlyn Quiz - Guess the Flag!</title>
-    <!-- Viewport Settings for Responsive Design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Meta Description -->
-    <meta
-      name="description"
-      content="Marlyn Quiz is a fun quiz game where you guess the country based on its flag. Test your knowledge and challenge yourself!"
-    />
-    <!-- Keywords for SEO -->
-    <meta
-      name="keywords"
-      content="Marlyn Quiz, flag quiz, quiz game, guess the flag, trivia, geography game"
-    />
-    <!-- Author -->
-    <meta name="author" content="Marlyn Group, Marlyn's Quiz Game," />
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="Marlyn Quiz - Guess the Flag!" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://medieinstitutet.github.io/fed24d-js-intro-inl-2-quiz-marlyn/"
-    />
-    <meta
-      property="og:image"
-      content="https://cdn.pixabay.com/photo/2016/04/01/22/55/countries-1301799_1280.png"
-    />
-    <meta
-      property="og:image:alt"
-      content="A flag quiz game with country flags and three options."
-    />
-    <!-- Social Media Meta Tags -->
-    <!-- Open Graph for Facebook -->
-    <meta property="og:title" content="Marlyn Quiz - Guess the Flag!" />
-    <meta
-      property="og:description"
-      content="Test your knowledge of country flags in this fun quiz game! Can you guess the correct flag from the options?"
-    />
-    <meta
-      property="og:image"
-      content="https://cdn.pixabay.com/photo/2016/04/01/22/55/countries-1301799_1280.png"
-    />
-    <meta property="og:url" content="https://yourwebsite.com/marlyn-quiz" />
-    <meta property="og:type" content="website" />
-    <!-- Twitter Card  -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Marlyn Quiz - Guess the Flag!" />
-    <meta
-      name="twitter:description"
-      content="Challenge yourself with this fun quiz game. Can you guess the correct country's flag?"
-    />
-    <meta
-      name="twitter:image"
-      content="https://cdn.pixabay.com/photo/2016/04/01/22/55/countries-1301799_1280.png"
-    />
-    <!-- Favicon -->
-    <link rel="icon" href="/images/flags-icon.png" sizes="any" />
-    <link rel="apple-touch-icon" href="public/images/flags-icon.png" />
-    <!-- SCSS -->
-    <link rel="stylesheet" href="src/style.scss" type="text/css" />
-  </head>
-  <body>
-    <header>
-      <section class="timer" id="timer">00:00</section>
-      <img
-        id="flags-icon"
-        class="flags-icon"
-        src="public/images/flags-icon.png"
-        alt="flags image"
-        width="300"
-        height="300"
-      />
-      <h1 id="welcome" class="welcome">Welcome to Marlyn Quiz Game!</h1>
-    </header>
 
-    <main>
-      <section id="game-over" class="game-over">
-        <article class="result" id="result">Results</article>
-        <button id="play-again-btn" class="play-again-btn">Play Again</button>
-      </section>
+<head>
+  <!-- General Metadata -->
+  <meta charset="utf-8" />
+  <!-- Page Title -->
+  <title>Marlyn Quiz - Guess the Flag!</title>
+  <!-- Viewport Settings for Responsive Design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Meta Description -->
+  <meta name="description"
+    content="Marlyn Quiz is a fun quiz game where you guess the country based on its flag. Test your knowledge and challenge yourself!" />
+  <!-- Keywords for SEO -->
+  <meta name="keywords" content="Marlyn Quiz, flag quiz, quiz game, guess the flag, trivia, geography game" />
+  <!-- Author -->
+  <meta name="author" content="Marlyn Group, Marlyn's Quiz Game," />
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Marlyn Quiz - Guess the Flag!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://medieinstitutet.github.io/fed24d-js-intro-inl-2-quiz-marlyn/" />
+  <meta property="og:image" content="https://cdn.pixabay.com/photo/2016/04/01/22/55/countries-1301799_1280.png" />
+  <meta property="og:image:alt" content="A flag quiz game with country flags and three options." />
+  <!-- Social Media Meta Tags -->
+  <!-- Open Graph for Facebook -->
+  <meta property="og:title" content="Marlyn Quiz - Guess the Flag!" />
+  <meta property="og:description"
+    content="Test your knowledge of country flags in this fun quiz game! Can you guess the correct flag from the options?" />
+  <meta property="og:image" content="https://cdn.pixabay.com/photo/2016/04/01/22/55/countries-1301799_1280.png" />
+  <meta property="og:url" content="https://yourwebsite.com/marlyn-quiz" />
+  <meta property="og:type" content="website" />
+  <!-- Twitter Card  -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marlyn Quiz - Guess the Flag!" />
+  <meta name="twitter:description"
+    content="Challenge yourself with this fun quiz game. Can you guess the correct country's flag?" />
+  <meta name="twitter:image" content="https://cdn.pixabay.com/photo/2016/04/01/22/55/countries-1301799_1280.png" />
+  <!-- Favicon -->
+  <link rel="icon" href="/images/flags-icon.png" sizes="any" />
+  <link rel="apple-touch-icon" href="/images/flags-icon.png" />
+  <!-- SCSS -->
+  <link rel="stylesheet" href="src/style.scss" type="text/css" />
+</head>
 
-      <section class="question" id="question">
-        Which country's flag is this?
-      </section>
-      <section class="flag">
-        <img id="flag-image" class="flag-image" alt="flag image" />
-      </section>
-    </main>
+<body>
+  <header>
+    <section class="timer" id="timer">00:00</section>
+    <img id="flags-icon" class="flags-icon" src="/images/flags-icon.png" alt="flags image" width="300" height="300" />
+    <h1 id="welcome" class="welcome">Welcome to Marlyn Quiz Game!</h1>
+  </header>
 
-    <script type="module" src="src/main.ts"></script>
-    <script type="module" src="src/restartGame.ts"></script>
-  </body>
+  <main>
+    <section id="game-over" class="game-over">
+      <article class="result" id="result">Results</article>
+      <button id="play-again-btn" class="play-again-btn">Play Again</button>
+    </section>
+
+    <section class="question" id="question">
+      Which country's flag is this?
+    </section>
+    <section class="flag">
+      <img id="flag-image" class="flag-image" alt="flag image" />
+    </section>
+
+    <div class="answer-container">
+      <input type="radio" id="option1" name="quiz" tabindex="0" />
+      <label class="answer-quiz" for="option1" tabindex="0">Alternativ 1</label>
+
+      <input type="radio" id="option2" name="quiz" tabindex="0" />
+      <label class="answer-quiz" for="option2" tabindex="0">Alternativ 2</label>
+
+      <input type="radio" id="option3" name="quiz" tabindex="0" />
+      <label class="answer-quiz" for="option3" tabindex="0">Alternativ 3</label>
+    </div>
+  </main>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+
 </html>
