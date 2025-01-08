@@ -1,6 +1,6 @@
 import "./main.scss";
 import { restartGame } from "./playAgainLogic";
-import { createStartGameButton } from "./startGameButton&Logic";
+import { createStartGameButton } from "./startGameButtonLogic";
 import { initializeAutoNextQuestion } from "./nextQuestionLogic";
 import { updateScoreContainer } from "./result";
 import { setupLabelKeyboardEvents } from "./a11y";
@@ -11,18 +11,6 @@ import { setupLabelKeyboardEvents } from "./a11y";
 const questionContainer = document.createElement("section");
 questionContainer.classList.add("question-container");
 questionContainer.style.display = "none";
-questionContainer.innerHTML = `
-  <div class="answer-container">
-    <input type="radio" id="option1" name="quiz" tabindex="0" />
-    <label class="answer-quiz" for="option1" tabindex="0">Alternativ 1</label>
-
-    <input type="radio" id="option2" name="quiz" tabindex="0" />
-    <label class="answer-quiz" for="option2" tabindex="0">Alternativ 2</label>
-
-    <input type="radio" id="option3" name="quiz" tabindex="0" />
-    <label class="answer-quiz" for="option3" tabindex="0" >Alternativ 3</label>
-  </div>
-`;
 
 //================================================================================================
 //add the question container to the document
