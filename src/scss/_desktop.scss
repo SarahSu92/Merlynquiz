@@ -1,51 +1,36 @@
 @use "/src/scss/animation.scss" as anim;
 
-.feedback {
-  font-size: 4rem; // Anpassning för desktop
-}
-
 @media (min-width: 1024px) {
   .answer-quiz {
-    max-width: 500px;
+    width: 400px;
     padding: 14px;
-    font-size: 20px;
-  }
-
-  .answer-container {
-    .answer-quiz,
-    .play-again-btn {
-      width: 300px;
-      font-size: 1.1rem;
-    }
+    font-size: 1.5rem;
   }
 
   h1 {
     font-size: 2em;
   }
 
-  .alternative {
-    padding-top: 20px;
+  .progress-bar {
+    width: 60%;
   }
 
   .timer {
-    width: 6vw;
-    font-size: 1.2rem;
+    width: 150px;
   }
 
-  .flags-icon {
-    top: 13vh;
+  .flag-image {
+    width: 450px;
+    height: 300px;
+  }
+
+  .feedback {
+    font-size: 5rem;
+    top: 450px;
   }
 
   .question {
-    margin-top: 100px;
-  }
-
-  .game-over {
-    height: 35vh;
-  }
-
-  .flag .flag-image {
-    height: 250px;
-    width: 450px;
+    margin: 100px 0 20px 0;
+    font-size: 3rem;
   }
 }
