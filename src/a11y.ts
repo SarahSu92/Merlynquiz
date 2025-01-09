@@ -53,7 +53,6 @@ export function setupLabelKeyboardEvents() {
           // Simulate selecting the radio button
           radio.checked = true;
           radio.dispatchEvent(new Event("change")); // Trigger the change event for the input
-          console.log(`Radio button ${radio.id} selected.`);
         }
       }
     }

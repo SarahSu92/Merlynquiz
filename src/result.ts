@@ -1,6 +1,5 @@
 import { elapsedSeconds } from "./timer"; // Import elapsedSeconds from the timer module
 
-
 export interface IResult {
   points: number;
   time: number; // Time in seconds
@@ -16,6 +15,11 @@ export function addPoints(): void {
   score.points += 1; // Increment points by 1
 }
 
+// Function to reset the score
+export function resetScore(): void {
+  score.points = 0;
+}
+
 // Function to update the Result container
 export function updateScoreContainer(): void {
   // Update score.time with the current elapsed time from the timer
@@ -29,8 +33,6 @@ export function updateScoreContainer(): void {
       <p><strong>Points:</strong> ${score.points}</p>
       <p><strong>Time:</strong>  ${formatTime(score.time)}</p> 
     `;
-  } else {
-    console.error("Result container not found");
   }
 }
 
@@ -44,4 +46,3 @@ function formatTime(seconds: number): string {
   const remainingSeconds = seconds % 60;
   return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
 }
-
