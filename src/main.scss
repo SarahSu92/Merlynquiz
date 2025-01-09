@@ -1,10 +1,7 @@
 @use "scss/_mobile.scss";
-
-@use "scss/tablet";
-
-@use "scss/desktop.scss";
-
-@use "/src/scss/animation.scss" as anim;
+@use "scss/_tablet.scss";
+@use "scss/_desktop.scss";
+@use "scss/_animations.scss";
 
 * {
   margin: 0;
@@ -43,6 +40,190 @@ main {
   text-align: center;
 }
 
+.answer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.answer-quiz {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  font-size: 1rem;
+  max-width: 300px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  justify-content: space-around;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #ccc9c9;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  input[type="radio"] {
+    display: none;
+    &:checked + .answer-quiz {
+      background-color: #ccc9c9;
+    }
+  }
+}
+.play-again-btn {
+  display: block;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 1rem;
+  max-width: 200px;
+  width: 140px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #14e014;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #097a34;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    background-color: #003f7f;
+    transform: scale(0.95);
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .answer-quiz {
+  background-color: #5bb92b;
+  color: #fff;
+}
+
+.game-over {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -70%);
+  background-color: #fff;
+  height: 35vh;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  justify-content: space-between;
+
+  .result {
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// digital font
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
+
+.timer {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  box-shadow: 1px 1px 6px 4px rgba(225, 198, 236, 0.6);
+  margin: auto;
+  position: relative;
+  top: 20px;
+  border-radius: 10px;
+  border: #bc61e0 2px solid;
+  display: none;
+  background-color: #541559;
+  font-family: "Orbitron", sans-serif;
+  color: #e1bfeb;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  padding: 2px;
+  font-size: 1.2rem;
+}
+
+.welcome {
+  position: relative;
+  top: 45vh;
+  padding: 20px;
+  margin: auto;
+  width: 100vw;
+  background-color: #ed9dec;
+  color: #fff;
+}
+
+.start-game-btn {
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  padding: 8px;
+  font-size: 1rem;
+  max-width: 200px;
+  width: 150px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #14e014;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #097a34;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    background-color: #003f7f;
+    transform: scale(0.95);
+  }
+}
+
+.question {
+  display: none;
+  color: rgb(5, 5, 5);
+}
+
+.flag {
+  display: none;
+
+  .flag-image {
+    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.flags-icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10vh;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -57,7 +238,6 @@ main {
 
 .progress-bar {
   position: relative;
-  width: 60%;
   height: 20px;
   background-color: yellow;
   border-radius: 10px;
@@ -93,7 +273,6 @@ main {
 
 .footer {
   flex-direction: column;
-  /* Vertikal layout */
   align-items: center;
   padding: 5px;
 }
@@ -114,10 +293,6 @@ select:focus,
 textarea:focus,
 [tabindex]:focus {
   outline: 2px solid #040404;
-}
-
-.timer {
-  font-family: "Orbitron", sans-serif;
 }
 
 /* Fade out animation */
@@ -147,5 +322,58 @@ textarea:focus,
 
   to {
     opacity: 1;
+  }
+}
+
+/* Answer validation animation */
+.feedback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.feedback.show {
+  opacity: 1;
+}
+
+.feedback.correct {
+  color: green;
+  animation: bounce 1s ease;
+}
+
+.feedback.incorrect {
+  color: red;
+  animation: shake 1s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -60%) scale(1.2);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 }
