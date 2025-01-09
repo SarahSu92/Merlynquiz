@@ -1,20 +1,12 @@
 @media screen and (max-width: 767px) {
   .answer-quiz {
-    max-width: 300px;
+    width: 300px;
     padding: 10px;
     font-size: 1rem;
   }
 
-  .answer-container {
-    .answer-quiz,
-    .play-again-btn {
-      width: 200px;
-      font-size: 1rem;
-    }
-  }
-
-  h1 {
-    font-size: 1.5em;
+  .welcome {
+    font-size: 1.5rem;
   }
 
   .alternative {
@@ -28,7 +20,7 @@
 
   .question {
     margin: 120px 0 20px 0;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .game-over {
@@ -36,7 +28,7 @@
   }
 
   .flag-image {
-    max-width: 360px;
+    max-width: 290px;
   }
   .progress-bar {
     width: 75%;

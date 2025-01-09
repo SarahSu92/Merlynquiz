@@ -1,6 +1,6 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .answer-quiz {
-    max-width: 350px;
+    width: 350px;
     padding: 12px;
     font-size: 1rem;
   }
@@ -14,7 +14,7 @@
   }
 
   .question {
-    margin: 180px 0 40px 0;
+    margin: 90px 0 40px 0;
     font-size: 2rem;
   }
 

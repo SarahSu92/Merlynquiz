@@ -2,13 +2,13 @@
   .answer-quiz {
     max-width: 500px;
     padding: 14px;
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   .answer-container {
     .answer-quiz,
     .play-again-btn {
-      width: 300px;
+      width: 350px;
       font-size: 1rem;
     }
   }
@@ -32,7 +32,7 @@
     font-size: 4rem;
   }
   .question {
-    margin: 120px 0 20px 0;
+    margin: 100px 0 20px 0;
     font-size: 2rem;
   }
 }
