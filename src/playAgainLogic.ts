@@ -7,7 +7,6 @@ import { resetRadioButton } from "./nextQuestionLogic";
 
 // Function to restart the game quiz
 export function restartGame(): void {
-  console.log("Play Again!");
   // Reset game state
   resetClickCount();
   // Reset the timer
@@ -21,7 +20,6 @@ export function restartGame(): void {
     'input[type="radio"]',
   ) as NodeListOf<HTMLInputElement>;
   radioButtons.forEach(resetRadioButton);
-  console.log("Radio buttons reset.");
 
   // DOM elements
   const gameOverSection = document.getElementById("game-over") as HTMLElement;

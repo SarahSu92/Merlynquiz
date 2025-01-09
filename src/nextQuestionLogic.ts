@@ -3,6 +3,7 @@ import { updateFooterProgress, setTotalQuestions } from "./footer";
 import { validateAnswer } from "./answerValidation";
 import { stopTimer } from "./timer";
 import { handleEndGame } from "./finishGameLogic";
+import { addPoints } from "./result";
 
 let currentQuestion: IQuestion | null = null;
 
@@ -84,10 +85,16 @@ export function handleRadioButtonChange(
   if (selectedOption && currentQuestion) {
     const selectedAnswer = selectedOption.nextElementSibling?.textContent || "";
     const isCorrect = validateAnswer(selectedAnswer, currentQuestion);
-    console.log(isCorrect ? "Correct answer!" : "Wrong answer!");
-  } else {
-    console.log("No answer selected or currentQuestion is null.");
+
+    if (isCorrect) {
+      console.log("Correct answer!");
+      addPoints(); // Add points for the correct answer
+      
+    } else {
+      console.log("Wrong answer!");
+    }
   }
+
   setTimeout(() => {
     // Update the footer progress after a short delay
     updateFooterProgress();
