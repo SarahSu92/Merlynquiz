@@ -62,5 +62,4 @@ export function resetFooterProgress() {
 
   // Reset the question counter
   answeredCountElement.textContent = "0";
-  console.log("Footer progress bar reset");
 }

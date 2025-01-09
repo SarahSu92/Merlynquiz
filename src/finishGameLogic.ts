@@ -3,7 +3,6 @@ import confetti from "canvas-confetti"; // Importing the library
 
 // Function to handle the ending of the game page
 export function handleEndGame(): void {
-  console.log("Game ended!");
 
   // Elements to animate
   const option1Label = document.querySelector(

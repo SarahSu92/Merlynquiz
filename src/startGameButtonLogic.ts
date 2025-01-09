@@ -20,7 +20,6 @@ export function createStartGameButton(): HTMLButtonElement {
 }
 
 export function handleStartGame(): void {
-  console.log("Game started!");
   startTimer(); // Start the timer when the button is clicked
 
   // Preload the first question data

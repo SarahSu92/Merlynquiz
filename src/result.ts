@@ -29,8 +29,6 @@ export function updateScoreContainer(): void {
       <p><strong>Points:</strong> ${score.points}</p>
       <p><strong>Time:</strong>  ${formatTime(score.time)}</p> 
     `;
-  } else {
-    console.error("Result container not found");
   }
 }
 

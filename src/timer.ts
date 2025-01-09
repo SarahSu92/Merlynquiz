@@ -8,7 +8,6 @@ export let elapsedSeconds = 0;
 export function startTimer(): void {
   const timerDisplay = document.getElementById("timer");
   if (!timerDisplay) {
-    console.error('Element with ID "timer" not found.');
     return;
   }
 
@@ -52,7 +51,7 @@ export function resetTimer(): void {
   if (timerDisplay) {
     timerDisplay.textContent = formatTime(elapsedSeconds);
   }
-  console.log("Timer reset.");
+  
 }
 
 /**
