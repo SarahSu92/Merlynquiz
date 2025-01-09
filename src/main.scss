@@ -257,12 +257,12 @@ input[type="radio"]:checked + .answer-quiz {
 
 .progress-icon {
   position: absolute;
-  top: 35%;
-  left: 0%;
+  top: 20%;
+  left: 1.5%;
   transform: translate(-50%, -50%) scaleX(-1);
   transition: all 0.5s ease;
   transform-origin: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   z-index: 1;
 }
 
