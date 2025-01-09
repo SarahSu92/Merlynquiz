@@ -4,6 +4,8 @@
 
 @use "scss/desktop.scss";
 
+@use "/src/scss/animation.scss" as anim;
+
 * {
   margin: 0;
   padding: 0;

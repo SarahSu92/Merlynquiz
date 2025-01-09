@@ -1,3 +1,9 @@
+@use "/src/scss/animation.scss" as anim;
+
+.feedback {
+  font-size: 4rem; // Anpassning för desktop
+}
+
 @media (min-width: 1024px) {
   .answer-quiz {
     max-width: 500px;
@@ -6,11 +12,10 @@
   }
 
   .answer-container {
-
     .answer-quiz,
     .play-again-btn {
       width: 300px;
-      font-size: 1.1rem
+      font-size: 1.1rem;
     }
   }
 
@@ -43,5 +48,4 @@
     height: 250px;
     width: 450px;
   }
-
 }
