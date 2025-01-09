@@ -1,15 +1,16 @@
 .feedback {
   position: absolute;
-  top: 50%;
+  top: 350px;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3rem;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .feedback.show {
   opacity: 1;
+  z-index: 1;
 }
 
 .feedback.correct {
@@ -47,5 +48,35 @@
   }
   100% {
     transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+/* Fade out animation */
+.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
