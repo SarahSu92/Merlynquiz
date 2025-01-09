@@ -1,4 +1,4 @@
-@use "/src/scss/animation.scss" as anim;
+@use "/src/scss/animations.scss" as anim;
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .answer-quiz {
@@ -7,12 +7,12 @@
     font-size: 1rem;
   }
 
-  h1 {
-    font-size: 2em;
+  .welcome {
+    font-size: 2rem;
   }
 
-  .welcome {
-    top: 60vh;
+  h1 {
+    font-size: 2em;
   }
 
   .question {
@@ -26,11 +26,6 @@
 
   .timer {
     width: 120px;
-    font-size: 1.5rem;
-  }
-
-  .start-game-btn {
-    top: 55vh;
     font-size: 1.5rem;
   }
 

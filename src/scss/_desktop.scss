@@ -1,10 +1,14 @@
-@use "/src/scss/animation.scss" as anim;
+@use "/src/scss/animations.scss" as anim;
 
 @media (min-width: 1024px) {
   .answer-quiz {
     width: 400px;
     padding: 14px;
     font-size: 1.5rem;
+  }
+
+  .welcome {
+    font-size: 2.5rem;
   }
 
   h1 {
@@ -20,6 +24,10 @@
 
   .timer {
     width: 150px;
+  }
+
+  .start-game-btn {
+    font-size: 3.5rem;
   }
 
   .flag-image {
