@@ -11,6 +11,11 @@ export const score: IResult = {
   time: 0, // Initialize the time to 0
 };
 
+// Function to add points for correct answers
+export function addPoints(): void {
+  score.points += 1; // Increment points by 1
+}
+
 // Function to update the Result container
 export function updateScoreContainer(): void {
   // Update score.time with the current elapsed time from the timer
