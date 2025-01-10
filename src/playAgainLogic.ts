@@ -1,12 +1,15 @@
 import { resetClickCount } from "./gameStatus";
 import { resetTimer } from "./timer";
-// import { handleStartGame } from "./startGameButton&Logic";
 import { resetFooterProgress } from "./footer";
 import { resetQuestionGenerator } from "./nextQuestionLogic";
 import { resetRadioButton } from "./nextQuestionLogic";
+import { resetScore } from "./result";
+import { stopFireworks } from "./finishGameLogic";
 
 // Function to restart the game quiz
 export function restartGame(): void {
+  // Stop fireworks animation
+  stopFireworks();
   // Reset game state
   resetClickCount();
   // Reset the timer
@@ -15,7 +18,9 @@ export function restartGame(): void {
   resetQuestionGenerator();
   // Reset the footer progress bar and counter
   resetFooterProgress();
-  // Reset the radio buttons
+  // Reset the score
+  resetScore();
+
   const radioButtons = document.querySelectorAll(
     'input[type="radio"]',
   ) as NodeListOf<HTMLInputElement>;

@@ -1,6 +1,6 @@
 import { questions } from "./questionsData";
 
-// Skapa footer-elementet
+// Create footer-element
 const footer = document.createElement("footer");
 footer.className = "footer";
 footer.style.display = "none";
@@ -18,7 +18,7 @@ Questions <span id="answered-count">0</span>/<span id="total-questions">10</span
   </div>
 `;
 
-// Lägg till footern i DOM
+// Adding footern in DOM
 document.body.appendChild(footer);
 
 const answeredCountElement = document.getElementById("answered-count")!;
@@ -31,24 +31,24 @@ const progressIconElement = document.querySelector(
 let totalQuestions = questions.length;
 let answeredQuestions = 0;
 
-// Uppdatera totalantalet frågor
+// Uppdate total amount of questions
 export function setTotalQuestions(maxQuestions: number) {
   totalQuestions = maxQuestions;
   totalQuestionsElement.textContent = totalQuestions.toString();
 }
 
-// Funktion för att uppdatera fotern
+// Function to uppdate the footer
 export function updateFooterProgress() {
   answeredQuestions++;
   const progressPercentage = (answeredQuestions / totalQuestions) * 100;
 
-  // Uppdatera antal besvarade frågor
+  // Update the amount of answered question
   answeredCountElement.textContent = answeredQuestions.toString();
 
-  // Uppdatera progress-barens bredd
+  // Uppdate progress-bar filling based on answered question
   progressBarElement.style.width = `${progressPercentage}%`;
 
-  // Flytta ikonen
+  // update the position of the icon
   progressIconElement.style.left = `${progressPercentage}%`;
 }
 

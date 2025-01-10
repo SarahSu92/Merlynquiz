@@ -18,7 +18,6 @@ function createQuestionGenerator() {
   // Function to reset the usedIndices array
   function resetGenerator() {
     usedIndices = [];
-    console.log("Questions array reset");
   }
 
   // Function that returns the next random question or null if all questions are used
@@ -49,7 +48,6 @@ export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
 
   if (question) {
     currentQuestion = question; // Update the current question
-    console.log("Current question:", question);
 
     // Update UI with flag and alternatives.
     const flagImage = document.getElementById("flag-image");
@@ -65,7 +63,6 @@ export function showNextQuestion(radioButtons: NodeListOf<HTMLInputElement>) {
     // Reset radio buttons
     radioButtons.forEach(resetRadioButton);
   } else {
-    console.log("No more questions available.");
     stopTimer();
     handleEndGame();
   }
@@ -81,18 +78,30 @@ export function handleRadioButtonChange(
   radioButtons: NodeListOf<HTMLInputElement>,
 ): void {
   const selectedOption = Array.from(radioButtons).find((rb) => rb.checked);
-  console.log(selectedOption, currentQuestion);
+  const feedbackElement = document.getElementById("feedback");
+
   if (selectedOption && currentQuestion) {
     const selectedAnswer = selectedOption.nextElementSibling?.textContent || "";
     const isCorrect = validateAnswer(selectedAnswer, currentQuestion);
 
-    if (isCorrect) {
-      console.log("Correct answer!");
-      addPoints(); // Add points for the correct answer
-      
-    } else {
-      console.log("Wrong answer!");
+    // Visa feedback
+    if (feedbackElement) {
+      feedbackElement.textContent = isCorrect ? "👍" : "👎";
+      feedbackElement.classList.add("show");
+      feedbackElement.classList.toggle("correct", isCorrect);
+      feedbackElement.classList.toggle("incorrect", !isCorrect);
     }
+
+    if (isCorrect) {
+      addPoints(); // Add points for the correct answer
+    }
+
+    // Ta bort feedback efter 1 sekund
+    setTimeout(() => {
+      if (feedbackElement) {
+        feedbackElement.classList.remove("show", "correct", "incorrect");
+      }
+    }, 1000); // Feedback visas i 1 sekund
   }
 
   setTimeout(() => {

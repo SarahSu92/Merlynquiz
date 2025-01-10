@@ -1,4 +1,3 @@
-
 let timerInterval: number | null = null;
 export let elapsedSeconds = 0;
 
@@ -51,7 +50,6 @@ export function resetTimer(): void {
   if (timerDisplay) {
     timerDisplay.textContent = formatTime(elapsedSeconds);
   }
-  
 }
 
 /**
@@ -73,4 +71,3 @@ function updateResultsOnStop(): void {
     module.updateScoreContainer();
   });
 }
-

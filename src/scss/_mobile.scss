@@ -1,6 +1,6 @@
 @media screen and (max-width: 767px) {
   .answer-quiz {
-    width: 300px;
+    width: 250px;
     padding: 10px;
     font-size: 1rem;
   }
@@ -9,18 +9,14 @@
     font-size: 1.5rem;
   }
 
-  .alternative {
-    padding-top: 10px;
-  }
-
   .timer {
     width: 100px;
     font-size: 1rem;
   }
 
   .question {
-    margin: 120px 0 20px 0;
-    font-size: 1.5rem;
+    margin: 100px 0 20px 0;
+    font-size: 2rem;
   }
 
   .game-over {
@@ -28,8 +24,10 @@
   }
 
   .flag-image {
-    max-width: 290px;
+    width: 300px;
+    height: 200px;
   }
+
   .progress-bar {
     width: 75%;
   }

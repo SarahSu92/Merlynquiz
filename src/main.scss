@@ -1,7 +1,10 @@
 @use "scss/_mobile.scss";
 @use "scss/_tablet.scss";
 @use "scss/_desktop.scss";
-@use "scss/_animations.scss";
+@use "/src/scss/animations.scss" as anim;
+
+// digital font
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -54,8 +57,6 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 12px;
-  font-size: 1rem;
-  max-width: 300px;
   font-weight: bold;
   text-align: center;
   border-radius: 5px;
@@ -87,8 +88,8 @@ main {
   padding: 8px;
   margin-top: 10px;
   font-size: 1rem;
-  max-width: 200px;
-  width: 140px;
+  width: 200px;
+  height: 50px;
   font-weight: bold;
   text-align: center;
   border-radius: 5px;
@@ -141,9 +142,6 @@ input[type="radio"]:checked + .answer-quiz {
   }
 }
 
-// digital font
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
-
 .timer {
   justify-content: center;
   text-align: center;
@@ -181,8 +179,8 @@ input[type="radio"]:checked + .answer-quiz {
   top: 50%;
   padding: 8px;
   font-size: 1rem;
-  max-width: 200px;
-  width: 150px;
+  width: 200px;
+  height: 50px;
   font-weight: bold;
   text-align: center;
   border-radius: 5px;
@@ -234,14 +232,17 @@ input[type="radio"]:checked + .answer-quiz {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .progress-bar {
   position: relative;
-  height: 20px;
+  height: 30px;
   background-color: yellow;
   border-radius: 10px;
   overflow: hidden;
+  margin-bottom: 10px;
   margin-right: 10px;
   border: 2px solid #a1d895;
 }
@@ -256,12 +257,12 @@ input[type="radio"]:checked + .answer-quiz {
 
 .progress-icon {
   position: absolute;
-  top: 50%;
-  left: 0%;
+  top: 20%;
+  left: 1.5%;
   transform: translate(-50%, -50%) scaleX(-1);
   transition: all 0.5s ease;
   transform-origin: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   z-index: 1;
 }
 
@@ -271,13 +272,8 @@ input[type="radio"]:checked + .answer-quiz {
   align-items: flex-end;
 }
 
-.footer {
-  flex-direction: column;
-  align-items: center;
-  padding: 5px;
-}
-
 .question-counter {
+  margin-bottom: 10px;
   font-size: 1rem;
 }
 
@@ -293,87 +289,4 @@ select:focus,
 textarea:focus,
 [tabindex]:focus {
   outline: 2px solid #040404;
-}
-
-/* Fade out animation */
-.fade-out {
-  animation: fadeOut 0.4s forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-/* Fade in animation */
-.fade-in {
-  animation: fadeIn 0.4s forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Answer validation animation */
-.feedback {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.feedback.show {
-  opacity: 1;
-}
-
-.feedback.correct {
-  color: green;
-  animation: bounce 1s ease;
-}
-
-.feedback.incorrect {
-  color: red;
-  animation: shake 1s ease;
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -60%) scale(1.2);
-  }
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  25% {
-    transform: translate(-50%, -50%) rotate(-10deg);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(10deg);
-  }
-  75% {
-    transform: translate(-50%, -50%) rotate(-10deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
 }

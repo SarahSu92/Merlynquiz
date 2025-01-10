@@ -1,38 +1,46 @@
-@media screen and (min-width: 1024px) {
+@use "/src/scss/animations.scss" as anim;
+
+@media (min-width: 1024px) {
   .answer-quiz {
-    max-width: 500px;
+    width: 400px;
     padding: 14px;
     font-size: 1.5rem;
   }
 
-  .answer-container {
-    .answer-quiz,
-    .play-again-btn {
-      width: 350px;
-      font-size: 1rem;
-    }
+  .welcome {
+    font-size: 2.5rem;
   }
 
   h1 {
     font-size: 2em;
   }
 
-  .alternative {
-    padding-top: 20px;
+  .progress-bar {
+    width: 60%;
   }
   .progress-bar {
     width: 60%;
   }
 
   .timer {
-    width: 100px;
+    width: 150px;
+  }
+
+  .start-game-btn {
+    font-size: 3.5rem;
+  }
+
+  .flag-image {
+    width: 450px;
+    height: 300px;
   }
 
   .feedback {
-    font-size: 4rem;
+    font-size: 5rem;
+    top: 450px;
   }
   .question {
     margin: 100px 0 20px 0;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }

@@ -1,9 +1,12 @@
 // Import the library to launch fireworks
 import confetti from "canvas-confetti"; // Importing the library
 
+// Global flag to control the animation state
+let isAnimationRunning = false;
+let animationFrameId: number | null = null;
+
 // Function to handle the ending of the game page
 export function handleEndGame(): void {
-
   // Elements to animate
   const option1Label = document.querySelector(
     'label[for="option1"]',
@@ -61,7 +64,10 @@ function launchFireworks(): void {
   const end = Date.now() + duration;
   const colors = ["#ff0000", "#00ff00", "#0000ff", "#ff7700", "#ff0077"];
 
+  isAnimationRunning = true; // Set the flag to true
+
   (function frame() {
+    if (!isAnimationRunning) return;
     // Launch multiple fireworks at random positions
     confetti({
       particleCount: 10,
@@ -75,8 +81,17 @@ function launchFireworks(): void {
     });
 
     // Keep launching fireworks until the duration is complete
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
+    if (Date.now() < end && isAnimationRunning) {
+      animationFrameId = requestAnimationFrame(frame); // Save the frame ID
     }
   })();
+}
+
+// Function to stop fireworks
+export function stopFireworks(): void {
+  isAnimationRunning = false; // Set the flag to false to stop the animation
+  if (animationFrameId !== null) {
+    cancelAnimationFrame(animationFrameId); // Cancel the animation frame
+    animationFrameId = null; // Reset the ID
+  }
 }

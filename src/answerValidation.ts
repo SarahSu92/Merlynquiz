@@ -9,5 +9,4 @@ export function validateAnswer(
   currentQuestion: IQuestion,
 ): boolean {
   return selectedAnswer === currentQuestion.correctAnswer;
-
 }
