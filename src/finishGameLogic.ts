@@ -94,5 +94,4 @@ export function stopFireworks(): void {
     cancelAnimationFrame(animationFrameId); // Cancel the animation frame
     animationFrameId = null; // Reset the ID
   }
-  console.log("Fireworks stopped!");
 }
