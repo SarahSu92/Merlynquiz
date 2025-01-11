@@ -1,9 +1,9 @@
-import { IQuestion, questions } from "./questionsData";
-import { updateFooterProgress, setTotalQuestions } from "./footer";
+import { IQuestion, questions } from "../data/questionsData";
+import { updateFooterProgress, setTotalQuestions } from "../components/footer";
 import { validateAnswer } from "./answerValidation";
-import { stopTimer } from "./timer";
+import { stopTimer } from "../utils/timer";
 import { handleEndGame } from "./finishGameLogic";
-import { addPoints } from "./result";
+import { addPoints } from "../components/result";
 
 let currentQuestion: IQuestion | null = null;
 

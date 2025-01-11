@@ -1,10 +1,10 @@
-import { resetClickCount } from "./gameStatus";
-import { resetTimer } from "./timer";
+import { resetClickCount } from "../utils/gameStatus";
+import { resetTimer } from "../utils/timer";
 import { resetFooterProgress } from "./footer";
-import { resetQuestionGenerator } from "./nextQuestionLogic";
-import { resetRadioButton } from "./nextQuestionLogic";
+import { resetQuestionGenerator } from "../Logic/nextQuestionLogic";
+import { resetRadioButton } from "../Logic/nextQuestionLogic";
 import { resetScore } from "./result";
-import { stopFireworks } from "./finishGameLogic";
+import { stopFireworks } from "../Logic/finishGameLogic";
 
 // Function to restart the game quiz
 export function restartGame(): void {

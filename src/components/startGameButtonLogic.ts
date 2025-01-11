@@ -1,8 +1,8 @@
 import {
   showNextQuestion,
   initializeAutoNextQuestion,
-} from "./nextQuestionLogic";
-import { startTimer } from "./timer";
+} from "../Logic/nextQuestionLogic";
+import { startTimer } from "../utils/timer";
 
 // Function to start the game
 export function createStartGameButton(): HTMLButtonElement {
