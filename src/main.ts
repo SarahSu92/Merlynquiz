@@ -1,9 +1,9 @@
 import "./main.scss";
-import { restartGame } from "./playAgainLogic";
-import { createStartGameButton } from "./startGameButtonLogic";
-import { initializeAutoNextQuestion } from "./nextQuestionLogic";
-import { updateScoreContainer } from "./result";
-import { setupLabelKeyboardEvents } from "./a11y";
+import { restartGame } from "./components/playAgainLogic";
+import { createStartGameButton } from "./components/startGameButtonLogic";
+import { initializeAutoNextQuestion } from "./Logic/nextQuestionLogic";
+import { updateScoreContainer } from "./components/result";
+import { setupLabelKeyboardEvents } from "./utils/a11y";
 
 //================================================================================================
 // Get all the radio buttons for the quiz

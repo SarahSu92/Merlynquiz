@@ -1,4 +1,4 @@
-import { IQuestion } from "./questionsData";
+import { IQuestion } from "../data/questionsData";
 
 // This function checks whether the selected answer matches the correct answer for the current question.
 // It takes two parameters: the user's selected answer (a string) and the current question object (of type Question).

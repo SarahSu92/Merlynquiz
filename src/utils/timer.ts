@@ -67,7 +67,7 @@ function formatTime(seconds: number): string {
  * Calls the function to update the score container when the timer stops.
  */
 function updateResultsOnStop(): void {
-  import("./result").then((module) => {
+  import("../components/result").then((module) => {
     module.updateScoreContainer();
   });
 }

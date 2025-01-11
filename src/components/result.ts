@@ -1,4 +1,4 @@
-import { elapsedSeconds } from "./timer"; // Import elapsedSeconds from the timer module
+import { elapsedSeconds } from "../utils/timer"; // Import elapsedSeconds from the timer module
 
 export interface IResult {
   points: number;

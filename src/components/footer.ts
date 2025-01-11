@@ -1,4 +1,4 @@
-import { questions } from "./questionsData";
+import { questions } from "../data/questionsData";
 
 // Create footer-element
 const footer = document.createElement("footer");
