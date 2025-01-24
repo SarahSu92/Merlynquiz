@@ -24,9 +24,9 @@ Install dependencies
 
 ## Tech Stack
 
-**Client:** SASS, TypeScript
+**Client:** SASS, TypeScript, Eslint, Prettier
 
-**Server:** Node, Vite
+**Server:** Node, Vite, Npm
 
 ## Screenshot
 
