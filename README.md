@@ -1,17 +1,37 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/9ew2LI-M)
+# A brief description about this project
+This school project is a quiz game that i've work tohether with a group of five people. The quiz is a about flags and what country each flag represent. It's ten questions and you have three anwers to choose from, wich one you think it's right. You can follow how many questions you have answerd and how far you have come in the process with the car at the bottom of the page that moves forward for each answerd question. When the quiz is finished the result will show have many qustions you answerd correct and time, also an animation pops up with confetti! 🎉
 
-Meeting minutes week 1. 
+## Features
 
-We appoint Omar as Scrum Master for weeks 1 and 2. After that, we will see who wants to take on the role. Yaman also wants to try being Scrum Master. Omar will set up backlog tasks that the rest of the group will start working on. We discuss the pseudocode for the project. Sarah creates sketches for how the project/page will look. We begin coding and test how merging and similar processes work.
+- Animation
+- Responive design to fit all platforms
 
-Meeting minutes week 2.
+## Run Locally
 
-We continue coding and testing. Remove buggs and make sure everyone has something  to work with. 
+Clone the project
 
-Meeting minutes week 3.
+```bash
+  git clone https://link-to-project
+```
+Install dependencies
 
-We continue with the game logic and complete the final stage of testing and merging, hopefully we get the game finished by the end of the week.
+```bash
+  npm install
+```
 
-Meeting minutes week 4.
+```bash
+  npm run
+```
+## Tech Stack
 
-We finish the code and complete the project. We begin the presentation and fix all the buggs with the code and merge to main. 
+**Client:** SASS
+
+**Server:** Node, Vite
+
+## Screenshot
+
+
+
+
+
+
